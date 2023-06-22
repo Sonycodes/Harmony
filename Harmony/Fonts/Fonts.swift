@@ -7,14 +7,61 @@
 
 import SwiftUI
 
-struct Fonts: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct Head1: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 20))
+            .foregroundColor(Color("Saphire"))
+            .fontWeight(.bold)
     }
 }
 
-struct Fonts_Previews: PreviewProvider {
-    static var previews: some View {
-        Fonts()
+struct Head2: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 18))
+            .foregroundColor(Color("Saphire"))
+            .fontWeight(.medium)
+    }
+}
+
+struct Head3: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 18))
+            .foregroundColor(Color("Dark Periwinkle"))
+    }
+}
+
+struct HeadGray: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 18))
+            .foregroundColor(Color("DarkGray"))
+            .fontWeight(.medium)
+    }
+}
+
+struct SmallGray: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 11))
+            .foregroundColor(Color("DarkGray"))
+            .fontWeight(.medium)
+    }
+}
+
+struct Normal: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 16))
+            .foregroundColor(Color("Midnight"))
+    }
+}
+
+struct Italic: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("UrbanistItalic", size: 16))
     }
 }

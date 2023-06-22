@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Comment : Identifiable {
+    var id : UUID = UUID()
+    var user : User
+    var content : String
+    var date : Date
+}

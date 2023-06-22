@@ -14,7 +14,21 @@ enum Language {
     case english
 }
 
-struct User :Identifiable {
+struct Message : Identifiable {
+    var id = UUID()
+    var content : String
+    var isFromMe : Bool
+    var date : Date
+}
+
+struct Conversation : Identifiable {
+    var id = UUID()
+    
+    var messages : [Message]
+    var destinataire : UUID // id du destinataire
+}
+
+struct User : Identifiable {
     var id: UUID = UUID()
     var pseudo: String
     var photo: String
@@ -23,6 +37,6 @@ struct User :Identifiable {
     var language: [Language]
     var media: [String]
     var about: String
+    
+    var conversations : [Conversation]
 }
-
-

@@ -8,8 +8,48 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color("GraySky"))
+      }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            TabView {
+                ContentView()
+                    .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Actualités")
+                }
+                
+                ContentView()
+                    .tabItem {
+                    Image(systemName: "calendar")
+                    Text("Evénements")
+                }
+                
+                ContentView()
+                    .tabItem {
+                    Image(systemName: "globe")
+                    Text("Explorer")
+                }
+                
+                ContentView()
+                    .tabItem {
+                    Image(systemName: "bubble.left.and.bubble.right")
+                    Text("Messages")
+                }
+                
+                ContentView()
+                    .tabItem {
+                    Image(systemName: "person.circle.fill")
+                    Text("Profil")
+                }
+            }
+            .accentColor(Color("Saphire"))
+            
+
+        }
     }
 }
 

@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct ChatView: View {
+    
+    @State var searchMessage : String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+        }
+        .searchable(text: $searchMessage, placement: .navigationBarDrawer(displayMode: .always), prompt: "Nom de la recette")
     }
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView(searchMessage: .constant(""))
     }
 }
