@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChatView: View {
     
-    @State var searchMessage : String
+    @State var searchMessage : String = ""
     
     var body: some View {
         VStack {
@@ -21,6 +21,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView(searchMessage: .constant(""))
+        ChatView()
     }
 }
