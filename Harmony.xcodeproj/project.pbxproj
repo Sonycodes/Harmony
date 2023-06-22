@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0F1E602A44498500A83947 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E5F2A44498500A83947 /* Community.swift */; };
+		CF0F1E642A444AE900A83947 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E632A444AE900A83947 /* News.swift */; };
+		CF0F1E662A444B5200A83947 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E652A444B5200A83947 /* Comment.swift */; };
+		CF0F1E682A444C1A00A83947 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E672A444C1A00A83947 /* Quiz.swift */; };
+		CF0F1E6A2A44503500A83947 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E692A44503500A83947 /* Chat.swift */; };
+		CF0F1E6E2A44549700A83947 /* UrbanistItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF0F1E6C2A44549700A83947 /* UrbanistItalic.ttf */; };
+		CF0F1E6F2A44549700A83947 /* Urbanist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF0F1E6D2A44549700A83947 /* Urbanist.ttf */; };
+		CF0F1E722A4468DA00A83947 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E712A4468DA00A83947 /* Fonts.swift */; };
+		CF0F1E762A44717300A83947 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E752A44717200A83947 /* MenuView.swift */; };
 		CF689BB72A4338B6009200C3 /* HarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF689BB62A4338B6009200C3 /* HarmonyApp.swift */; };
 		CF689BB92A4338B6009200C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF689BB82A4338B6009200C3 /* ContentView.swift */; };
 		CF689BBB2A4338B8009200C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF689BBA2A4338B8009200C3 /* Assets.xcassets */; };
@@ -29,6 +38,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF0F1E5F2A44498500A83947 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		CF0F1E632A444AE900A83947 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		CF0F1E652A444B5200A83947 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		CF0F1E672A444C1A00A83947 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		CF0F1E692A44503500A83947 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		CF0F1E6C2A44549700A83947 /* UrbanistItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = UrbanistItalic.ttf; path = ../../../../Downloads/Urbanist/UrbanistItalic.ttf; sourceTree = "<group>"; };
+		CF0F1E6D2A44549700A83947 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Urbanist.ttf; path = ../../../../Downloads/Urbanist/Urbanist.ttf; sourceTree = "<group>"; };
+		CF0F1E702A4454BD00A83947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CF0F1E712A4468DA00A83947 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		CF0F1E752A44717200A83947 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CF689BB32A4338B6009200C3 /* Harmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF689BB62A4338B6009200C3 /* HarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyApp.swift; sourceTree = "<group>"; };
 		CF689BB82A4338B6009200C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF0F1E6B2A44547900A83947 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CF0F1E6C2A44549700A83947 /* UrbanistItalic.ttf */,
+				CF0F1E6D2A44549700A83947 /* Urbanist.ttf */,
+				CF0F1E712A4468DA00A83947 /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CF689BAA2A4338B6009200C3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +110,8 @@
 		CF689BB52A4338B6009200C3 /* Harmony */ = {
 			isa = PBXGroup;
 			children = (
+				CF0F1E702A4454BD00A83947 /* Info.plist */,
+				CF0F1E6B2A44547900A83947 /* Fonts */,
 				CF689BB82A4338B6009200C3 /* ContentView.swift */,
 				CF689BB62A4338B6009200C3 /* HarmonyApp.swift */,
 				CF689BC42A4338D1009200C3 /* Views */,
@@ -154,8 +185,13 @@
 		CF689BE92A433D2D009200C3 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				CF0F1E652A444B5200A83947 /* Comment.swift */,
 				CF689BEE2A434081009200C3 /* User.swift */,
 				CF689BF02A4343F7009200C3 /* Event.swift */,
+				CF0F1E5F2A44498500A83947 /* Community.swift */,
+				CF0F1E632A444AE900A83947 /* News.swift */,
+				CF0F1E672A444C1A00A83947 /* Quiz.swift */,
+				CF0F1E692A44503500A83947 /* Chat.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -172,6 +208,7 @@
 		CF689BEB2A433D88009200C3 /* ExtractedViews */ = {
 			isa = PBXGroup;
 			children = (
+				CF0F1E752A44717200A83947 /* MenuView.swift */,
 			);
 			path = ExtractedViews;
 			sourceTree = "<group>";
@@ -235,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF689BBE2A4338B8009200C3 /* Preview Assets.xcassets in Resources */,
+				CF0F1E6F2A44549700A83947 /* Urbanist.ttf in Resources */,
 				CF689BBB2A4338B8009200C3 /* Assets.xcassets in Resources */,
+				CF0F1E6E2A44549700A83947 /* UrbanistItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,18 +286,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF689BC92A4339C7009200C3 /* NewsView.swift in Sources */,
+				CF0F1E762A44717300A83947 /* MenuView.swift in Sources */,
 				CF689BD72A433AAE009200C3 /* CreateEventView.swift in Sources */,
+				CF0F1E682A444C1A00A83947 /* Quiz.swift in Sources */,
 				CF689BD52A433A64009200C3 /* ProfilView.swift in Sources */,
+				CF0F1E602A44498500A83947 /* Community.swift in Sources */,
 				CF689BB92A4338B6009200C3 /* ContentView.swift in Sources */,
 				CF689BEF2A434081009200C3 /* User.swift in Sources */,
+				CF0F1E642A444AE900A83947 /* News.swift in Sources */,
 				CF689BDF2A433B59009200C3 /* ChatView.swift in Sources */,
 				CF689BDD2A433B40009200C3 /* DetailCommunityView.swift in Sources */,
+				CF0F1E722A4468DA00A83947 /* Fonts.swift in Sources */,
 				CF689BDB2A433B03009200C3 /* DetailNewsView.swift in Sources */,
 				CF689BF12A4343F7009200C3 /* Event.swift in Sources */,
 				CF689BE32A433C00009200C3 /* SettingsView.swift in Sources */,
 				CF689BD32A433A4C009200C3 /* MessagesView.swift in Sources */,
 				CF689BB72A4338B6009200C3 /* HarmonyApp.swift in Sources */,
 				CF689BE52A433C42009200C3 /* QuizzView.swift in Sources */,
+				CF0F1E662A444B5200A83947 /* Comment.swift in Sources */,
+				CF0F1E6A2A44503500A83947 /* Chat.swift in Sources */,
 				CF689BD92A433AE0009200C3 /* DetailEventView.swift in Sources */,
 				CF689BCF2A433A1D009200C3 /* EventsView.swift in Sources */,
 				CF689BD12A433A36009200C3 /* ExploreView.swift in Sources */,
@@ -394,6 +440,7 @@
 				DEVELOPMENT_TEAM = 93L7C4MX9N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Harmony/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -423,6 +470,7 @@
 				DEVELOPMENT_TEAM = 93L7C4MX9N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Harmony/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
