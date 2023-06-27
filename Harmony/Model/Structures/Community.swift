@@ -12,10 +12,22 @@ struct Community : Identifiable {
     
     var name : String
     var photo : String
+    var photo1 : String
     var icon : String
     var rank : Double
     var description : String
-    var hosts : [User]
+    var rating : Double
+    var hosts : [String]
     var members : [User]
     var events : [Event]
 }
+
+var culturefrancaises : Community = Community(name: "Culture Francaises", photo: "France", photo1: "France1", icon: "", rank: 0, description: "La culture française est une fusion harmonieuse d'histoire riche, d'art sophistiqué et de passion pour la gastronomie, qui se nourrit de l'amour de la liberté d'expression et de la valorisation des arts et des lettres. Elle incarne un équilibre unique entre traditions séculaires et avant-garde créative, et se caractérise par une fière appréciation de l'élégance et du savoir-vivre.", rating: 4.9 , hosts:[] , members: [], events: [] )
+
+var culturehawaïenne : Community = Community(name: "Culture Hawaïenne", photo: "hawai2", photo1: "Hawai1", icon: "", rank: 0, description:"La culture hawaïenne est une célébration vivante de la nature exubérante, imprégnée de l'esprit d'ohana (la famille) et de l'harmonie avec l'environnement. Elle s'exprime à travers une musique envoûtante, une danse expressive, des rituels sacrés et une hospitalité chaleureuse, véhiculant un profond respect pour la terre et les ancêtres.", rating: 4.8 , hosts:[] , members: [], events: [])
+
+var culturejaponaise : Community = Community(name: "Culture Japonaise", photo: "Japon2" , photo1: "Japon1", icon: "", rank: 0, description:"La culture japonaise est un mélange fascinant de traditions ancestrales et d'innovations modernes, imprégnée de valeurs telles que l'harmonie, la discipline et le respect. Elle se distingue par sa riche esthétique, son art délicat, sa cuisine raffinée et sa passion pour la perfection, tout en conservant un profond attachement à ses coutumes, ses rituels et son héritage spirituel.", rating: 4.8 , hosts: [], members: [], events: [])
+
+var culturenormande : Community = Community(name: "Culture Normande", photo: "Normandie", photo1: "Normandie1", icon: "", rank: 0, description: "La culture normande est un mélange unique d'histoire viking, d'influences françaises et d'une identité régionale fière. Connue pour sa beauté naturelle, ses paysages pittoresques et sa riche tradition culinaire, la Normandie est également célèbre pour son patrimoine architectural impressionnant, ses festivals animés et son lien étroit avec la mer.", rating: 5.0, hosts: [], members: [], events: [])
+
+var arrayOfCulture : [Community] = [culturefrancaises,culturejaponaise,culturehawaïenne,culturenormande]

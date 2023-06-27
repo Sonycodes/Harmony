@@ -7,11 +7,20 @@
 
 import SwiftUI
 
+struct Head0: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 28))
+            .foregroundColor(Color.sapphire)
+            .fontWeight(.bold)
+    }
+}
+
 struct Head1: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("Urbanist", size: 20))
-            .foregroundColor(Color("Saphire"))
+            .foregroundColor(Color("Sapphire"))
             .fontWeight(.bold)
     }
 }
@@ -20,7 +29,7 @@ struct Head2: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("Urbanist", size: 18))
-            .foregroundColor(Color("Saphire"))
+            .foregroundColor(Color("Sapphire"))
             .fontWeight(.medium)
     }
 }
@@ -29,7 +38,7 @@ struct Head3: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom("Urbanist", size: 18))
-            .foregroundColor(Color("Dark Periwinkle"))
+            .foregroundColor(Color("DarkPeriwinkle"))
     }
 }
 
@@ -56,6 +65,14 @@ struct Normal: ViewModifier {
         content
             .font(.custom("Urbanist", size: 16))
             .foregroundColor(Color("Midnight"))
+    }
+}
+
+struct NormalWhite: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 16))
+            .foregroundColor(.white)
     }
 }
 

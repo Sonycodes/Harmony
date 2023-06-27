@@ -16,11 +16,11 @@ struct News : Identifiable {
     
     var title : String
     var photo : String
-    var author : User
+//    var author : User : je l'ai enlevé car je n'utilise que la photo et nom
     var content : String
     var publishDate : Date
     var like : Int
-    var comments : [Comment]
-    var community : Community
-    var categoryNews : CategoryNews
+//    var comments : [Comment] Ca va devenir une class car j'ai besoin que soit un objet
+//    var community : Community : peut pas lier encore
+//    var categoryNews : CategoryNews : a revoir avec le bouton actualité
 }

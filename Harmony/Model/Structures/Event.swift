@@ -26,11 +26,13 @@ struct Event : Identifiable {
     var isOnline: Bool
     var date: Date
     var address : Address?
-    var city : String?
+//    var city : String? ---------> il est dans Address, donc pas besoin ici
     var listParticipant : [User]
     var detail : String
+    var minParticipants: Int // ----------> A ajouter
     var photo : String
-    var teams : [Team]
+//    var teams : [Team]
+    var team : [User]
     var comments : [Comment]
-    var community : Community
+    var community : String
 }

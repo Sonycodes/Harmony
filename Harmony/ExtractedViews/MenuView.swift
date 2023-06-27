@@ -16,39 +16,37 @@ struct MenuView: View {
     var body: some View {
         ZStack {
             TabView {
-                ContentView()
+                NewsView(newsmodel: Post(), comment: "")
                     .tabItem {
                     Image(systemName: "house.fill")
                     Text("Actualités")
                 }
                 
-                ContentView()
+                EventsView()
                     .tabItem {
                     Image(systemName: "calendar")
                     Text("Evénements")
                 }
                 
-                ContentView()
+                ExploreView()
                     .tabItem {
                     Image(systemName: "globe")
                     Text("Explorer")
                 }
                 
-                ContentView()
+                ChatView(convs: myUser.conversations)
                     .tabItem {
                     Image(systemName: "bubble.left.and.bubble.right")
                     Text("Messages")
                 }
                 
-                ContentView()
+                ProfilView(currentUser: myUser)
                     .tabItem {
                     Image(systemName: "person.circle.fill")
                     Text("Profil")
                 }
             }
-            .accentColor(Color("Saphire"))
-            
-
+            .accentColor(Color("Sapphire"))
         }
     }
 }

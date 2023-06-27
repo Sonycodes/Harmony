@@ -9,18 +9,57 @@ import SwiftUI
 
 struct ChatView: View {
     
-    @State var searchMessage : String = ""
+    @State var searchMessageByUser : String = ""
+    @ObservedObject var convs : Conversations
     
     var body: some View {
-        VStack {
+        NavigationView {
+            VStack {
+                if searchResult.isEmpty {
+                    Text("Aucune conversation correspondante")
+                } else {
+                    List {
+                        ForEach(searchResult) { conv in
+                            NavigationLink(destination: MessagesView(conversation: conv))
+                            {
+                                LabelConversationView(conversation: conv)
+                            }
+                        }
+                    }
+                    .listStyle(.plain)
+                }
+            }
+            .background(Color.white)
+            .navigationTitle("Messages")
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $searchMessageByUser, placement: .navigationBarDrawer(displayMode: .always), prompt: "Rechercher par nom")
             
+            /* écran d'ajout d'une conversation */
+            .navigationBarItems(
+                trailing:
+                    NavigationLink(destination: AddConversationView())  {
+                        Image(systemName: "plus.circle")
+                    }
+            )
+            
+            .refreshable {
+                
+            }
         }
-        .searchable(text: $searchMessage, placement: .navigationBarDrawer(displayMode: .always), prompt: "Nom de la recette")
+    }
+    
+    var searchResult: [Conversation] {
+        if !searchMessageByUser.isEmpty {
+            return convs.conversations.filter { conv in
+                conv.user.pseudo.lowercased().contains(searchMessageByUser.lowercased())
+            }
+        }
+        return convs.conversations
     }
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView(convs: myUser.conversations)
     }
 }
