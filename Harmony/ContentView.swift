@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-// couocu
+
 struct ContentView: View {
     var body: some View {
         MenuView()
