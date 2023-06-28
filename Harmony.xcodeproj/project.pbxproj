@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FF3AC582A4B282E00C7528D /* UrbanistItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */; };
+		9B0DF2D32A4C630A007A45A1 /* BookingFormBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */; };
 		CF0F1E602A44498500A83947 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E5F2A44498500A83947 /* Community.swift */; };
 		CF0F1E642A444AE900A83947 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E632A444AE900A83947 /* News.swift */; };
 		CF0F1E662A444B5200A83947 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E652A444B5200A83947 /* Comment.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		7FF3AC562A4B281900C7528D /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistItalic.ttf; sourceTree = "<group>"; };
+		9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingFormBanner.swift; sourceTree = "<group>"; };
 		CF0F1E5F2A44498500A83947 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		CF0F1E632A444AE900A83947 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		CF0F1E652A444B5200A83947 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				CF0F1EC52A4B075700A83947 /* MapPinView.swift */,
 				CF0F1EC12A4AEF1300A83947 /* EventListRowView.swift */,
+				9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */,
 			);
 			path = EventViewComposants;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				CF0F1EB12A4AE8A400A83947 /* DetailNewsView.swift in Sources */,
 				CF0F1E602A44498500A83947 /* Community.swift in Sources */,
 				CF0F1E832A49975800A83947 /* UsersVM.swift in Sources */,
+				9B0DF2D32A4C630A007A45A1 /* BookingFormBanner.swift in Sources */,
 				CF0F1EE22A4B0DA100A83947 /* MediaGalleryView.swift in Sources */,
 				CF0F1E7C2A4586A200A83947 /* LabelConversationView.swift in Sources */,
 				CF0F1ECD2A4B08FE00A83947 /* ExploreView.swift in Sources */,
