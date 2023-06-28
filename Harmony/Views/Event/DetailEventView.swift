@@ -9,19 +9,16 @@ import SwiftUI
 
 struct DetailEventView: View {
     
-    var event: Event
-    var date: Date
-    var myTeam: [User]
-    var participants: [User]
-    var discussion: [Comment]
-    var isOnline: Bool
+    @State var event: Event
+    @ObservedObject var eventComments: Comments
     
     let now = Date()
     var myProfil: User = userSonia
-
-    @State var newComment: String = ""
     
-//    @ObservedObject var quizManagerVM: QuizManagerVM
+    @State var showBookingForm = false
+    
+    @State var newContent: String = ""
+    
     
     var body: some View {
         ScrollView(.vertical) {
@@ -32,19 +29,19 @@ struct DetailEventView: View {
                 .frame(width: 390, height: 240)
                 .clipped()
                 .padding(.bottom, 8)
- 
-
+            
+            
             VStack(spacing: 32) {
                 
                 EventInfoView(event: event)
                 
                 VStack(spacing: 12) {
                     
-                    if (self.participants.contains(myProfil)) && ( self.date > now) {
+                    if (self.event.listParticipant.contains(myProfil)) && ( self.event.date > now) {
                         DeactivatedButtonView()
                         // If the participants list contains my profil, a desactivated button is displayed.
                         
-                        if self.isOnline == true {
+                        if self.event.isOnline == true {
                             NavigationLink {
                                 WaitingToStartQuizView()
                             } label: {
@@ -58,17 +55,15 @@ struct DetailEventView: View {
                             }
                             
                         }
-                    } else if self.date < now {
+                    } else if self.event.date < now {
                         // If the event date is past
                         ButtonEvenementPastView()
                     }
                     else {
-                        BookButtonView()
-                    }   // Else a registration button is displayed
+                        BookButtonView(showBookingForm: $showBookingForm)
+                    }   // Else, a registration button is displayed
                 }
-                                
                 
-
                 
                 VStack(alignment: .leading) {
                     Text("Mon équipe")
@@ -77,7 +72,7 @@ struct DetailEventView: View {
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(myTeam) { teamMate in
+                            ForEach(event.team) { teamMate in
                                 MyTeamView(teamMate: teamMate)
                             }
                         }
@@ -85,7 +80,7 @@ struct DetailEventView: View {
                     }
                 }
                 
-       
+                
                 
                 VStack(alignment: .leading) {
                     Text("Autres participants")
@@ -94,7 +89,7 @@ struct DetailEventView: View {
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(participants) { participant in
+                            ForEach(event.listParticipant) { participant in
                                 ParticipantsView(participant: participant)
                             }
                         }
@@ -109,31 +104,36 @@ struct DetailEventView: View {
                 
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Discussions")
+                    Text("Discussion")
                         .modifier(Head2())
                     
-                    ForEach(discussion) { comment in
+                    ForEach(eventComments.comments) { comment in
                         DiscussionFeedView(comment: comment)
                     }
                 }
                 .padding(.horizontal, 24)
                 
                 
-                
-                WriteCommentFieldView(newComment: $newComment, myProfil: myProfil)
-
+                WriteCommentFieldView(myProfil: myProfil, newContent: newContent, eventComments: eventComments)
                 
                 
             }  // end VStack
             
+            .sheet(isPresented: $showBookingForm) {
+                BookingFormView(event: $event)
+            }
+            .presentationDetents([.medium, .large])
+            
         } // end ScrollView
         .background(Color("whiteSmoke"))
+        
+        
     }
 }
 
 struct DetailEventView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailEventView(event: eventExampleNonRegistered, date: eventExampleNonRegistered.date, myTeam: eventExampleNonRegistered.team, participants: eventExampleNonRegistered.listParticipant, discussion: eventExampleNonRegistered.comments, isOnline: eventExampleNonRegistered.isOnline)
+        DetailEventView(event: eventExampleNonRegistered, eventComments: eventExampleNonRegistered.comments)
     }
 }
 
@@ -171,21 +171,7 @@ struct EventInfoView: View {
                 
                 HStack {
                     
-                    ZStack {
-                        Image(systemName: "triangle.fill")
-                            .rotationEffect(.degrees(180))
-                            .offset(x: 0.3, y: 6.2)
-                            .font(.system(size: 12))
-                        
-                        Image(systemName: "circle.fill")
-                            .offset(x: 0, y: -4)
-                            .font(.system(size: 18))
-                        
-                        Image(systemName: "circle.fill")
-                            .offset(x: 0, y: -4)
-                            .font(.system(size: 8))
-                            .foregroundColor(.white)
-                    }
+                    MapPinView()
                     
                     VStack(alignment: .leading) {
                         Text(event.address?.namePlace ?? "Evénement")
@@ -227,10 +213,14 @@ struct DeactivatedButtonView: View {
 }
 
 
+
 struct BookButtonView: View {
+    
+    @Binding var showBookingForm: Bool
+    
     var body: some View {
         Button {
-            //
+            showBookingForm = true
         } label: {
             Text("M'inscrire à l'événement")
                 .frame(width: 316, height: 44)
@@ -243,6 +233,7 @@ struct BookButtonView: View {
         .cornerRadius(8)
     }
 }
+
 
 
 struct ButtonEvenementPastView: View {
@@ -382,8 +373,9 @@ struct DiscussionFeedView: View {
 
 struct WriteCommentFieldView: View {
     
-    @Binding var newComment: String
     var myProfil : User
+    @State var newContent: String = ""
+    @ObservedObject var eventComments: Comments
     
     var body: some View {
         HStack {
@@ -394,11 +386,15 @@ struct WriteCommentFieldView: View {
                 .frame(width: 32, height: 32)
                 .clipShape(Circle())
             
-            TextField("Ecrire un commentaire", text: $newComment)
+            TextField("Ecrire un commentaire", text: $newContent)
                 .textFieldStyle(.roundedBorder)
             
-            Image(systemName: "paperplane.fill")
-                .foregroundColor(Color.sapphire)
+            Button {
+                eventComments.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
+            } label: {
+                Image(systemName: "paperplane.fill")
+                    .foregroundColor(Color.sapphire)
+            }
             
         }
         .padding(.horizontal, 24)
@@ -409,3 +405,103 @@ struct WriteCommentFieldView: View {
 
 
 
+
+struct BookingFormView: View {
+    
+    @Binding var event: Event
+    
+    var formattedDateString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        
+        return dateFormatter.string(from: event.date)
+    } // Convert the display format of event.date in "dd month yyyy" in French
+    
+    var body: some View {
+        VStack {
+            
+            ZStack {
+                BookingFormBannerShape()
+                    .fill(Color.sapphire)
+                    .ignoresSafeArea()
+                    .frame(height: 172)
+                
+                VStack(spacing: 8) {
+                    
+                    Text("Inscription à l'événement")
+                        .foregroundColor(Color.sky)
+                        .modifier(Head1())
+                        .padding(.top, 16)
+                                            
+                    Text(event.title)
+                        .foregroundColor(Color.sky)
+                        .modifier(Head0())
+                }
+            }
+            .padding(.bottom, 16)
+            // fin Banner
+            
+            VStack { // Need this VStack to apply 'listStyle(.plain)'
+                List {
+                    Text("Récapitulatif de l'événement")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .modifier(Head3())
+                        .padding(8)
+                    
+                    HStack {
+                        Image(systemName: "calendar.badge.clock")
+                            .frame(width: 60)
+                        
+                        Text(formattedDateString)
+                    }
+                    .padding(.vertical,8)
+                    
+                    HStack {
+                        MapPinView()
+                            .frame(width: 60)
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(event.address?.namePlace ?? "Cet événement aura lieu")
+                            
+                            HStack {
+                                Text(event.address?.address ?? "en ligne")
+                                Text(event.address?.city ?? "")
+                            }
+                        }
+                    }
+                    .padding(.vertical,8)
+                    
+                    HStack {
+                        Image(systemName: "person.3.fill")
+                            .frame(width: 60)
+                        
+                        Text(event.community)
+                    }
+                    .padding(.vertical,8)
+                }
+            }
+            .listStyle(.plain)
+            .modifier(Head2())
+            
+            
+            Button {
+                //
+            } label: {
+                Text("Confiermer mon inscription")
+                    .frame(width: 316, height: 44)
+                    .foregroundColor(.white)
+                    .font(.custom("Urbanist", size: 18))
+                    .fontWeight(.bold)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(Color.darkPeriwinkle)
+            .cornerRadius(8)
+            
+            Spacer()
+            
+            
+        }
+    }
+}

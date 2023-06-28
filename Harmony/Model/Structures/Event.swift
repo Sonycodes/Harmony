@@ -14,28 +14,40 @@ struct Address : Identifiable {
     var namePlace : String
 }
 
-struct Team : Identifiable {
-    var id : UUID = UUID()
-    var name : String
-    var members : [User]
-}
+//struct Team : Identifiable {
+//    var id : UUID = UUID()
+//    var name : String
+//    var members : [User]
+//}
 
-struct Event : Identifiable {
+class Event : Identifiable, ObservableObject {
     var id: UUID = UUID()
-    var title: String
-    var isOnline: Bool
-    var date: Date
-    var address : Address?
-//    var city : String? ---------> il est dans Address, donc pas besoin ici
-    var listParticipant : [User]
-    var detail : String
-    var minParticipants: Int // ----------> A ajouter
-    var photo : String
-//    var teams : [Team]
-    var team : [User]
-    var comments : [Comment]
-    var community : String
+    
+    @Published var title: String
+    @Published var isOnline: Bool
+    @Published var date: Date
+    @Published var address : Address?
+    @Published var listParticipant : [User]
+    @Published var detail : String
+    @Published var minParticipants: Int
+    @Published var photo : String
+    @Published var team : [User]
+    @Published var comments : Comments // [Comment]
+    @Published var community : String
+    
+    init(title: String, isOnline: Bool, date: Date, address: Address?, listParticipant: [User], detail: String, minParticipants: Int, photo : String, team : [User], comments : Comments, community : String) {
+        self.title = title
+        self.isOnline = isOnline
+        self.date = date
+//        self.address = address
+        self.listParticipant = listParticipant
+        self.detail = detail
+        self.minParticipants = minParticipants
+        self.photo = photo
+        self.team = team
+        self.comments = comments
+        self.community = community
+        }
+
+        
 }
-
-
-

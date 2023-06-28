@@ -19,7 +19,7 @@ struct DetailCommunityView: View {
                 .resizable()
                 .scaledToFit()
 //            .frame(width: 350, height: 350)
-                .cornerRadius(10)
+//                .cornerRadius(10)
             
             
             HStack{
