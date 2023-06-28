@@ -14,24 +14,34 @@ struct MessageView: View {
     
     var body: some View {
         VStack {
-            Text(date)
-                .modifier(SmallGray())
             HStack {
                 if (iconDestinataire != nil) {
                     IconUserView(icon: iconDestinataire!)
                 }
                 HStack() {
-                    Text(message)
-                        .frame(width: 250)
-                        .padding(10)
-                        .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
-                        .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
-                        .cornerRadius(10)
-                        .modifier(NormalWhite())
+                    VStack(alignment: .trailing) {
+                        Text(message)
+                            .padding(7)
+                            .frame(width: 250)
+                            //
+                            .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
+                            .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                            .cornerRadius(10)
+                            .modifier(NormalWhite())
+                        
+                        HStack() {
+                            Text(date)
+                                .padding(.trailing, 10)
+                                .modifier(SmallGray())
+                        }
+                    }
+                    
                     
                 }
                 .padding((iconDestinataire != nil) ? .leading : .trailing, 20)
             }
+           
+            
         }
     }
 }

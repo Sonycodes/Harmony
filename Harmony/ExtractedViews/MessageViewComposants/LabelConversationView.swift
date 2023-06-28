@@ -16,24 +16,25 @@ struct LabelConversationView: View {
             
             // show icon user
             IconUserView(icon: conversation.user.photo, isConnected: conversation.user.isConnected)
-                    
+            
             Spacer()
-                    
+            
             VStack(alignment: .leading) {
                 HStack {
+                    
                     // destinataire
                     Text(conversation.user.pseudo)
                         .modifier(Head1())
-                    
+                        
                     Spacer()
-                    
+                        
                     // date message
-                    Text(conversation.lastMessage().dateToString())
+                    Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
                         .modifier(HeadGray())
                 }
-            
+                
                 // beginning of last message
-                Text(conversation.lastMessage().content)
+                Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.content : "")
                     .modifier(Normal())
             }
         }
