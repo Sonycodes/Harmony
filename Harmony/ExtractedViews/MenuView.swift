@@ -34,7 +34,7 @@ struct MenuView: View {
                     Text("Explorer")
                 }
                 
-                ChatView(convs: myUser.conversations)
+                ChatView(user: myUser)
                     .tabItem {
                     Image(systemName: "bubble.left.and.bubble.right")
                     Text("Messages")

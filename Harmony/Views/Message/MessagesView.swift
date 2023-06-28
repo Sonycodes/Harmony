@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MessagesView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @ObservedObject var conversation : Conversation
     
     @State var newMessage : String = ""
@@ -17,8 +17,11 @@ struct MessagesView: View {
         NavigationView {
             VStack {
                 
+                // display all messages in a conversation
                 List {
                     ForEach(conversation.messages) { message in
+                        
+                        // if the reference user is the sender don't display photo user
                         if (message.isRecipient) {
                             MessageView(message: message.content, date: message.dateToString())
                         } else {
@@ -26,21 +29,14 @@ struct MessagesView: View {
                         }
                     }
                     .listRowSeparator(.hidden)
-                    .padding(10)
+                    .padding(.bottom, 5)
                 }
                 .listStyle(.plain)
                 
                 Spacer()
                 
-                HStack {
-                    TextField("Tape ton message", text: $newMessage)
-                    Button {
-                        conversation.addMessage(new: Message(content: newMessage, isRecipient: true, date: Date()))
-                    } label : {
-                        Text("Envoyer")
-                    }
-                }
-                .padding(10)
+                // display the widget for typing a new message
+                MessageFieldView(newMessage: $newMessage, conversation: conversation)
             }
             .padding(.top, 10)
             .navigationBarTitleDisplayMode(.inline)
@@ -54,14 +50,14 @@ struct MessagesView: View {
                 }
             }
             .navigationBarBackButtonHidden(false)
-
+            .toolbar(.hidden, for: .tabBar)
         }
-        
     }
+    
 }
 
 /*struct MessagesView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessagesView()
-    }
-}*/
+ static var previews: some View {
+ MessagesView()
+ }
+ }*/
