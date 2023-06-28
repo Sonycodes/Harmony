@@ -13,14 +13,14 @@ enum CategoryNews {
 
 struct News : Identifiable {
     var id = UUID()
-    
     var title : String
     var photo : String
-//    var author : User : je l'ai enlevé car je n'utilise que la photo et nom
+    var author : User
     var content : String
     var publishDate : Date
     var like : Int
 //    var comments : [Comment] Ca va devenir une class car j'ai besoin que soit un objet
-//    var community : Community : peut pas lier encore
+    var community : Community //peut pas lier encore
 //    var categoryNews : CategoryNews : a revoir avec le bouton actualité
 }
+

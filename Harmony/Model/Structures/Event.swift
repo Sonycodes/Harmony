@@ -36,3 +36,6 @@ struct Event : Identifiable {
     var comments : [Comment]
     var community : String
 }
+
+
+

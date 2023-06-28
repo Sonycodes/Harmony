@@ -171,9 +171,9 @@
 		CF0F1EAC2A4AE8A400A83947 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				CF0F1EAD2A4AE8A400A83947 /* DetailNewsView.swift */,
 				CF0F1EAE2A4AE8A400A83947 /* NewsView.swift */,
 				CF0F1EAF2A4AE8A400A83947 /* NewsViewModel.swift */,
+				CF0F1EAD2A4AE8A400A83947 /* DetailNewsView.swift */,
 				CF0F1EB02A4AE8A400A83947 /* NewsPostModel.swift */,
 			);
 			path = News;
