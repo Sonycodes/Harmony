@@ -53,7 +53,7 @@ var userHildegarde = User(pseudo: "Hildegarde", photo: "Hildegarde", coverPhoto:
 
 var myUser = userMarie
 
-var arrayUsers = [userMarie, userJohan, userJeremie, userElodie, userHildegarde, userSonia, userTom, userMax, userThomas, userYuko, userKelian, userAdeline]
+var arrayUsers = [userMarie, userJohan, userJeremie, userElodie, userHildegarde, userSonia, userTom, userThomas, userYuko, userKelian, userAdeline]
 
 var users = UsersVM(users: arrayUsers)
 

@@ -10,10 +10,7 @@ import SwiftUI
 struct DetailNewsView: View {
     var news: News
     @State private var isLiked = false
-//    @State var comment: String
-    @ObservedObject var postComments: Comments
-    @State var newContent: String = ""
-    var myProfil: User = userSonia
+    @State var comment: String
     
     var body: some View {
         NavigationView(){
@@ -40,7 +37,7 @@ struct DetailNewsView: View {
                     .padding()
                     
                     HStack{
-                      
+                        
                         HeartButton(isLiked: $isLiked)
                         Text(isLiked ? "\(news.like + 1)" : "\(news.like)")
                             .frame(width: 20)
@@ -81,128 +78,21 @@ struct DetailNewsView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(Color.darkPeriwinkle)
                     .cornerRadius(8)
-                    .padding(.bottom)
                     
                     
-                    Section{
-                        VStack(alignment: .leading, spacing: 16) {
-                            HStack{
-                                Text("Commentaire")
-                                    .modifier(Head2())
-                                Spacer()
-                            }
-                            ForEach(postComments.comments) { comment in
-                                CommentPostView(comment: comment)
-                            }
-                        }
-                        .padding(.horizontal, 24)
-                        
-                        WriteCommentFieldView(myProfil: myProfil, newContent: newContent, eventComments: postComments)
-                    }
+                    
                 }//fin vstack
                 //            .navigationTitle("Fête de la musique")
-                .navigationBarTitle("Fête de la musique", displayMode: .inline )
+                .navigationBarTitle(news.community.name, displayMode: .inline )
             }//fin scroll view
         }//fin navView
-       
+        
     }//fin body
     
 }//fin detail view
 
-
- 
- 
- struct CommentPostView: View {
-     
-     var comment: Comment
-     
-     var formattedDateString: String {
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateStyle = .medium
-         dateFormatter.timeStyle = .none
-         dateFormatter.locale = Locale(identifier: "fr_FR")
-         
-         return dateFormatter.string(from: comment.date)
-     }     // Convert the display format of comment.date
-     
-     
-     var body: some View {
-         HStack {
-             Image(comment.user.photo)
-                 .resizable()
-                 .scaledToFill()
-                 .frame(width: 56, height: 56)
-                 .clipShape(Circle())
-             
-             Spacer()
-             
-             VStack(alignment: .leading) {
-                 
-                 Divider()
-                     .padding(.bottom, 16)
-                 
-                 Spacer()
-                 
-                 HStack {
-                     Text(comment.user.pseudo)
-                         .modifier(Head2())
-                     
-                     Spacer()
-                     
-                     Text(formattedDateString) // Display the date with the converted format
-                         .modifier(SmallGray())
-                         .padding(.trailing, 8)
-                 }
-                 .padding(.bottom, 4)
-                 
-                 Text(comment.content)
-                     .modifier(Normal())
-                 
-             }
-             .padding(.leading, 8)
-         }
-     }
- }
-
- 
- 
- struct NewCommentFieldView: View {
-     
-     var myProfil : User
-     @State var newContent: String = ""
-     @ObservedObject var eventComments: Comments
-     
-     var body: some View {
-         HStack {
-             
-             Image(myProfil.photo)
-                 .resizable()
-                 .scaledToFill()
-                 .frame(width: 32, height: 32)
-                 .clipShape(Circle())
-             
-             TextField("Ecrire un commentaire", text: $newContent)
-                 .textFieldStyle(.roundedBorder)
-             
-             Button {
-                 eventComments.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
-             } label: {
-                 Image(systemName: "paperplane.fill")
-                     .foregroundColor(Color.sapphire)
-             }
-             
-         }
-         .padding(.horizontal, 24)
-         
-     }
- }
-
-
-
-
-
 struct DetailNewsView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailNewsView(news: exemplePost, postComments: exemplePost.comments)
+        DetailNewsView(news: News(title: "Fête de la musique - danse hawaïenne à Lille", photo: "MyPhoto", author: User(pseudo: "Benjamin Samir", photo: "MyPhoto", coverPhoto: "", city: "", language: [], media: [], about: "", isConnected: Bool()), content: "supsupsup", publishDate: Date(), like: 110, community: Community(name: "Moyen Orient", photo: "", photo1: "", icon: "", rank: Double(), description: "", rating: Double(), hosts: [], members: [], events: [])), comment: "")
     }
 }

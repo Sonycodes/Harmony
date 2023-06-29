@@ -23,9 +23,9 @@ struct MessagesView: View {
                         
                         // if the reference user is the sender don't display photo user
                         if (message.isRecipient) {
-                            MessageView(message: message.content, date: message.dateToString())
+                            LabelMessageView(message: message.content, date: message.dateToString())
                         } else {
-                            MessageView(message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
+                            LabelMessageView(message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
                         }
                     }
                     .listRowSeparator(.hidden)

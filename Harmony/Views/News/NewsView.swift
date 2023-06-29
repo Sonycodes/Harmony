@@ -11,13 +11,13 @@ struct NewsView: View {
     
     @ObservedObject var newsmodel: Post
     
-   
+    @State var comment: String
     var body: some View {
         NavigationView(){
             ScrollView{
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
-                        NavigationLink(destination: DetailNewsView(news: update, postComments: exemplePost.comments)) {
+                        NavigationLink(destination: DetailNewsView(news: update, comment: "")) {
                             NewsViewModel(news: update)
                         }
                     }
@@ -25,28 +25,15 @@ struct NewsView: View {
                 
                 // fin lazyVstack
             }//fin scrollview
+            .navigationBarTitle("Actualités", displayMode: .inline )
         }// fin navigationView
     }//fin body
 }//fin newsview
 
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView(newsmodel: Post())
+        NewsView(newsmodel: Post(), comment: "")
     }
 }
 
 
-/*
- 
- List(newsmodel.newsmodel) {
- update in
- NewsViewModel(news: update, comment: "")
- .listRowSeparator(.hidden)
- .ignoresSafeArea()
- 
- }
- .frame(width: 420, height: 800.0)
- .scrollContentBackground(.hidden)
- 
- .navigationBarTitle("Actualités", displayMode: .inline)
- */ //ancien modele

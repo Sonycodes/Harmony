@@ -16,7 +16,7 @@ struct MenuView: View {
     var body: some View {
         ZStack {
             TabView {
-                NewsView(newsmodel: Post())
+                NewsView(newsmodel: Post(), comment: "")
                     .tabItem {
                     Image(systemName: "house.fill")
                     Text("Actualités")
