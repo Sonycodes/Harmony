@@ -48,7 +48,7 @@ class Message : Identifiable, ObservableObject {
                         if components.minute == components2.minute {
                             dateString = "Maintenant"
                         } else {
-                            dateString = "Il y a " + String(components.minute!-components2.minute!) + "min"
+                            dateString = "Il y a " + String(components.minute!-components2.minute!) + " min"
                         }
                     } else {
                         dateString = String(components2.hour!) + "h" + String(components2.minute!)
