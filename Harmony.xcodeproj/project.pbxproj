@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		7FF3AC582A4B282E00C7528D /* UrbanistItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */; };
 		9B0DF2D32A4C630A007A45A1 /* BookingFormBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */; };
-		9B0DF2D72A4C929D007A45A1 /* TestUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DF2D62A4C929C007A45A1 /* TestUIView.swift */; };
-		9B0DF2D92A4CC50B007A45A1 /* QuizResultsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DF2D82A4CC50B007A45A1 /* QuizResultsVM.swift */; };
-		9B0DF2DB2A4CDA54007A45A1 /* QuizLankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DF2DA2A4CDA54007A45A1 /* QuizLankingView.swift */; };
 		CF0F1E602A44498500A83947 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E5F2A44498500A83947 /* Community.swift */; };
 		CF0F1E642A444AE900A83947 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E632A444AE900A83947 /* News.swift */; };
 		CF0F1E662A444B5200A83947 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E652A444B5200A83947 /* Comment.swift */; };
@@ -21,7 +18,7 @@
 		CF0F1E762A44717300A83947 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E752A44717200A83947 /* MenuView.swift */; };
 		CF0F1E7A2A45822700A83947 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E792A45822700A83947 /* Color.swift */; };
 		CF0F1E7C2A4586A200A83947 /* LabelConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */; };
-		CF0F1E7E2A45915A00A83947 /* LabelMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */; };
+		CF0F1E7E2A45915A00A83947 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7D2A45915A00A83947 /* MessageView.swift */; };
 		CF0F1E802A45CAC600A83947 /* IconUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */; };
 		CF0F1E832A49975800A83947 /* UsersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E822A49975800A83947 /* UsersVM.swift */; };
 		CF0F1E872A4A363600A83947 /* AddConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E862A4A363600A83947 /* AddConversationView.swift */; };
@@ -38,7 +35,7 @@
 		CF0F1EB12A4AE8A400A83947 /* DetailNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EAD2A4AE8A400A83947 /* DetailNewsView.swift */; };
 		CF0F1EB22A4AE8A400A83947 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EAE2A4AE8A400A83947 /* NewsView.swift */; };
 		CF0F1EB32A4AE8A400A83947 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EAF2A4AE8A400A83947 /* NewsViewModel.swift */; };
-		CF0F1EB42A4AE8A400A83947 /* NewsPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EB02A4AE8A400A83947 /* NewsPostModel.swift */; };
+		CF0F1EB42A4AE8A400A83947 /* PostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EB02A4AE8A400A83947 /* PostVM.swift */; };
 		CF0F1EC22A4AEF1300A83947 /* EventListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EC12A4AEF1300A83947 /* EventListRowView.swift */; };
 		CF0F1EC62A4B075700A83947 /* MapPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EC52A4B075700A83947 /* MapPinView.swift */; };
 		CF0F1ECD2A4B08FE00A83947 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1EC82A4B08FE00A83947 /* ExploreView.swift */; };
@@ -68,9 +65,6 @@
 		7FF3AC562A4B281900C7528D /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistItalic.ttf; sourceTree = "<group>"; };
 		9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingFormBanner.swift; sourceTree = "<group>"; };
-		9B0DF2D62A4C929C007A45A1 /* TestUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestUIView.swift; sourceTree = "<group>"; };
-		9B0DF2D82A4CC50B007A45A1 /* QuizResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsVM.swift; sourceTree = "<group>"; };
-		9B0DF2DA2A4CDA54007A45A1 /* QuizLankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLankingView.swift; sourceTree = "<group>"; };
 		CF0F1E5F2A44498500A83947 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		CF0F1E632A444AE900A83947 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		CF0F1E652A444B5200A83947 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -81,7 +75,7 @@
 		CF0F1E752A44717200A83947 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CF0F1E792A45822700A83947 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelConversationView.swift; sourceTree = "<group>"; };
-		CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMessageView.swift; sourceTree = "<group>"; };
+		CF0F1E7D2A45915A00A83947 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconUserView.swift; sourceTree = "<group>"; };
 		CF0F1E822A49975800A83947 /* UsersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVM.swift; sourceTree = "<group>"; };
 		CF0F1E862A4A363600A83947 /* AddConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConversationView.swift; sourceTree = "<group>"; };
@@ -98,7 +92,7 @@
 		CF0F1EAD2A4AE8A400A83947 /* DetailNewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailNewsView.swift; sourceTree = "<group>"; };
 		CF0F1EAE2A4AE8A400A83947 /* NewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		CF0F1EAF2A4AE8A400A83947 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
-		CF0F1EB02A4AE8A400A83947 /* NewsPostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsPostModel.swift; sourceTree = "<group>"; };
+		CF0F1EB02A4AE8A400A83947 /* PostVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVM.swift; sourceTree = "<group>"; };
 		CF0F1EC12A4AEF1300A83947 /* EventListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRowView.swift; sourceTree = "<group>"; };
 		CF0F1EC52A4B075700A83947 /* MapPinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinView.swift; sourceTree = "<group>"; };
 		CF0F1EC82A4B08FE00A83947 /* ExploreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -152,7 +146,7 @@
 				CF0F1EE52A4B0DDD00A83947 /* EventsVM.swift */,
 				CF0F1EE42A4B0DDD00A83947 /* QuizManagerVM.swift */,
 				CF0F1E822A49975800A83947 /* UsersVM.swift */,
-				9B0DF2D82A4CC50B007A45A1 /* QuizResultsVM.swift */,
+				CF0F1EB02A4AE8A400A83947 /* PostVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -177,7 +171,6 @@
 				CF0F1EA12A4AE4EB00A83947 /* QuizCompletedView.swift */,
 				CF0F1EA22A4AE4EB00A83947 /* QuizOptionsGridView.swift */,
 				CF0F1EA32A4AE4EB00A83947 /* WaitingToStartQuiz.swift */,
-				9B0DF2DA2A4CDA54007A45A1 /* QuizLankingView.swift */,
 			);
 			path = QuizViewComposants;
 			sourceTree = "<group>";
@@ -188,7 +181,6 @@
 				CF0F1EAE2A4AE8A400A83947 /* NewsView.swift */,
 				CF0F1EAF2A4AE8A400A83947 /* NewsViewModel.swift */,
 				CF0F1EAD2A4AE8A400A83947 /* DetailNewsView.swift */,
-				CF0F1EB02A4AE8A400A83947 /* NewsPostModel.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -209,7 +201,7 @@
 				CF2E044F2A4C72D80018497D /* MessageFieldView.swift */,
 				CF2E04502A4C72D80018497D /* NewConversationView.swift */,
 				CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */,
-				CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */,
+				CF0F1E7D2A45915A00A83947 /* MessageView.swift */,
 				CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */,
 			);
 			path = MessageViewComposants;
@@ -282,7 +274,6 @@
 		CF689BC42A4338D1009200C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9B0DF2D62A4C929C007A45A1 /* TestUIView.swift */,
 				CF0F1EDB2A4B0DA100A83947 /* Profile */,
 				CF0F1EC72A4B08FE00A83947 /* Community */,
 				CF0F1EAC2A4AE8A400A83947 /* News */,
@@ -412,7 +403,6 @@
 				CF0F1ECE2A4B08FE00A83947 /* FilterView.swift in Sources */,
 				CF0F1E762A44717300A83947 /* MenuView.swift in Sources */,
 				CF0F1E682A444C1A00A83947 /* Quiz.swift in Sources */,
-				9B0DF2D92A4CC50B007A45A1 /* QuizResultsVM.swift in Sources */,
 				CF0F1EAA2A4AE4EC00A83947 /* FaceAnimation.swift in Sources */,
 				CF0F1EC62A4B075700A83947 /* MapPinView.swift in Sources */,
 				CF0F1EE02A4B0DA100A83947 /* ProfilView.swift in Sources */,
@@ -436,13 +426,11 @@
 				CF0F1E9B2A4AE4BA00A83947 /* EventsView.swift in Sources */,
 				CF0F1E9D2A4AE4BA00A83947 /* QuizView.swift in Sources */,
 				CF0F1E9C2A4AE4BA00A83947 /* DetailEventView.swift in Sources */,
-				9B0DF2DB2A4CDA54007A45A1 /* QuizLankingView.swift in Sources */,
 				CF0F1EE12A4B0DA100A83947 /* SettingsView.swift in Sources */,
 				CF0F1EAB2A4AE4EC00A83947 /* ConfettiAnimation.swift in Sources */,
 				CF0F1EA82A4AE4EC00A83947 /* QuizOptionsGridView.swift in Sources */,
 				CF0F1E802A45CAC600A83947 /* IconUserView.swift in Sources */,
 				CF0F1E722A4468DA00A83947 /* Fonts.swift in Sources */,
-				9B0DF2D72A4C929D007A45A1 /* TestUIView.swift in Sources */,
 				CF0F1EA92A4AE4EC00A83947 /* WaitingToStartQuiz.swift in Sources */,
 				CF689BF12A4343F7009200C3 /* Event.swift in Sources */,
 				CF0F1E872A4A363600A83947 /* AddConversationView.swift in Sources */,
@@ -453,9 +441,9 @@
 				CF0F1E7A2A45822700A83947 /* Color.swift in Sources */,
 				CF0F1EE32A4B0DA100A83947 /* ProfileCustomView.swift in Sources */,
 				CF0F1E662A444B5200A83947 /* Comment.swift in Sources */,
-				CF0F1EB42A4AE8A400A83947 /* NewsPostModel.swift in Sources */,
+				CF0F1EB42A4AE8A400A83947 /* PostVM.swift in Sources */,
 				CF0F1EE72A4B0DDD00A83947 /* EventsVM.swift in Sources */,
-				CF0F1E7E2A45915A00A83947 /* LabelMessageView.swift in Sources */,
+				CF0F1E7E2A45915A00A83947 /* MessageView.swift in Sources */,
 				CF0F1ECF2A4B08FE00A83947 /* CreateEvenementView.swift in Sources */,
 				CF0F1E6A2A44503500A83947 /* Chat.swift in Sources */,
 				CF2E04512A4C72D80018497D /* MessageFieldView.swift in Sources */,
