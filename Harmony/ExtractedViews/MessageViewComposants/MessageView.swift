@@ -23,7 +23,6 @@ struct MessageView: View {
                         Text(message)
                             .padding(7)
                             .frame(width: 250)
-                            //
                             .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                             .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
                             .cornerRadius(10)
