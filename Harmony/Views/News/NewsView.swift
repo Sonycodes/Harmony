@@ -25,6 +25,7 @@ struct NewsView: View {
                 
                 // fin lazyVstack
             }//fin scrollview
+            .navigationBarTitle("Actualités", displayMode: .inline )
         }// fin navigationView
     }//fin body
 }//fin newsview
@@ -36,17 +37,3 @@ struct NewsView_Previews: PreviewProvider {
 }
 
 
-/*
- 
- List(newsmodel.newsmodel) {
- update in
- NewsViewModel(news: update, comment: "")
- .listRowSeparator(.hidden)
- .ignoresSafeArea()
- 
- }
- .frame(width: 420, height: 800.0)
- .scrollContentBackground(.hidden)
- 
- .navigationBarTitle("Actualités", displayMode: .inline)
- */ //ancien modele

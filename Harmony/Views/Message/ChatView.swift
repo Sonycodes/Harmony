@@ -27,11 +27,6 @@ struct ChatView: View {
                                 LabelConversationView(conversation: conv)
                             }
                         }
-                        
-                        // del conversation selected
-                        .onDelete { indexSet in
-                            user.delConversationByIndex(index: indexSet)
-                        }
                     }
                     .listStyle(.plain)
                 }

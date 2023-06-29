@@ -83,7 +83,7 @@ struct DetailNewsView: View {
                     
                 }//fin vstack
                 //            .navigationTitle("Fête de la musique")
-                .navigationBarTitle("Fête de la musique", displayMode: .inline )
+                .navigationBarTitle(news.community.name, displayMode: .inline )
             }//fin scroll view
         }//fin navView
         
