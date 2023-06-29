@@ -18,7 +18,7 @@ struct NewsView: View {
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
                         NavigationLink(destination: DetailNewsView(news: update, comment: "")) {
-                            NewsViewModel(news: update, comment: "")
+                            NewsViewModel(news: update)
                         }
                     }
                 }
