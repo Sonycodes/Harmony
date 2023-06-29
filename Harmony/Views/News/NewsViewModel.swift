@@ -10,8 +10,7 @@ import SwiftUI
 struct NewsViewModel: View {
     var news: News
     @State private var isLiked = false
-    @State var comment: String
-    
+
     
     var body: some View {
         
@@ -58,16 +57,16 @@ struct NewsViewModel: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom)
             
-            
-            RoundedRectangle(cornerRadius: 25)
-                .frame(width:370, height: 45)
-                .foregroundColor(Color.sky)
-                .overlay(  SuperTextField(
-                    placeholder: Text("Ecrire un commentaire").foregroundColor(.darkPeriwinkle),
-                    text: $comment
-                )
-                    .padding()
-                )
+//            
+//            RoundedRectangle(cornerRadius: 25)
+//                .frame(width:370, height: 45)
+//                .foregroundColor(Color.sky)
+//                .overlay(  SuperTextField(
+//                    placeholder: Text("Ecrire un commentaire").foregroundColor(.darkPeriwinkle),
+////                    text: $comment
+//                )
+//                    .padding()
+//                )
             HStack{
                 Text("Voir le post en intégralité")
                 Spacer()
@@ -117,7 +116,7 @@ struct SuperTextField: View {
 
 struct NewsViewModel_Previews: PreviewProvider {
     static var previews: some View {
-        NewsViewModel(news: News(title: "Fête de la musique - danse hawaïenne à Lille", photo: "MyPhoto", author: User(pseudo: "Benjamin Samir", photo: "MyPhoto", coverPhoto: "", city: "", language: [], media: [], about: "", isConnected: Bool()), content: "supsupsup", publishDate: Date(), like: 110, community: Community(name: "Moyen Orient", photo: "", photo1: "", icon: "", rank: Double(), description: "", rating: Double(), hosts: [], members: [], events: [])), comment: "")
+        NewsViewModel(news: exemplePost)
     }
 }
 

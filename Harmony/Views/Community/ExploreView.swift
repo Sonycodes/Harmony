@@ -39,7 +39,7 @@ struct ExploreView: View {
                Text("Filtrer les categories")
             .font(.custom("Urbanist", size: 18))
 
-                    .frame(width: 300, height: 30)
+            .frame(width: 316, height: 44)
                             
                         }
                         

@@ -43,7 +43,7 @@ struct FilterView: View {
                     }
                     List {
                         Toggle(isOn: $isoptionActivited, label: {
-                            Text("Tout selectionner")
+                            Text("Tout sélectionner")
                             .font(.custom("Urbanist", size: 20))})
                     }
                     
