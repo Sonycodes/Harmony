@@ -164,7 +164,9 @@ class User : Identifiable, Equatable, ObservableObject {
         self.conversations.append(conv)
         return conv
     }
-    
+    func delConversationByIndex(index: IndexSet) {
+        self.conversations.remove(atOffsets: index)
+    }
     func delConversationLast() {
         self.conversations.removeLast()
     }
