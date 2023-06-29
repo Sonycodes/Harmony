@@ -15,42 +15,52 @@ struct QuizCompletedView: View {
     
     var body: some View {
         
-        VStack(spacing: 8) {
-            
-            Spacer()
-            
-            if (quizManagerVM.model.winningStatus) {
-                // If the user complete all the question in time
+        if (quizManagerVM.model.winningStatus) {
+            // If the user complete all the question in time
+            ScrollView {
                 ZStack {
                     
                     ConfettiAnimationView()
-                    
-                    VStack {
-                        Text("BRAVO !")
+                                        
+                    VStack(spacing: 24) {
+                        
+                        Text("BRAVO \(myUser.pseudo)!")
                             .modifier(Head0())
+                            .padding(.top, 72)
                         
-                        Text("Vous avez obtenu")
-                            .modifier(Head1())
-                        
-                        Text("\(quizManagerVM.myPoints) points !")
-                            .modifier(Head1())
+                        VStack(spacing: 8) {
+                            
+                            Text("Vous avez obtenu")
+                                .modifier(Head1())
+                            
+                            Text("\(quizManagerVM.myPoints) points !")
+                                .modifier(Head1())
+                        }
                         
                         Text("Merci d'avoir particié au quiz.")
                             .modifier(Normal())
-                            .lineLimit(3)
-                            .frame(width: UIScreen.main.bounds.size.width - 24, height: 80, alignment: .center)
-                            .multilineTextAlignment(.center)
                         
-                        Text("On ajoute le classement ici ou un buton 'Voir le classement ?")
-                            .foregroundColor(.red)
-                            .font(.title)
+                        
+                        Text("Classement")
+                            .modifier(Head1())
+                            .padding(.top, 24)
+                        
+                        QuizLankingView()
+                        
                     }
-                    .padding(24)
-                }
+                    .padding(.horizontal, 24)
+                }                
+            }
+            .background(Color.whiteSmoke)
+            
+            
+            
+        } else {
+            // If time over
+            
+            VStack(spacing: 8) {
                 
-                
-            } else {
-                // If time over
+                Spacer()
                 
                 Text("GAME OVER")
                     .modifier(Head0())
@@ -67,11 +77,12 @@ struct QuizCompletedView: View {
                 Text("On ajoute le classement ici ou un buton 'Voir le classement ?")
                     .foregroundColor(.red)
                     .font(.title)
+                
+                
+                Spacer()
             }
-            
-            Spacer()
+            .padding(.horizontal, 24)
         }
-        .padding(.horizontal, 24)
     }
     
 }

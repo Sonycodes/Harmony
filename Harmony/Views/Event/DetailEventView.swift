@@ -13,7 +13,7 @@ struct DetailEventView: View {
     @ObservedObject var eventComments: Comments
     
     let now = Date()
-    var myProfil: User = userSonia
+    var myProfil: User = myUser
     
     @State var showBookingForm = false
     
