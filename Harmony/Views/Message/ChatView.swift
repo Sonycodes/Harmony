@@ -48,7 +48,6 @@ struct ChatView: View {
                         Image(systemName: "plus.circle")
                     }
             )
-            .toolbar(.visible, for: .tabBar)
         }
     }
     

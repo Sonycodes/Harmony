@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AddConversationView: View {
-    @State var isAction : Bool = false
     @ObservedObject var user : User
     @ObservedObject var users : UsersVM
     @State var isChanged : Bool = false
+    @State var isAction : Bool = false
     
     var body: some View {
         
@@ -22,7 +22,7 @@ struct AddConversationView: View {
                         if (users.users[i] !== user) && (user.searchConversationByUser(user: users.users[i]) === nil) {
                             
                             Button {
-                                //userChooseInt = i
+                                // add an element conversation in the selected user
                                 user.newConversation(user: users.users[i])
                                 isAction = true
                             } label: {
@@ -41,9 +41,9 @@ struct AddConversationView: View {
             }
         }
         .sheet(isPresented: $isAction) {
+            //display a new conversation with the selected user
             NewConversationView(users: users, user: user, isAction: $isAction)
         }
-        .toolbar(.hidden, for: .tabBar)
     }
 }
 
