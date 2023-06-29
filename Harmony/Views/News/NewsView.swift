@@ -11,14 +11,14 @@ struct NewsView: View {
     
     @ObservedObject var newsmodel: Post
     
-   
+    @State var comment: String
     var body: some View {
         NavigationView(){
             ScrollView{
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
-                        NavigationLink(destination: DetailNewsView(news: update, postComments: exemplePost.comments)) {
-                            NewsViewModel(news: update)
+                        NavigationLink(destination: DetailNewsView(news: update, comment: "")) {
+                            NewsViewModel(news: update, comment: "")
                         }
                     }
                 }
@@ -31,7 +31,7 @@ struct NewsView: View {
 
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsView(newsmodel: Post())
+        NewsView(newsmodel: Post(), comment: "")
     }
 }
 

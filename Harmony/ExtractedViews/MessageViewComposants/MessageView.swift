@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct LabelMessageView: View {
+struct MessageView: View {
     var message : String
     var date : String
     var iconDestinataire : String?
     
     var body: some View {
         VStack {
-            HStack(alignment: .top) {
+            HStack {
                 if (iconDestinataire != nil) {
                     IconUserView(icon: iconDestinataire!)
                 }
@@ -23,6 +23,7 @@ struct LabelMessageView: View {
                         Text(message)
                             .padding(7)
                             .frame(width: 250)
+                            //
                             .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                             .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
                             .cornerRadius(10)
@@ -45,8 +46,8 @@ struct LabelMessageView: View {
     }
 }
 
-struct LabelMessageView_Previews: PreviewProvider {
+struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        LabelMessageView(message: "Salut, est-ce que tu vas participer à l’évènement de demain?", date: "12h25", iconDestinataire: "sonia")
+        MessageView(message: "Salut, est-ce que tu vas participer à l’évènement de demain?", date: "12h25")
     }
 }
