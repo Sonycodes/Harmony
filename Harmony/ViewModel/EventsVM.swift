@@ -80,7 +80,7 @@ class EventsViewModel: ObservableObject {
             listParticipant: [userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
             detail: "description.",
             minParticipants: 8,
-            photo: "france",
+            photo: "petanque",
             team: [userTom, userMarie, userYuko],
             comments: Comments(comments:[
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))]),
