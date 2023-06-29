@@ -18,15 +18,25 @@ struct DetailCommunityView: View {
     @State var showSheet = false
     
     var body: some View {
+
         
         ScrollView {
             VStack {
                 Image(community.photo)
+                
+      VStack {
+            Image(community.photo)
+                .resizable()
+                .scaledToFit()
+
+            
+            
+            HStack{
+                Image(community.photo1)
+
                     .resizable()
                     .scaledToFit()
-                //                                        .frame(width: 350, height: 350)
-                //                .cornerRadius(10)
-                
+       
                 
                 HStack{
                     Image(community.photo1)

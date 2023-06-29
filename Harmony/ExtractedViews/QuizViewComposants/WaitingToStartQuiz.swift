@@ -37,7 +37,7 @@ struct WaitingToStartQuizView: View {
             NavigationLink(destination:
                             QuizView(), isActive: $goToQuiz){ EmptyView()}
         }
-        .modifier(Head1())
+        .modifier(Head2())
         .padding(50)
         
         .onAppear() {
