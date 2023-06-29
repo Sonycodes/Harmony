@@ -49,7 +49,7 @@ struct QuizCompletedView: View {
                         
                     }
                     .padding(.horizontal, 24)
-                }                
+                }
             }
             .background(Color.whiteSmoke)
             
