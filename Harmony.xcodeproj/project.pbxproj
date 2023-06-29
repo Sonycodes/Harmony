@@ -18,7 +18,7 @@
 		CF0F1E762A44717300A83947 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E752A44717200A83947 /* MenuView.swift */; };
 		CF0F1E7A2A45822700A83947 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E792A45822700A83947 /* Color.swift */; };
 		CF0F1E7C2A4586A200A83947 /* LabelConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */; };
-		CF0F1E7E2A45915A00A83947 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7D2A45915A00A83947 /* MessageView.swift */; };
+		CF0F1E7E2A45915A00A83947 /* LabelMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */; };
 		CF0F1E802A45CAC600A83947 /* IconUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */; };
 		CF0F1E832A49975800A83947 /* UsersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E822A49975800A83947 /* UsersVM.swift */; };
 		CF0F1E872A4A363600A83947 /* AddConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E862A4A363600A83947 /* AddConversationView.swift */; };
@@ -75,7 +75,7 @@
 		CF0F1E752A44717200A83947 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CF0F1E792A45822700A83947 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelConversationView.swift; sourceTree = "<group>"; };
-		CF0F1E7D2A45915A00A83947 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMessageView.swift; sourceTree = "<group>"; };
 		CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconUserView.swift; sourceTree = "<group>"; };
 		CF0F1E822A49975800A83947 /* UsersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVM.swift; sourceTree = "<group>"; };
 		CF0F1E862A4A363600A83947 /* AddConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConversationView.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				CF2E044F2A4C72D80018497D /* MessageFieldView.swift */,
 				CF2E04502A4C72D80018497D /* NewConversationView.swift */,
 				CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */,
-				CF0F1E7D2A45915A00A83947 /* MessageView.swift */,
+				CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */,
 				CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */,
 			);
 			path = MessageViewComposants;
@@ -443,7 +443,7 @@
 				CF0F1E662A444B5200A83947 /* Comment.swift in Sources */,
 				CF0F1EB42A4AE8A400A83947 /* PostVM.swift in Sources */,
 				CF0F1EE72A4B0DDD00A83947 /* EventsVM.swift in Sources */,
-				CF0F1E7E2A45915A00A83947 /* MessageView.swift in Sources */,
+				CF0F1E7E2A45915A00A83947 /* LabelMessageView.swift in Sources */,
 				CF0F1ECF2A4B08FE00A83947 /* CreateEvenementView.swift in Sources */,
 				CF0F1E6A2A44503500A83947 /* Chat.swift in Sources */,
 				CF2E04512A4C72D80018497D /* MessageFieldView.swift in Sources */,

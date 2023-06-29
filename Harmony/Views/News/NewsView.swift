@@ -17,11 +17,11 @@ struct NewsView: View {
             ScrollView{
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
-<<<<<<< HEAD
-                        NavigationLink(destination: DetailNewsView(news: update, comment: "")) {
-=======
+
+                     
+
                         NavigationLink(destination: DetailNewsView(news: update, postComments: exemplePost.comments)) {
->>>>>>> parent of 85a8503 (Merge branch 'main' of https://github.com/Sonycodes/Harmony)
+
                             NewsViewModel(news: update)
                         }
                     }

@@ -50,7 +50,7 @@ struct MessagesView: View {
                 }
             }
             .navigationBarBackButtonHidden(false)
-            .toolbar(.hidden, for: .tabBar)
+           
         }
     }
     
