@@ -10,32 +10,23 @@ import SwiftUI
 
 struct DetailCommunityView: View {
     
-
+//    @EnvironmentObject var teamVM: teamView
+//    @ObservedObject var users = UsersVM()
     
     var community : Community
     
     @State var showSheet = false
     
     var body: some View {
-
         
         ScrollView {
             VStack {
                 Image(community.photo)
-                
-      VStack {
-            Image(community.photo)
-                .resizable()
-                .scaledToFit()
-
-            
-            
-            HStack{
-                Image(community.photo1)
-
                     .resizable()
                     .scaledToFit()
-       
+                //                                        .frame(width: 350, height: 350)
+                //                .cornerRadius(10)
+                
                 
                 HStack{
                     Image(community.photo1)
@@ -109,7 +100,7 @@ struct DetailCommunityView: View {
                         .modifier(Normal())
                     Text("Evénement a venir")
                         .modifier(Head1())
-                    EventListRowView(myEvent: eventExemple)
+//                    EventListRowView(myEvent: eventExample)
                     
                     HStack{
                         Button {
