@@ -100,7 +100,7 @@ struct DetailCommunityView: View {
                         .modifier(Normal())
                     Text("Evénement a venir")
                         .modifier(Head1())
-//                    EventListRowView(myEvent: eventExample)
+                    EventListRowView(myEvent: eventExemple)
                     
                     HStack{
                         Button {
