@@ -186,7 +186,7 @@ struct EventInfoView: View {
                 HStack {
                     Image(systemName: "person.3.fill")
                         .font(.system(size: 16.0))
-                    Text(event.community)
+                    Text(event.community.name)
                 }
             }
             .modifier(Normal())
@@ -477,7 +477,7 @@ struct BookingFormView: View {
                         Image(systemName: "person.3.fill")
                             .frame(width: 60)
                         
-                        Text(event.community)
+                        Text(event.community.name)
                     }
                     .padding(.vertical,8)
                 }

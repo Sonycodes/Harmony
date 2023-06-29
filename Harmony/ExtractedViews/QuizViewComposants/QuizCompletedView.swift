@@ -45,7 +45,7 @@ struct QuizCompletedView: View {
                             .modifier(Head1())
                             .padding(.top, 24)
                         
-//                        QuizLankingView()
+                        QuizLankingView(quizManagerVM: quizManagerVM)
                         
                     }
                     .padding(.horizontal, 24)

@@ -33,9 +33,9 @@ class Event : Identifiable, ObservableObject {
     @Published var photo : String
     @Published var team : [User]
     @Published var comments : Comments // [Comment]
-    @Published var community : String
+    @Published var community : Community
     
-    init(title: String, isOnline: Bool, date: Date, address: Address?, listParticipant: [User], detail: String, minParticipants: Int, photo : String, team : [User], comments : Comments, community : String) {
+    init(title: String, isOnline: Bool, date: Date, address: Address?, listParticipant: [User], detail: String, minParticipants: Int, photo : String, team : [User], comments : Comments, community : Community) {
         self.title = title
         self.isOnline = isOnline
         self.date = date

@@ -15,6 +15,14 @@ struct DetailCommunityView: View {
     
     var community : Community
     
+    @ObservedObject var eventsList: EventsViewModel
+    
+    var eventFilter: [Event] {
+        return eventsList.eventsList.filter { event in
+                (community == event.community) && (event.date > Date())
+            }
+        }
+    
     @State var showSheet = false
     
     var body: some View {
@@ -24,9 +32,6 @@ struct DetailCommunityView: View {
                 Image(community.photo)
                     .resizable()
                     .scaledToFit()
-                //                                        .frame(width: 350, height: 350)
-                //                .cornerRadius(10)
-                
                 
                 HStack{
                     Image(community.photo1)
@@ -34,6 +39,7 @@ struct DetailCommunityView: View {
                         .frame(width: 85, height: 85)
                         .cornerRadius(10)
                         .offset(x:-5 ,y:5)
+                    
                     VStack{
                         Text(community.name)
                             .frame(width: 200,height: 20)
@@ -51,10 +57,13 @@ struct DetailCommunityView: View {
                 Button {
                     
                 }label: {
-                    Image(systemName:"checkmark")
-                        .modifier(Head2())
                     
-                    Text("déjà menbre")
+                    HStack {
+                        Image(systemName:"checkmark")
+//                            .modifier(Head2())
+                        
+                        Text("Déjà membre")
+                    }
                         .frame(width: 316, height: 44)
                         .modifier(Head2())
                     
@@ -65,7 +74,7 @@ struct DetailCommunityView: View {
                 .padding()
                 VStack(alignment: .leading,spacing: 32) {
                     
-                    Text("Mon équipe")
+                    Text("Hôtes")
                         .modifier(Head1())
                     ScrollView(.horizontal)
                     {
@@ -73,13 +82,11 @@ struct DetailCommunityView: View {
                             ForEach(community.hosts) { host in
                                 
                                 IconUserView(icon: host.photo, isConnected: host.isConnected)
-                                
                             }
-                            
                         }
                     }
                     //            Text("")
-                    Text("Autres participants")
+                    Text("Membre de la communauté")
                         .modifier(Head1())
                     ScrollView(.horizontal)
                     {
@@ -92,15 +99,26 @@ struct DetailCommunityView: View {
                             
                         }
                     }
-                    
                     .modifier(Head1())
+                    
+                    
+                    
                     Text("Description")
                         .modifier(Head1())
+                    
                     Text(community.description)
                         .modifier(Normal())
+                    
+                    
+                    
                     Text("Evénement a venir")
                         .modifier(Head1())
-                    EventListRowView(myEvent: eventExemple)
+                    
+                    ForEach(eventFilter) { event in
+                        EventListRowView(myEvent: event)
+                    }
+                    
+                    
                     
                     HStack{
                         Button {
@@ -138,7 +156,7 @@ struct DetailCommunityView: View {
 
 struct DetailCommunityView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailCommunityView(community: culturefrancaises)
+        DetailCommunityView(community: culturejaponaise, eventsList: EventsViewModel())
 //        DetailCommunityView(community: eventExampleNonRegistered, myTeam: eventExampleNonRegistered.team, participants: eventExampleNonRegistered.listParticipant, isOnline: eventExampleNonRegistered)
     }
 }

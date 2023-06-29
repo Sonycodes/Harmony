@@ -53,7 +53,7 @@ struct ExploreView: View {
                         in
                         
                         NavigationLink {
-                            DetailCommunityView(community: culture)
+                            DetailCommunityView(community: culture, eventsList: EventsViewModel())
                         } label: {
                             DetailExploreView(community: culture)
                             
