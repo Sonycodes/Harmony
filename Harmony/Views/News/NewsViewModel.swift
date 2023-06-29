@@ -57,16 +57,7 @@ struct NewsViewModel: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom)
             
-//            
-//            RoundedRectangle(cornerRadius: 25)
-//                .frame(width:370, height: 45)
-//                .foregroundColor(Color.sky)
-//                .overlay(  SuperTextField(
-//                    placeholder: Text("Ecrire un commentaire").foregroundColor(.darkPeriwinkle),
-////                    text: $comment
-//                )
-//                    .padding()
-//                )
+
             HStack{
                 Text("Voir le post en intégralité")
                 Spacer()
