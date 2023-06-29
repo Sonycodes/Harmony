@@ -35,7 +35,7 @@ var userMax: User = User(pseudo: "Max", photo: "Max", coverPhoto: "", city: "Lil
 
 var userThomas: User = User(pseudo: "Thomas", photo: "thomas", coverPhoto: "", city: "Paris", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true)
 
-var userYuko: User = User(pseudo: "Yuko", photo: "yuko", coverPhoto: "", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true)
+var userYuko: User = User(pseudo: "Yuko", photo: "Yuko", coverPhoto: "", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true)
 
 var userKelian: User = User(pseudo: "Kelian", photo: "Kelian", coverPhoto: "", city: "Toulouse", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true)
 

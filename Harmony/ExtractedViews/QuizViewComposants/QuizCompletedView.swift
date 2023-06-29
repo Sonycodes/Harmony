@@ -74,10 +74,6 @@ struct QuizCompletedView: View {
                     .frame(width: UIScreen.main.bounds.size.width - 24, height: 80, alignment: .center)
                     .multilineTextAlignment(.center)
                 
-                Text("On ajoute le classement ici ou un buton 'Voir le classement ?")
-                    .foregroundColor(.red)
-                    .font(.title)
-                
                 
                 Spacer()
             }

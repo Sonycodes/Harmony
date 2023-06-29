@@ -175,7 +175,6 @@ struct EventInfoView: View {
                     
                     VStack(alignment: .leading) {
                         Text(event.address?.namePlace ?? "Evénement")
-                        
                         HStack {
                             Text(event.address?.address ?? "en ligne")
                             Text(event.address?.city ?? "")

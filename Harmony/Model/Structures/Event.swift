@@ -39,7 +39,7 @@ class Event : Identifiable, ObservableObject {
         self.title = title
         self.isOnline = isOnline
         self.date = date
-//        self.address = address
+        self.address = address
         self.listParticipant = listParticipant
         self.detail = detail
         self.minParticipants = minParticipants

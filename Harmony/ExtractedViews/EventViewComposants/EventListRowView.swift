@@ -42,21 +42,7 @@ struct EventListRowView: View {
                 
                 HStack {
                     
-                    ZStack {
-                        Image(systemName: "triangle.fill")
-                            .rotationEffect(.degrees(180))
-                            .offset(x: 0.16, y: 7.5)
-                            .font(.system(size: 10))
-                        
-                        Image(systemName: "circle.fill")
-                            .offset(x: 0, y: -2)
-                            .font(.system(size: 16))
-                        
-                        Image(systemName: "circle.fill")
-                            .offset(x: 0, y: -2)
-                            .font(.system(size: 6))
-                            .foregroundColor(.white)
-                    } // icon Map Pin
+                    MapPinView() // icon Map Pin
                     
                     Text(myEvent.address?.city ?? "En ligne")
                 }
