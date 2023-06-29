@@ -10,8 +10,7 @@ import SwiftUI
 
 struct DetailCommunityView: View {
     
-//    @EnvironmentObject var teamVM: teamView
-//    @ObservedObject var users = UsersVM()
+
     
     var community : Community
     
@@ -110,7 +109,7 @@ struct DetailCommunityView: View {
                         .modifier(Normal())
                     Text("Evénement a venir")
                         .modifier(Head1())
-                    EventListRowView(myEvent: eventExample)
+                    EventListRowView(myEvent: eventExemple)
                     
                     HStack{
                         Button {
