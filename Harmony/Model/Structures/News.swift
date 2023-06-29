@@ -19,7 +19,7 @@ struct News : Identifiable {
     var content : String
     var publishDate : Date
     var like : Int
-    var comments : Comments
+//    var comments : [Comment] Ca va devenir une class car j'ai besoin que soit un objet
     var community : Community //peut pas lier encore
 //    var categoryNews : CategoryNews : a revoir avec le bouton actualité
 }
