@@ -27,15 +27,33 @@ struct LabelConversationView: View {
                         .modifier(Head1())
                         
                     Spacer()
-                        
-                    // date message
-                    Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
-                        .modifier(HeadGray())
+                    
+                    VStack {
+                        // date message
+                        Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
+                            .fontWeight(conversation.isRead ? .medium : .bold)
+                            .modifier(HeadGray())
+                       
+                    }
+                    
+                    
                 }
                 
                 // beginning of last message
-                Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.content : "")
+                Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage() : "")
                     .modifier(Normal())
+                
+            }
+            
+            if !conversation.isRead {
+                ZStack {
+                    Circle()
+                        .tint(Color.darkGray)
+                    
+                    Text(String(conversation.numberOfMessagesUnread()))
+                        .foregroundColor(Color.white)
+                }
+                .frame(width: 20, height: 20)
             }
         }
     }

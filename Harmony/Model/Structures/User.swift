@@ -21,11 +21,13 @@ class Message : Identifiable, ObservableObject {
     @Published var content : String
     @Published var isRecipient : Bool
     @Published var date : Date
+    @Published var isRead : Bool
     
     init(content: String, isRecipient: Bool, date: Date) {
         self.content = content
         self.isRecipient = isRecipient
         self.date = date
+        self.isRead = isRecipient ? true : false
     }
     
     func dateToString() -> String {
@@ -70,6 +72,16 @@ class Message : Identifiable, ObservableObject {
         
         return dateString
     }
+    
+    func startMessage() -> String {
+
+        if (self.content.count > 40) {
+            let range = self.content.startIndex..<self.content.index(self.content.startIndex, offsetBy: 40)
+            return String(self.content[range]) + String("...")
+        }
+        
+        return self.content
+    }
 }
 
 class Conversation : Identifiable, ObservableObject {
@@ -77,10 +89,12 @@ class Conversation : Identifiable, ObservableObject {
     
     @Published var messages : [Message]
     var user : User
+    @Published var isRead : Bool
 
-    init(messages: [Message] = [], user: User) {
+    init(messages: [Message] = [], user: User, isRead : Bool) {
         self.messages = messages
         self.user = user
+        self.isRead = isRead
     }
     
     func searchByMessage(pattern: String) -> Message? {
@@ -99,6 +113,27 @@ class Conversation : Identifiable, ObservableObject {
     
     func lastMessage () -> Message? {
         return self.messages.last
+    }
+    
+    func readAllMessages() {
+        for message in self.messages {
+            if !message.isRead {
+                message.isRead = true
+            }
+        }
+        self.isRead = true
+    }
+    
+    func numberOfMessagesUnread() -> Int {
+        var i = 0
+        
+        for message in messages {
+            if !message.isRead {
+                i += 1
+            }
+        }
+        
+        return i
     }
 }
 
@@ -156,11 +191,11 @@ class User : Identifiable, Equatable, ObservableObject {
         self.conversations = conversations
     }
     
-    func newConversation(user : User) {
-        self.conversations.append(Conversation(user: user))
+    func newConversation(user: User, isRead: Bool) {
+        self.conversations.append(Conversation(user: user, isRead: isRead))
     }
     
-    func addConversation(conv : Conversation) -> Conversation {
+    func addConversation(conv: Conversation) -> Conversation {
         self.conversations.append(conv)
         return conv
     }

@@ -23,7 +23,7 @@ struct AddConversationView: View {
                             
                             Button {
                                 // add an element conversation in the selected user
-                                user.newConversation(user: users.users[i])
+                                user.newConversation(user: users.users[i], isRead: true)
                                 isAction = true
                             } label: {
                                 HStack {

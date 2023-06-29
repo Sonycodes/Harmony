@@ -61,17 +61,17 @@ var conversation1 = Conversation(messages: [
     Message(content: "Salut, tu vas bien ?", isRecipient: false, date: Date()),
     Message(content: "Oui très bien et toi ?", isRecipient: true, date: Date()),
     Message(content: "Aujourd'hui, il y a eu bcp de changements dans ma vie", isRecipient: false, date: Date())
-], user: userJohan)
+], user: userJohan, isRead: true)
 
 var conversation2 = Conversation(messages: [
     Message(content: "Salut, tu vas bien ?", isRecipient: true, date: Date()),
     Message(content: "Oui très bien et toi ?", isRecipient: false, date: Date()),
     Message(content: "Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isRecipient: true, date: Date())
-], user: userElodie)
+], user: userElodie, isRead: false)
 
 var conversation3 = Conversation(messages: [
     Message(content: "Salut, tu vas bien ?", isRecipient: false, date: Date()),
     Message(content: "Oui très bien et toi ?", isRecipient: true, date: Date()),
     Message(content: "Aujourd'hui, il y a eu bcp de changements dans ma vie", isRecipient: false, date: Date()),
     Message(content: "Haaa qu'est-ce qu'il se passe ????", isRecipient: true, date: Date())
-], user: userJeremie)
+], user: userJeremie, isRead: false)

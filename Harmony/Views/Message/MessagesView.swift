@@ -52,6 +52,9 @@ struct MessagesView: View {
             .navigationBarBackButtonHidden(false)
            
         }
+        .onAppear {
+            conversation.readAllMessages()
+        }
     }
     
 }

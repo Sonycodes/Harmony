@@ -11,7 +11,6 @@ struct ChatView: View {
     
     @State var searchMessageByUser : String = ""
     @ObservedObject var user : User
-    @State var visibilityTabBar : Visibility = .visible
     
     var body: some View {
         NavigationView {
@@ -22,8 +21,9 @@ struct ChatView: View {
                     // display conversations based on username search
                     List {
                         ForEach(searchResult) { conv in
-                            NavigationLink(destination: MessagesView(conversation: conv))
-                            {
+                            NavigationLink {
+                                MessagesView(conversation: conv)
+                            } label: {
                                 LabelConversationView(conversation: conv)
                             }
                         }

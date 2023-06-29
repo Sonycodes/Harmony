@@ -14,7 +14,7 @@ struct LabelMessageView: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .top) {
                 if (iconDestinataire != nil) {
                     IconUserView(icon: iconDestinataire!)
                 }
