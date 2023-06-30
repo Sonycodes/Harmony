@@ -95,7 +95,7 @@ class EventsViewModel: ObservableObject {
             listParticipant: [userMarie, userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
             detail: "L’association des Hawaïens Hauts-de-France organise une soirée danse hawaïenne Grand’Place de Lille à l’occasion de la 40e anniversaire de la Fête de la musique. Rendez-vous sur la Place pour découvrir la culture hawaïenne et passer un moment convivial.",
             minParticipants: 8,
-            photo: "hawai2",
+            photo: "hawaiianDance",
             team: [userTom, userMarie, userYuko],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],

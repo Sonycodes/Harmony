@@ -12,6 +12,8 @@ struct ProfileCustomView: View {
     //@EnvironmentObject private var userViewModel: UserViewModel // Access the UserViewModel
     
     @State private var showMediaGallery = false
+    @State private var isAddingLanguage = false
+    @State private var newLanguage = ""
     
     var body: some View {
         ScrollView {
@@ -24,14 +26,55 @@ struct ProfileCustomView: View {
                     Image(currentUser.coverPhoto)
                         .resizable()
                         .aspectRatio(16/9, contentMode: .fit)
-                    
+                        .overlay(
+                            ZStack {
+                                Button(action: {
+                                    showMediaGallery = true
+                                }) {
+                                    ZStack {
+                                        Rectangle()
+                                            .foregroundColor(Color.black.opacity(0.5))
+                                            .aspectRatio(16/9, contentMode: .fit)
+                                            
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 44, height: 44)
+                                            .foregroundColor(.white)
+                                    }
+                                }
+
+                            }
+                        )
+
                     Image(currentUser.photo)
                         .resizable()
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                         .padding()
-                        .offset(x: -240, y: 84) // Adjust the offset as needed
+                        .offset(x: -240, y: 84)
+                        .overlay(
+                            ZStack {
+                                Button(action: {
+                                    showMediaGallery = true
+                                }) {
+                                    ZStack {
+                                        
+                                        Rectangle()
+                                            .foregroundColor(Color.black.opacity(0.5))
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 44, height: 44)
+                                            .foregroundColor(.white)
+                                    }
+                                }
+                                .offset(x: -240, y: 84)
+                                
+                            }
+                        )
                 }
+
                 
                 Text(currentUser.pseudo)
                     .modifier(Head1())
@@ -90,8 +133,57 @@ struct ProfileCustomView: View {
                     Text("Mes langues")
                         .modifier(Head1())
                         .padding()
-                    
-                   
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(currentUser.language, id: \.self) { language in
+                                Text(language.rawValue)
+                                    .padding(8)
+                                    .background(Color.darkPeriwinkle)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                            if isAddingLanguage {
+                                Picker(selection: $newLanguage, label: Text("Ajouter une langue")) {
+                                    ForEach(Language.allCases, id: \.self) { language in
+                                        Text(language.rawValue)
+                                            .tag(language.rawValue)
+                                    }
+                                }
+                                .pickerStyle(DefaultPickerStyle())
+                                .padding(8)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(10)
+                                .padding(.horizontal)
+                                
+                                Button(action: {
+                                    if let selectedLanguage = Language(rawValue: newLanguage) {
+                                        currentUser.language.append(selectedLanguage)
+                                        newLanguage = ""
+                                        isAddingLanguage = false
+                                    }
+                                }) {
+                                    Text("Ajouter")
+                                        .padding(8)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
+                                }
+                            } else {
+                                Button(action: {
+                                    isAddingLanguage = true
+                                }) {
+                                    Text("+ Ajouter une langue")
+                                        .padding(8)
+                                        .background(Color.green)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
+                                }
+                            }
+                        }
+                    }
+                    .padding()
+
+
                     Spacer() // Add space at the bottom
                 }
             }

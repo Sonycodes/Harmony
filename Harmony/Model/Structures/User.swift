@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum Language {
-    case japanese
-    case french
-    case portuguese
-    case english
-    case deutsch
+enum Language: String, CaseIterable {
+    case japanese = "Japanese"
+    case french = "French"
+    case portuguese = "Portuguese"
+    case english = "English"
+    case deutsch = "Deutsch"
 }
 
 enum TypeMessage {

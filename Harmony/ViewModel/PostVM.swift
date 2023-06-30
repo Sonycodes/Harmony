@@ -10,7 +10,7 @@ import Foundation
 class Post:ObservableObject {
     @Published var newsmodel: [News] = [
 
-       News(title: "Fête de la musique - danse hawaïenne à Lille", photo: "Hawai1", author: userTom, content: "L’association des Hawaïens Hauts-de-France organise une soirée danse hawaïenne Grand’Place de Lille à l’occasion de la 40e anniversaire de la Fête de la musique.", publishDate: Date(), like: 1, comments:  [
+       News(title: "Fête de la musique - danse hawaïenne à Lille", photo: "hawaiianDance", author: userTom, content: "L’association des Hawaïens Hauts-de-France organise une soirée danse hawaïenne Grand’Place de Lille à l’occasion de la 40e anniversaire de la Fête de la musique.", publishDate: Date(), like: 1, comments:  [
         Comment(user: userAdeline, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
                Comment(user: userYuko, content: "@Sonia Si tu arrives à la Part-Dieu, prends le métro B jusqu'à Saxe Gambetta, puis métro D jusqu'à Bellecour. C'est à 2 minutes de la station.", date: Date(timeIntervalSince1970: 1687408200)),
         Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))], community: culturehawaienne, commentLikes: [53,29,140,8]),
