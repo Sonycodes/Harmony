@@ -27,7 +27,7 @@ struct MessageFieldView: View {
                     .cornerRadius(50)
             }
         }
-        .padding(.horizontal)
+        //.padding(.horizontal)
         .padding(.vertical, 10)
         .background(Color.whiteSmoke)
         .cornerRadius(50)

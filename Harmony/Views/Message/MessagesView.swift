@@ -11,6 +11,7 @@ struct MessagesView: View {
     
     @ObservedObject var conversation : Conversation
     
+    @State var showingPopover = false
     @State var newMessage : String = ""
     
     var body: some View {
@@ -35,8 +36,22 @@ struct MessagesView: View {
                 
                 Spacer()
                 
-                // display the widget for typing a new message
-                MessageFieldView(newMessage: $newMessage, conversation: conversation)
+                Divider()
+                
+                HStack {
+                    // display the widget for typing a new message
+                    MessageFieldView(newMessage: $newMessage, conversation: conversation)
+                    
+                    Button {
+                        showingPopover = true
+                    } label: {
+                        Image(systemName: "plus.app.fill")
+                            .font(.system(size: 20))
+                            .tint(Color.darkPeriwinkle)
+                    }
+                    Spacer()
+                }
+                
             }
             .padding(.top, 10)
             .navigationBarTitleDisplayMode(.inline)
@@ -50,9 +65,14 @@ struct MessagesView: View {
                 }
             }
             .navigationBarBackButtonHidden(false)
-           
+            .onChange(of: showingPopover) { newValue in
+                Text("Bla")
+            }
+//            .popover(isPresented: $showingPopover) {
+//                Text("Bla")
+//            }
         }
-        .onAppear {
+        .onDisappear {
             conversation.readAllMessages()
         }
     }

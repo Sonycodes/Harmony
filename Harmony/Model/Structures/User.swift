@@ -60,14 +60,14 @@ class Message : Identifiable, ObservableObject {
                     if (components2.day!-components.day!) == 1 {
                         dateString = "Hier à " + dateString
                     } else {
-                        dateString = "Le " + String(components2.day!) + "/" + String(components2.month!) + " à " + dateString
+                        dateString = "Le " + String(components2.day!) + "/" + String(components2.month!)
                     }
                 }
             } else {
-                dateString = "Le " + String(components2.day!) + "/" + String(components2.month!) + " à " + String(components2.hour!) + "h" + String(components2.minute!)
+                dateString = "Le " + String(components2.day!) + "/" + String(components2.month!)
             }
         } else {
-            dateString = "Le " + String(components2.day!) + "/" + String(components2.month!) + "/" + String(components2.year!) +  " à " + String(components2.hour!) + "h" + String(components2.minute!)
+            dateString = "Le " + String(components2.day!) + "/" + String(components2.month!) + "/" + String(components2.year!) 
         }
         
         return dateString
