@@ -21,10 +21,10 @@ class EventsViewModel: ObservableObject {
             minParticipants: 8,
             photo: "sake",
             team: [userTom, userMarie, userYuko],
-            comments: Comments(comments:[
+            comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
                        Comment(user: userYuko, content: "@Sonia Si tu arrives à la Part-Dieu, prends le métro B jusqu'à Saxe Gambetta, puis métro D jusqu'à Bellecour. C'est à 2 minutes de la station.", date: Date(timeIntervalSince1970: 1687408200)),
-                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))]),
+                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturejaponaise
         ),
         
@@ -38,7 +38,7 @@ class EventsViewModel: ObservableObject {
             minParticipants: 12,
             photo: "temple",
             team: [userMarie],
-            comments: Comments(comments:[Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))]),
+            comments: [Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturejaponaise
         ),
         
@@ -52,8 +52,8 @@ class EventsViewModel: ObservableObject {
             minParticipants: 8,
             photo: "japon",
             team: [userTom, userYuko, userMarie],
-            comments: Comments(comments:[Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
-                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))]),
+            comments: [Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
+                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturejaponaise
         ),
         
@@ -67,8 +67,8 @@ class EventsViewModel: ObservableObject {
             minParticipants: 8,
             photo: "MyPhoto",
             team: [userTom, userYuko],
-            comments: Comments(comments:[Comment(user: userMax, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
-                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))]),
+            comments: [Comment(user: userMax, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
+                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturejaponaise
         ),
         
@@ -82,8 +82,8 @@ class EventsViewModel: ObservableObject {
             minParticipants: 8,
             photo: "petanque",
             team: [userTom, userMarie, userYuko],
-            comments: Comments(comments:[
-                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))]),
+            comments: [
+                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturefrancaises
         ),
         
@@ -97,8 +97,8 @@ class EventsViewModel: ObservableObject {
             minParticipants: 8,
             photo: "hawai2",
             team: [userTom, userMarie, userYuko],
-            comments: Comments(comments:[
-                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))]),
+            comments: [
+                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturehawaienne
         ),
         Event(
@@ -111,8 +111,8 @@ class EventsViewModel: ObservableObject {
             minParticipants: 8,
             photo: "japon",
             team: [userTom, userMarie, userYuko],
-            comments: Comments(comments:[
-                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))]),
+            comments: [
+                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturenormande
         )
     ]
@@ -186,8 +186,8 @@ var eventExampleNonRegistered: Event = Event(
     minParticipants: 8,
     photo: "japon",
     team: [userTom, userYuko],
-    comments: Comments(comments:[
+    comments: [
         Comment(user: userMax, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
-        Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))]),
+        Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
     community: culturejaponaise
 )

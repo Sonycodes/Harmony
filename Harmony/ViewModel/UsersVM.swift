@@ -33,7 +33,7 @@ var userTom: User = User(pseudo: "Tom", photo: "tomy", coverPhoto: "temple", cit
 
 var userMax: User = User(pseudo: "Max", photo: "Max", coverPhoto: "", city: "Lille", language: [Language.french, Language.portuguese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
-var userThomas: User = User(pseudo: "Thomas", photo: "thomas", coverPhoto: "hawai2", city: "Paris", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
+var userThomas: User = User(pseudo: "Thomas", photo: "thomas", coverPhoto: "hawai2", city: "Paris", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [userMax])
 
 var userYuko: User = User(pseudo: "Yuko", photo: "Yuko", coverPhoto: "", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
@@ -48,7 +48,7 @@ var userMarie = User(
     media: ["Media1", "Media2"],
     about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?",
     isConnected: true,
-    events: [Event(title: "Balade au bord de mer", isOnline: false, date: Date(), address: nil, listParticipant: [userJohan, userJeremie], detail: "Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum.", minParticipants: 4, photo: "Hawai", team: [userKelian, userYuko], comments:  Comments(comments: []), community: culturenormande)],
+    events: [Event(title: "Balade au bord de mer", isOnline: false, date: Date(), address: nil, listParticipant: [userJohan, userJeremie], detail: "Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum.", minParticipants: 4, photo: "Hawai", team: [userKelian, userYuko], comments: [], community: culturenormande)],
     conversations: [conversation1, conversation2, conversation3], myContacts: [userSonia, userThomas, userTom])
 
 var userJohan = User(pseudo: "Johan", photo: "Johan", coverPhoto: "CoverPhoto2", city: "Paris", language: [Language.english, Language.japanese, Language.french], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
@@ -81,5 +81,6 @@ var conversation3 = Conversation(messages: [
     Message(content: MessageContent(typeMessage: .text, contentText: "Salut, tu vas bien ?"), isRecipient: false, date: Date()),
     Message(content: MessageContent(typeMessage: .text, contentText: "Oui très bien et toi ?"), isRecipient: true, date: Date()),
     Message(content: MessageContent(typeMessage: .text, contentText: "Aujourd'hui, il y a eu bcp de changements dans ma vie"), isRecipient: false, date: Date()),
-    Message(content: MessageContent(typeMessage: .text, contentText: "Haaa qu'est-ce qu'il se passe ????"), isRecipient: true, date: Date())
+    Message(content: MessageContent(typeMessage: .text, contentText: "Haaa qu'est-ce qu'il se passe ????"), isRecipient: true, date: Date()),
+    Message(content: MessageContent(typeMessage: .contact, contentUser: userMax), isRecipient: true, date: Date())
 ], user: userJeremie, isRead: false)

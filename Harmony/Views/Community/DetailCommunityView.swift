@@ -115,9 +115,12 @@ struct DetailCommunityView: View {
                         .modifier(Head1())
                     
                     ForEach(eventFilter) { event in
-                        EventListRowView(myEvent: event)
+                        NavigationLink {
+                            DetailEventView(event: event)
+                        } label: {
+                            EventListRowView(myEvent: event)
+                        }
                     }
-                    
                     
                     
                     HStack{

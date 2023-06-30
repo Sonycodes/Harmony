@@ -71,7 +71,7 @@ class Message : Identifiable, ObservableObject {
                         if components.minute == components2.minute {
                             dateString = "Maintenant"
                         } else {
-                            dateString = "Il y a " + String(components.minute!-components2.minute!) + " min"
+                            dateString = String(components.minute!-components2.minute!) + " min"
                         }
                     } else {
                         dateString = String(components2.hour!) + "h" + String(components2.minute!)
@@ -245,6 +245,19 @@ class User : Identifiable, Equatable, ObservableObject {
         }
         
         return nil
+    }
+    
+    func isMyContacts(user: User) -> Bool {
+        for contact in self.myContacts {
+            if (contact === user) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func addMyContacts(user: User) {
+        self.myContacts.append(user)
     }
 }
 

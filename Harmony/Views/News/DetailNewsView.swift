@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DetailNewsView: View {
-    var news: News
+    @ObservedObject var news: News
     @State private var isLiked = false
 //    @State var comment: String
-    @ObservedObject var postComments: Comments
+    //@ObservedObject var postComments: Comments
     @State var newContent: String = ""
     var myProfil: User = userSonia
     
@@ -91,13 +91,13 @@ struct DetailNewsView: View {
                                     .modifier(Head2())
                                 Spacer()
                             }
-                            ForEach(postComments.comments) { comment in
+                            ForEach(news.comments) { comment in
                                 CommentPostView(comment: comment)
                             }
                         }
                         .padding(.horizontal, 24)
                         
-                        WriteCommentFieldView(myProfil: myProfil, newContent: newContent, eventComments: postComments)
+                        WriteCommentFieldNewsView(myProfil: myProfil, newContent: newContent, news: news)
                     }//fin section commentaire
                     
                 }//fin vstack
@@ -112,8 +112,8 @@ struct DetailNewsView: View {
 
 
 
-struct DetailNewsView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailNewsView(news: exemplePost, postComments: exemplePost.comments)
-    }
-}
+//struct DetailNewsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailNewsView(news: exemplePost, postComments: exemplePost.comments)
+//    }
+//}

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewsViewModel: View {
-    var news: News
+    @ObservedObject var news: News
     @State private var isLiked = false
     @State private var showingSheet = false
     
@@ -53,7 +53,8 @@ struct NewsViewModel: View {
                                 Text("32")
                                 })
                                 .sheet(isPresented: $showingSheet) {
-                                    CommentsView(postComments: exemplePost.comments, news: exemplePost)
+                                    CommentsView(news: news)
+//                                    CommentsView(postComments: exemplePost.comments, news: exemplePost)
                                 }
 //                                .sheet(isPresented: $showingSheet) {
 //                                    CommentsView()

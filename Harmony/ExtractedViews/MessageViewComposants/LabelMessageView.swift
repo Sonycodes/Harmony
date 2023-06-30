@@ -8,43 +8,76 @@
 import SwiftUI
 
 struct LabelMessageView: View {
-    var message : MessageContent
+    @ObservedObject var user : User
+    @ObservedObject var message : MessageContent
     var date : String
     var iconDestinataire : String?
+    @State var actionNewConversationView = false
+    @State var actionEventView = false
     
     var body: some View {
         VStack {
             HStack(alignment: .top) {
+                // if the user reference is not sender, display the icon user
                 if (iconDestinataire != nil) {
+                    Spacer()
+                    
                     IconUserView(icon: iconDestinataire!)
+                        .padding(.trailing, 10)
                 }
+                
                 HStack(alignment: .top) {
                     VStack(alignment: .trailing) {
                         switch message.typeMessage {
                         case .text:
                             Text(message.contentText!)
                                 .padding(7)
-                                .frame(width: 250)
+                                .frame(width: 250, alignment: .leading)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
                                 .cornerRadius(10)
                                 .modifier(NormalWhite())
+                            
                         case .contact:
-                            LabelUserView(user: message.contentUser!)
+                            Button {
+                                // add user in myContact if he don't exist in list
+                                if (!user.isMyContacts(user: message.contentUser!)) {
+                                    user.addMyContacts(user: message.contentUser!)
+                                }
+                                
+                                // new conversation in array conversation
+                                user.newConversation(user: message.contentUser!, isRead: true)
+                                
+                                actionNewConversationView = true
+                            } label: {
+                                VStack {
+                                    LabelUserView(user: message.contentUser!)
+                                        .padding(5)
+                                        .frame(width: 200, alignment: .leading)
+                                        .border(Color.white)
+                                }
                                 .padding(7)
-                                .frame(width: 250)
+                                .frame(width: 250, alignment: .center)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                                
                                 .cornerRadius(10)
                                 .modifier(NormalWhite())
+                            }
+                            
                         case .event:
-                            EventListRowView(myEvent: message.contentEvent!)
-                                .padding(7)
-                                .frame(width: 250)
-                                .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
-                                .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
-                                .cornerRadius(10)
-                                .modifier(NormalWhite())
+                            Button {
+                                actionEventView = true
+                            } label: {
+                                EventListRowView(myEvent: message.contentEvent!)
+                                    .padding(7)
+                                    .frame(width: 250, alignment: .leading)
+                                    .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
+                                    .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                                    .cornerRadius(10)
+                                    .modifier(NormalWhite())
+                            }
+                           
                             
                         }
                         
@@ -57,10 +90,16 @@ struct LabelMessageView: View {
                     
                     
                 }
-                .padding((iconDestinataire != nil) ? .leading : .trailing, 20)
+                //.padding((iconDestinataire != nil) ? .leading : .trailing, 20)
             }
-           
             
+        }
+        .sheet(isPresented: $actionNewConversationView) {
+            NewConversationView(users: users, user: user, isAction: $actionNewConversationView)
+        }
+        
+        .sheet(isPresented: $actionEventView) {
+            DetailEventView(event: message.contentEvent!)
         }
     }
 }

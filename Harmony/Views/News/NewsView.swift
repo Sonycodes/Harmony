@@ -11,16 +11,12 @@ struct NewsView: View {
     
     @ObservedObject var newsmodel: Post
     
-   
     var body: some View {
         NavigationView(){
             ScrollView{
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
-
-                     
-
-                        NavigationLink(destination: DetailNewsView(news: update, postComments: exemplePost.comments)) {
+                        NavigationLink(destination: DetailNewsView(news: update)) {
 
                             NewsViewModel(news: update)
                         }

@@ -32,10 +32,11 @@ class Event : Identifiable, ObservableObject {
     @Published var minParticipants: Int
     @Published var photo : String
     @Published var team : [User]
-    @Published var comments : Comments // [Comment]
+//    @Published var comments : Comments // [Comment]
+    @Published var comments : [Comment]
     @Published var community : Community
     
-    init(title: String, isOnline: Bool, date: Date, address: Address?, listParticipant: [User], detail: String, minParticipants: Int, photo : String, team : [User], comments : Comments, community : Community) {
+    init(title: String, isOnline: Bool, date: Date, address: Address?, listParticipant: [User], detail: String, minParticipants: Int, photo : String, team : [User], comments : [Comment], community : Community) {
         self.title = title
         self.isOnline = isOnline
         self.date = date
@@ -47,7 +48,9 @@ class Event : Identifiable, ObservableObject {
         self.team = team
         self.comments = comments
         self.community = community
-        }
+    }
 
-        
+    func addComment (newComment: Comment) {
+        self.comments.append(newComment)
+    }
 }

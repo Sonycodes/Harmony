@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct CommentsView: View {
-    @ObservedObject var postComments: Comments
+    //@ObservedObject var event : Event
+    
+    //@ObservedObject var postComments: Comments
     @State var newContent: String = ""
     var myProfil: User = userSonia
     @State private var isLiked = false
-    var news: News
+    @ObservedObject var news: News
     
     var body: some View {
-        ScrollView{
-            Section{
+        ScrollView {
+            Section {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack{
                         Spacer()
@@ -24,7 +26,7 @@ struct CommentsView: View {
                             .modifier(Head2())
                         Spacer()
                     }
-                    ForEach(postComments.comments) { comment in
+                    ForEach(news.comments) { comment in
                         HStack{
                             CommentPostView(comment: comment)
                             VStack{
@@ -39,7 +41,7 @@ struct CommentsView: View {
 
                 VStack{
                     
-                    WriteCommentFieldView(myProfil: myProfil, newContent: newContent, eventComments: postComments)
+                    WriteCommentFieldNewsView(myProfil: myProfil, newContent: newContent, news: news)
                        
                 }
      
@@ -111,7 +113,8 @@ struct NewCommentFieldView: View {
     
     var myProfil : User
     @State var newContent: String = ""
-    @ObservedObject var eventComments: Comments
+    @ObservedObject var event: Event
+//    @ObservedObject var eventComments: Comments
     
     var body: some View {
         HStack {
@@ -126,7 +129,7 @@ struct NewCommentFieldView: View {
                 .textFieldStyle(.roundedBorder)
             
             Button {
-                eventComments.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
+                event.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
             } label: {
                 Image(systemName: "paperplane.fill")
                     .foregroundColor(Color.sapphire)
@@ -141,6 +144,6 @@ struct NewCommentFieldView: View {
 
 struct CommentsView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentsView(postComments: exemplePost.comments, news: exemplePost)
+        CommentsView(news: exemplePost)
     }
 }

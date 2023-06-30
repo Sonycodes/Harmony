@@ -59,7 +59,7 @@ struct EventsView: View {
                         ForEach(myFuturEvents) { event in
                             ZStack {
                                 NavigationLink {
-                                    DetailEventView(event: event, eventComments: event.comments)
+                                    DetailEventView(event: event)
                                 } label: {
                                     EventListRowView(myEvent: event)
                                 }
@@ -84,7 +84,7 @@ struct EventsView: View {
                         ForEach(myPastEvents) { event in
                             ZStack {
                                 NavigationLink {
-                                    DetailEventView(event: event, eventComments: event.comments)
+                                    DetailEventView(event: event)
                                 } label: {
                                     EventListRowView(myEvent: event)
                                 }
@@ -119,7 +119,3 @@ struct EventsView_Previews: PreviewProvider {
         EventsView()
     }
 }
-
-
-
-

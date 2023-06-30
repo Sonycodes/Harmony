@@ -39,18 +39,17 @@ class Comment : Identifiable, ObservableObject {
     }
 }
 
-class Comments : Identifiable, ObservableObject {
-    var id = UUID()
-    
-    @Published var comments: [Comment]
-    
-    init(comments: [Comment]) {
-        self.comments = comments
-    }
-    
-    func addComment (newComment: Comment) {
-        self.comments.append(newComment)
-    }
-    
-}
-
+//class Comments : Identifiable, ObservableObject {
+//    var id = UUID()
+//    
+//    @Published var comments: [Comment]
+//    
+//    init(comments: [Comment]) {
+//        self.comments = comments
+//    }
+//    
+//    func addComment (newComment: Comment) {
+//        self.comments.append(newComment)
+//    }
+//    
+//}

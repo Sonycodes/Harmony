@@ -9,8 +9,7 @@ import SwiftUI
 
 struct DetailEventView: View {
     
-    @State var event: Event
-    @ObservedObject var eventComments: Comments
+    @ObservedObject var event: Event
     
     let now = Date()
     var myProfil: User = myUser
@@ -107,20 +106,20 @@ struct DetailEventView: View {
                     Text("Discussion")
                         .modifier(Head2())
                     
-                    ForEach(eventComments.comments) { comment in
+                    ForEach(event.comments) { comment in
                         DiscussionFeedView(comment: comment)
                     }
                 }
                 .padding(.horizontal, 24)
                 
                 
-                WriteCommentFieldView(myProfil: myProfil, newContent: newContent, eventComments: eventComments)
+                WriteCommentFieldEventView(myProfil: myProfil, newContent: newContent, event: event)
                 
                 
             }  // end VStack
             
             .sheet(isPresented: $showBookingForm) {
-                BookingFormView(event: $event)
+                BookingFormView(event: event)
             }
             .presentationDetents([.medium, .large])
             
@@ -133,7 +132,7 @@ struct DetailEventView: View {
 
 struct DetailEventView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailEventView(event: eventExampleNonRegistered, eventComments: eventExampleNonRegistered.comments)
+        DetailEventView(event: eventExampleNonRegistered)
     }
 }
 
@@ -370,11 +369,12 @@ struct DiscussionFeedView: View {
 
 
 
-struct WriteCommentFieldView: View {
+struct WriteCommentFieldEventView: View {
     
     var myProfil : User
     @State var newContent: String = ""
-    @ObservedObject var eventComments: Comments
+    //@ObservedObject var eventComments: Comments
+    @ObservedObject var event: Event
     
     var body: some View {
         HStack {
@@ -389,7 +389,38 @@ struct WriteCommentFieldView: View {
                 .textFieldStyle(.roundedBorder)
             
             Button {
-                eventComments.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
+                event.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
+            } label: {
+                Image(systemName: "paperplane.fill")
+                    .foregroundColor(Color.sapphire)
+            }
+            
+        }
+        .padding(.horizontal, 24)
+    }
+}
+
+struct WriteCommentFieldNewsView: View {
+    
+    var myProfil : User
+    @State var newContent: String = ""
+    //@ObservedObject var eventComments: Comments
+    @ObservedObject var news: News
+    
+    var body: some View {
+        HStack {
+            
+            Image(myProfil.photo)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 32, height: 32)
+                .clipShape(Circle())
+            
+            TextField("Ecrire un commentaire", text: $newContent)
+                .textFieldStyle(.roundedBorder)
+            
+            Button {
+                news.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
             } label: {
                 Image(systemName: "paperplane.fill")
                     .foregroundColor(Color.sapphire)
@@ -403,11 +434,9 @@ struct WriteCommentFieldView: View {
 
 
 
-
-
 struct BookingFormView: View {
     
-    @Binding var event: Event
+    @ObservedObject var event: Event
     
     var formattedDateString: String {
         let dateFormatter = DateFormatter()
