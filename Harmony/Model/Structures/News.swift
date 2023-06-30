@@ -23,8 +23,9 @@ class News : Identifiable, ObservableObject {
     @Published var like : Int
     @Published var comments : [Comment]
     @Published var community : Community //peut pas lier encore
+    @Published var commentLikes: [Int]
     
-    init(id: UUID = UUID(), title: String, photo: String, author: User, content: String, publishDate: Date, like: Int, comments: [Comment], community: Community) {
+    init(id: UUID = UUID(), title: String, photo: String, author: User, content: String, publishDate: Date, like: Int, comments: [Comment], community: Community, commentLikes: [Int]) {
         self.id = id
         self.title = title
         self.photo = photo
@@ -34,6 +35,7 @@ class News : Identifiable, ObservableObject {
         self.like = like
         self.comments = comments
         self.community = community
+        self.commentLikes = commentLikes
     }
     
     func addComment (newComment: Comment) {
