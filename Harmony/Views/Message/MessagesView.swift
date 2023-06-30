@@ -87,7 +87,13 @@ struct MessagesView: View {
                         List {
                             ForEach(user.events) { event in
                                 //if (event.date >= Date()) {
+                                Button {
+                                    conversation.addMessage(new: Message(content: MessageContent(typeMessage: .event, contentEvent: event), isRecipient: true, date: Date()))
+                                    eventsShare.toggle()
+                                } label: {
                                     EventListRowView(myEvent: event)
+                                }
+                                    
                                 //}
                             }
                         }
