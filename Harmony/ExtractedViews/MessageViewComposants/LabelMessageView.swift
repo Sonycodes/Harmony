@@ -25,16 +25,14 @@ struct LabelMessageView: View {
                             Text(message.contentText!)
                                 .padding(7)
                                 .frame(width: 250)
-                                //
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
                                 .cornerRadius(10)
                                 .modifier(NormalWhite())
                         case .contact:
-                            Text(message.contentUser!.pseudo)
+                            LabelUserView(user: message.contentUser!)
                                 .padding(7)
                                 .frame(width: 250)
-                                //
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
                                 .cornerRadius(10)
@@ -43,7 +41,6 @@ struct LabelMessageView: View {
                             EventListRowView(myEvent: message.contentEvent!)
                                 .padding(7)
                                 .frame(width: 250)
-                                //
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
                                 .cornerRadius(10)
