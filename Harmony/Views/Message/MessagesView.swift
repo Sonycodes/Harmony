@@ -47,6 +47,7 @@ struct MessagesView: View {
                     // display the widget for typing a new message
                     MessageFieldView(newMessage: $newMessage, conversation: conversation)
                     
+                    // button to show the item sharing actions (events, contacts, communities, images)
                     Button {
                         showingShare.toggle()
                     } label: {
@@ -58,6 +59,8 @@ struct MessagesView: View {
                 }
                 
                 HStack {
+                    
+                    // display the item sharing actions
                     if showingShare {
                         HStack {
                             ElementShareInConversationView(elementName: "Contacts", elementImg: "person.circle", elementChange: $contactsShare)
@@ -74,13 +77,12 @@ struct MessagesView: View {
             
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    HStack {
-                        IconUserView(icon: conversation.user.photo, isConnected: conversation.user.isConnected)
-                        Text(conversation.user.pseudo)
-                    }
+                    LabelUserView(user: conversation.user)
                 }
             }
             .navigationBarBackButtonHidden(false)
+            
+            // modal which displays the list of events to share
             .sheet(isPresented: $eventsShare) {
                 Form {
                     Section(header: Text("Partager un des événements à venir")) {
@@ -100,6 +102,8 @@ struct MessagesView: View {
                     }
                 }
             }
+            
+            // modal which displays the list of contacts to share
             .sheet(isPresented: $contactsShare) {
                 Form {
                     Section(header: Text("Partager un contact")) {
@@ -110,10 +114,7 @@ struct MessagesView: View {
                                         conversation.addMessage(new: Message(content: MessageContent(typeMessage: .contact, contentUser: contact), isRecipient: true, date: Date()))
                                         contactsShare.toggle()
                                     } label: {
-                                        HStack {
-                                            IconUserView(icon: contact.photo)
-                                            Text(contact.pseudo)
-                                        }
+                                        LabelUserView(user: contact)
                                     }
                                    
                                 }
