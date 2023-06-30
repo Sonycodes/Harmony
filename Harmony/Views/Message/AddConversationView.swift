@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddConversationView: View {
     @ObservedObject var user : User
-    @ObservedObject var users : UsersVM
     @State var isChanged : Bool = false
     @State var isAction : Bool = false
     
@@ -18,19 +17,19 @@ struct AddConversationView: View {
         Form {
             Section(header: Text("Commencer une conversation avec...")) {
                 List {
-                    ForEach (0..<users.users.count) { i in
-                        if (users.users[i] !== user) && (user.searchConversationByUser(user: users.users[i]) === nil) {
+                    ForEach (0..<user.myContacts.count) { i in
+                        if (user.searchConversationByUser(user: user.myContacts[i]) === nil) {
                             
                             Button {
                                 // add an element conversation in the selected user
-                                user.newConversation(user: users.users[i], isRead: true)
+                                user.newConversation(user: user.myContacts[i], isRead: true)
                                 isAction = true
                             } label: {
                                 HStack {
                                     // show icon user
-                                    IconUserView(icon: users.users[i].photo, isConnected: users.users[i].isConnected)
+                                    IconUserView(icon: user.myContacts[i].photo, isConnected: user.myContacts[i].isConnected)
                                     
-                                    Text(users.users[i].pseudo)
+                                    Text(user.myContacts[i].pseudo)
                                         .padding(.leading, 10)
                                 }
                                 
@@ -49,6 +48,6 @@ struct AddConversationView: View {
 
 struct AddConversationView_Previews: PreviewProvider {
     static var previews: some View {
-        AddConversationView(user: myUser, users: users)
+        AddConversationView(user: myUser)
     }
 }

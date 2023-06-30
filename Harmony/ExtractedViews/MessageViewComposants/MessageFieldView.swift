@@ -19,7 +19,7 @@ struct MessageFieldView: View {
                 .padding(10)
             
             Button {
-                conversation.addMessage(new: Message(content: newMessage, isRecipient: true, date: Date()))
+                conversation.addMessage(new: Message(content: MessageContent(typeMessage: .text, contentText: newMessage), isRecipient: true, date: Date()))
                 newMessage = ""
             } label : {
                 Image(systemName: "paperplane.fill")

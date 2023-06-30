@@ -40,7 +40,7 @@ struct LabelConversationView: View {
                 }
                 
                 // beginning of last message
-                Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage() : "")
+                Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage(message: (conversation.lastMessage()!.content.typeMessage == .text) ? conversation.lastMessage()!.content.contentText! : "[element partagé]") : "")
                     .modifier(Normal())
                 
             }

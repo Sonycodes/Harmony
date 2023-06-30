@@ -22,7 +22,7 @@ struct ChatView: View {
                     List {
                         ForEach(searchResult) { conv in
                             NavigationLink {
-                                MessagesView(conversation: conv)
+                                MessagesView(conversation: conv, user: user)
                             } label: {
                                 LabelConversationView(conversation: conv)
                             }
@@ -44,7 +44,7 @@ struct ChatView: View {
             /* add conversation screen */
             .navigationBarItems(
                 trailing:
-                    NavigationLink(destination: AddConversationView(user: myUser, users: users))  {
+                    NavigationLink(destination: AddConversationView(user: myUser))  {
                         Image(systemName: "plus.circle")
                     }
             )

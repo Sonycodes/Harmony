@@ -28,7 +28,7 @@ struct NewConversationView: View {
                 }
                 .padding(10)
             }
-            MessagesView(conversation: user.lastConversation()!)
+            MessagesView(conversation: user.lastConversation()!, user: user)
         }
     }
 }

@@ -15,15 +15,36 @@ enum Language {
     case deutsch
 }
 
+enum TypeMessage {
+    case text, contact, event
+}
+
+class MessageContent : ObservableObject {
+    @Published var typeMessage: TypeMessage
+    @Published var contentText: String?
+    @Published var contentEvent: Event?
+    @Published var contentUser: User?
+    @Published var contentCommunity: Community?
+    
+    init(typeMessage: TypeMessage, contentText: String? = nil, contentEvent: Event? = nil, contentUser: User? = nil, contentCommunity: Community? = nil) {
+        self.typeMessage = typeMessage
+        self.contentText = contentText
+        self.contentEvent = contentEvent
+        self.contentUser = contentUser
+        self.contentCommunity = contentCommunity
+    }
+}
+
 class Message : Identifiable, ObservableObject {
     var id = UUID()
     
-    @Published var content : String
+    //@Published var content : String
+    @Published var content : MessageContent
     @Published var isRecipient : Bool
     @Published var date : Date
     @Published var isRead : Bool
     
-    init(content: String, isRecipient: Bool, date: Date) {
+    init(content: MessageContent, isRecipient: Bool, date: Date) {
         self.content = content
         self.isRecipient = isRecipient
         self.date = date
@@ -73,14 +94,14 @@ class Message : Identifiable, ObservableObject {
         return dateString
     }
     
-    func startMessage() -> String {
+    func startMessage(message: String) -> String {
 
-        if (self.content.count > 40) {
-            let range = self.content.startIndex..<self.content.index(self.content.startIndex, offsetBy: 40)
-            return String(self.content[range]) + String("...")
+        if (message.count > 40) {
+            let range = message.startIndex..<message.index(message.startIndex, offsetBy: 40)
+            return String(message[range]) + String("...")
         }
         
-        return self.content
+        return message
     }
 }
 
@@ -99,8 +120,12 @@ class Conversation : Identifiable, ObservableObject {
     
     func searchByMessage(pattern: String) -> Message? {
         for message in messages {
-            if message.content.contains(pattern) {
-                return message
+            if message.content.typeMessage == TypeMessage.text {
+                if message.content.contentText != nil {
+                    if message.content.contentText!.contains(pattern) {
+                        return message
+                    }
+                }
             }
         }
         
@@ -177,8 +202,9 @@ class User : Identifiable, Equatable, ObservableObject {
     @Published var isConnected : Bool
     @Published var events : [Event]
     @Published var conversations : [Conversation]
+    @Published var myContacts : [User]
     
-    init(pseudo: String, photo: String, coverPhoto: String, city: String, language: [Language], media: [String], about: String, isConnected: Bool, events : [Event] = [], conversations : [Conversation] = []) {
+    init(pseudo: String, photo: String, coverPhoto: String, city: String, language: [Language], media: [String], about: String, isConnected: Bool, events : [Event] = [], conversations : [Conversation] = [], myContacts : [User]) {
         self.pseudo = pseudo
         self.photo = photo
         self.coverPhoto = coverPhoto
@@ -189,6 +215,7 @@ class User : Identifiable, Equatable, ObservableObject {
         self.isConnected = isConnected
         self.events = events
         self.conversations = conversations
+        self.myContacts = myContacts
     }
     
     func newConversation(user: User, isRead: Bool) {

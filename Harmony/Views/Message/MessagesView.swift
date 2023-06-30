@@ -10,9 +10,14 @@ import SwiftUI
 struct MessagesView: View {
     
     @ObservedObject var conversation : Conversation
+    @ObservedObject var user : User
     
-    @State var showingPopover = false
+    @State var showingShare = false
     @State var newMessage : String = ""
+    @State var eventsShare : Bool = false
+    @State var imgsShare : Bool = false
+    @State var commsShare : Bool = false
+    @State var contactsShare : Bool = false
     
     var body: some View {
         NavigationView {
@@ -43,13 +48,24 @@ struct MessagesView: View {
                     MessageFieldView(newMessage: $newMessage, conversation: conversation)
                     
                     Button {
-                        showingPopover = true
+                        showingShare.toggle()
                     } label: {
                         Image(systemName: "plus.app.fill")
                             .font(.system(size: 20))
                             .tint(Color.darkPeriwinkle)
                     }
                     Spacer()
+                }
+                
+                HStack {
+                    if showingShare {
+                        HStack {
+                            ElementShareInConversationView(elementName: "Contacts", elementImg: "person.circle", elementChange: $contactsShare)
+                            ElementShareInConversationView(elementName: "Evenements", elementImg: "calendar", elementChange: $eventsShare)
+                            ElementShareInConversationView(elementName: "Communauté", elementImg: "globe", elementChange: $commsShare)
+                            ElementShareInConversationView(elementName: "Images", elementImg: "photo.on.rectangle.angled", elementChange: $imgsShare)
+                        }
+                    }
                 }
                 
             }
@@ -65,12 +81,42 @@ struct MessagesView: View {
                 }
             }
             .navigationBarBackButtonHidden(false)
-            .onChange(of: showingPopover) { newValue in
-                Text("Bla")
+            .sheet(isPresented: $eventsShare) {
+                Form {
+                    Section(header: Text("Partager un des événements à venir")) {
+                        List {
+                            ForEach(user.events) { event in
+                                //if (event.date >= Date()) {
+                                    EventListRowView(myEvent: event)
+                                //}
+                            }
+                        }
+                    }
+                }
             }
-//            .popover(isPresented: $showingPopover) {
-//                Text("Bla")
-//            }
+            .sheet(isPresented: $contactsShare) {
+                Form {
+                    Section(header: Text("Partager un contact")) {
+                        List {
+                            ForEach(user.myContacts) { contact in
+                                if (contact !== conversation.user) {
+                                    Button {
+                                        conversation.addMessage(new: Message(content: MessageContent(typeMessage: .contact, contentUser: contact), isRecipient: true, date: Date()))
+                                        contactsShare.toggle()
+                                    } label: {
+                                        HStack {
+                                            IconUserView(icon: contact.photo)
+                                            Text(contact.pseudo)
+                                        }
+                                    }
+                                   
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+           
         }
         .onDisappear {
             conversation.readAllMessages()

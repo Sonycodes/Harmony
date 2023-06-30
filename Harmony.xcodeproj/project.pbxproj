@@ -53,6 +53,7 @@
 		CF2E04512A4C72D80018497D /* MessageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2E044F2A4C72D80018497D /* MessageFieldView.swift */; };
 		CF2E04522A4C72D80018497D /* NewConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2E04502A4C72D80018497D /* NewConversationView.swift */; };
 		CF2E04542A4DFD270018497D /* QuizLankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2E04532A4DFD270018497D /* QuizLankingView.swift */; };
+		CF2E04562A4EC0C90018497D /* ElementShareInConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2E04552A4EC0C90018497D /* ElementShareInConversationView.swift */; };
 		CF689BB72A4338B6009200C3 /* HarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF689BB62A4338B6009200C3 /* HarmonyApp.swift */; };
 		CF689BB92A4338B6009200C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF689BB82A4338B6009200C3 /* ContentView.swift */; };
 		CF689BBB2A4338B8009200C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF689BBA2A4338B8009200C3 /* Assets.xcassets */; };
@@ -112,6 +113,7 @@
 		CF2E044F2A4C72D80018497D /* MessageFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageFieldView.swift; sourceTree = "<group>"; };
 		CF2E04502A4C72D80018497D /* NewConversationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewConversationView.swift; sourceTree = "<group>"; };
 		CF2E04532A4DFD270018497D /* QuizLankingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizLankingView.swift; sourceTree = "<group>"; };
+		CF2E04552A4EC0C90018497D /* ElementShareInConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementShareInConversationView.swift; sourceTree = "<group>"; };
 		CF689BB32A4338B6009200C3 /* Harmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF689BB62A4338B6009200C3 /* HarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyApp.swift; sourceTree = "<group>"; };
 		CF689BB82A4338B6009200C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */,
 				CF0F1E7D2A45915A00A83947 /* LabelMessageView.swift */,
 				CF0F1E7F2A45CAC600A83947 /* IconUserView.swift */,
+				CF2E04552A4EC0C90018497D /* ElementShareInConversationView.swift */,
 			);
 			path = MessageViewComposants;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				CF2E04522A4C72D80018497D /* NewConversationView.swift in Sources */,
 				CF689BD32A433A4C009200C3 /* MessagesView.swift in Sources */,
 				CF689BB72A4338B6009200C3 /* HarmonyApp.swift in Sources */,
+				CF2E04562A4EC0C90018497D /* ElementShareInConversationView.swift in Sources */,
 				CF0F1E7A2A45822700A83947 /* Color.swift in Sources */,
 				CF0F1EE32A4B0DA100A83947 /* ProfileCustomView.swift in Sources */,
 				CF0F1E662A444B5200A83947 /* Comment.swift in Sources */,
@@ -590,6 +594,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -620,6 +625,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

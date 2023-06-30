@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LabelMessageView: View {
-    var message : String
+    var message : MessageContent
     var date : String
     var iconDestinataire : String?
     
@@ -20,14 +20,36 @@ struct LabelMessageView: View {
                 }
                 HStack(alignment: .top) {
                     VStack(alignment: .trailing) {
-                        Text(message)
-                            .padding(7)
-                            .frame(width: 250)
-                            //
-                            .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
-                            .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
-                            .cornerRadius(10)
-                            .modifier(NormalWhite())
+                        switch message.typeMessage {
+                        case .text:
+                            Text(message.contentText!)
+                                .padding(7)
+                                .frame(width: 250)
+                                //
+                                .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
+                                .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                                .cornerRadius(10)
+                                .modifier(NormalWhite())
+                        case .contact:
+                            Text(message.contentUser!.pseudo)
+                                .padding(7)
+                                .frame(width: 250)
+                                //
+                                .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
+                                .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                                .cornerRadius(10)
+                                .modifier(NormalWhite())
+                        case .event:
+                            EventListRowView(myEvent: message.contentEvent!)
+                                .padding(7)
+                                .frame(width: 250)
+                                //
+                                .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
+                                .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                                .cornerRadius(10)
+                                .modifier(NormalWhite())
+                            
+                        }
                         
                         HStack() {
                             Text(date)
@@ -45,9 +67,9 @@ struct LabelMessageView: View {
         }
     }
 }
-
-struct LabelMessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        LabelMessageView(message: "Salut, est-ce que tu vas participer à l’évènement de demain?", date: "12h25")
-    }
-}
+//
+//struct LabelMessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LabelMessageView(message: "Salut, est-ce que tu vas participer à l’évènement de demain?", date: "12h25")
+//    }
+//}
