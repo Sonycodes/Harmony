@@ -21,6 +21,7 @@ struct EventListRowView: View {
         return dateFormatter.string(from: myEvent.date)
     } // Convert the display format of myEvent.date
     
+    var isSmall: Bool? = false
     
     var body: some View {
         
@@ -29,35 +30,52 @@ struct EventListRowView: View {
             Image(myEvent.photo)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 120, height: 132)
+                .frame(width: !isSmall! ? 120 : 90, height: !isSmall! ? 132 : 99)
                 .clipped()
             
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text(myEvent.title)
-                    .modifier(Head1())
-                
-                Text(formattedDateString)
-                    .modifier(Head3()) // Affciher myEvent.date en format "jj mois aaaa"
-                
-                HStack {
+            VStack(alignment: .leading, spacing: !isSmall! ? 8 : 2) {
+                if (!isSmall!) {
+                    Text(myEvent.title)
+                        .modifier(Head1())
                     
-                    MapPinView() // icon Map Pin
+                    Text(formattedDateString)
+                        .modifier(Head3()) // Affciher myEvent.date en format "jj mois aaaa"
                     
-                    Text(myEvent.address?.city ?? "En ligne")
+                    HStack {
+                        MapPinView() // icon Map Pin
+                        
+                        Text(myEvent.address?.city ?? "En ligne")
+                    }
+                    .modifier(HeadGray())
+                } else {
+                    Text(myEvent.title)
+                        .modifier(MinHead1())
+                    
+                    Text(formattedDateString)
+                        .modifier(MinHead3())
+                    
+                    
+                    HStack {
+                        MapPinView() // icon Map Pin
+                        
+                        Text(myEvent.address?.city ?? "En ligne")
+                    }
+                    .modifier(MinHeadGray())
                 }
-                .modifier(HeadGray())
+               
+                
                 
             }
-            .frame(width: 172, alignment: .leading)
-            .padding(.leading, 16)
+            .frame(width: !isSmall! ? 172 : 90, alignment: .leading)
+            .padding(.leading, !isSmall! ? 16 : 4)
 
             
-            Image(systemName: "chevron.right")
-                .modifier(Head3()) // icon ">" en couleur darkPeriwinkle
-            
+            if !isSmall! {
+                Image(systemName: "chevron.right")
+                    .modifier(Head3()) // icon ">" en couleur darkPeriwinkle
+            }
         }
-        .frame(width: 342)
+        .frame(width: !isSmall! ? 342 : 200)
         
     }
 }

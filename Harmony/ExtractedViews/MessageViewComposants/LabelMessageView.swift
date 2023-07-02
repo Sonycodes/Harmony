@@ -10,7 +10,7 @@ import SwiftUI
 struct LabelMessageView: View {
     @ObservedObject var user : User
     @ObservedObject var message : MessageContent
-    var date : String
+    var date : String?
     var iconDestinataire : String?
     @State var actionNewConversationView = false
     @State var actionEventView = false
@@ -60,7 +60,6 @@ struct LabelMessageView: View {
                                 .frame(width: 250, alignment: .center)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
-                                
                                 .cornerRadius(10)
                                 .modifier(NormalWhite())
                             }
@@ -69,28 +68,33 @@ struct LabelMessageView: View {
                             Button {
                                 actionEventView = true
                             } label: {
-                                EventListRowView(myEvent: message.contentEvent!)
-                                    .padding(7)
-                                    .frame(width: 250, alignment: .leading)
-                                    .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
-                                    .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
-                                    .cornerRadius(10)
-                                    .modifier(NormalWhite())
+                                VStack {
+                                    EventListRowView(myEvent: message.contentEvent!, isSmall: true)
+                                        .padding(5)
+                                        .frame(width: 200, alignment: .leading)
+                                        .border(Color.white)
+                                }
+                                .padding(7)
+                                .frame(width: 250, alignment: .center)
+                                .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
+                                .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
+                                .cornerRadius(10)
+                                .modifier(NormalWhite())
                             }
                            
-                            
                         }
                         
-                        HStack() {
-                            Text(date)
-                                .padding(.trailing, 10)
-                                .modifier(SmallGray())
+                        if (date != nil) {
+                            HStack() {
+                                Text(date!)
+                                    .padding(.trailing, 10)
+                                    .modifier(SmallGray())
+                            }
                         }
                     }
                     
                     
                 }
-                //.padding((iconDestinataire != nil) ? .leading : .trailing, 20)
             }
             
         }

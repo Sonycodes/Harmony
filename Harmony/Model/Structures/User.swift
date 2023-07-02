@@ -38,17 +38,20 @@ class MessageContent : ObservableObject {
 class Message : Identifiable, ObservableObject {
     var id = UUID()
     
-    //@Published var content : String
     @Published var content : MessageContent
     @Published var isRecipient : Bool
     @Published var date : Date
     @Published var isRead : Bool
+    @Published var isReaction : Bool
+    @Published var reaction : String
     
-    init(content: MessageContent, isRecipient: Bool, date: Date) {
+    init(content: MessageContent, isRecipient: Bool, date: Date, isReaction: Bool = false, reaction: String = "") {
         self.content = content
         self.isRecipient = isRecipient
         self.date = date
         self.isRead = isRecipient ? true : false
+        self.isReaction = isReaction
+        self.reaction = reaction
     }
     
     func dateToString() -> String {
@@ -111,7 +114,8 @@ class Conversation : Identifiable, ObservableObject {
     @Published var messages : [Message]
     var user : User
     @Published var isRead : Bool
-
+    var listEmojisAvailable = ["😀", "😂", "😍", "😔", "😡", "😳", "👍", "👎"]
+    
     init(messages: [Message] = [], user: User, isRead : Bool) {
         self.messages = messages
         self.user = user
@@ -159,6 +163,16 @@ class Conversation : Identifiable, ObservableObject {
         }
         
         return i
+    }
+    
+    func MessageWaitingForAResponse() -> Message? {
+        for message in messages {
+            if message.isReaction {
+                return message
+            }
+        }
+        
+        return nil
     }
 }
 

@@ -27,8 +27,6 @@ struct QuizView: View {
             
             if (quizManagerVM.model.isCompleted) {
                  QuizCompletedView(quizManagerVM: quizManagerVM)
-                
-                
             } else {
                 VStack {
                     TitleView()

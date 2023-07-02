@@ -8,35 +8,48 @@
 import SwiftUI
 
 struct MessageFieldView: View {
-    @Binding var newMessage : String
-    @ObservedObject var conversation : Conversation
+    @State var newMessage = ""
+    @ObservedObject var conversation: Conversation
+    @Binding var showingShare: Bool
+    @State var iconMessage = "plus.app.fill"
     
     var body: some View {
         HStack {
-            TextField("Ecris ton message ici...", text: $newMessage)
-                .frame(height: 30)
-                .cornerRadius(10)
-                .padding(10)
-            
-            Button {
-                conversation.addMessage(new: Message(content: MessageContent(typeMessage: .text, contentText: newMessage), isRecipient: true, date: Date()))
-                newMessage = ""
-            } label : {
-                Image(systemName: "paperplane.fill")
+            HStack {
+                TextField("Ecris ton message ici...", text: $newMessage)
+                    .frame(height: 30)
+                    .cornerRadius(10)
                     .padding(10)
-                    .cornerRadius(50)
+            }
+            .padding(.vertical, 10)
+            .background(Color.whiteSmoke)
+            .cornerRadius(50)
+            .padding()
+
+            // button to show the item sharing actions (events, contacts, communities, images) or to send a message text
+            Button {
+                if (newMessage != "") {
+                    conversation.addMessage(new: Message(content: MessageContent(typeMessage: .text, contentText: newMessage), isRecipient: true, date: Date()))
+                    newMessage = ""
+                } else {
+                    showingShare.toggle()
+                }
+                
+            } label: {
+                Image(systemName: iconMessage)
+                    .font(.system(size: 20))
+                    .tint(Color.darkPeriwinkle)
+            }
+            Spacer()
+        }
+        .onChange(of: newMessage) { newValue in
+            if (newMessage != "") {
+                showingShare = false
+                iconMessage = "paperplane.fill"
+            } else {
+                iconMessage = "plus.app.fill"
             }
         }
-        //.padding(.horizontal)
-        .padding(.vertical, 10)
-        .background(Color.whiteSmoke)
-        .cornerRadius(50)
-        .padding()
+        
     }
 }
-
-//struct MessageFieldView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MessageFieldView()
-//    }
-//}

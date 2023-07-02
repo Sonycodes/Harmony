@@ -18,69 +18,106 @@ struct MessagesView: View {
     @State var imgsShare : Bool = false
     @State var commsShare : Bool = false
     @State var contactsShare : Bool = false
+    @State var isMessageReaction : Bool = false
     
     var body: some View {
         NavigationView {
             VStack {
                 
-                // display all messages in a conversation
-                List {
-                    ForEach(conversation.messages) { message in
-                        
-                        // if the reference user is the sender don't display photo user
-                        if (message.isRecipient) {
-                            LabelMessageView(user: user, message: message.content, date: message.dateToString())
-                        } else {
-                            LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
-                        }
-                    }
-                    .listRowSeparator(.hidden)
-                    .padding(.bottom, 5)
-                }
-                .listStyle(.plain)
-                
-                Spacer()
-                
-                Divider()
-                
-                HStack {
-                    // display the widget for typing a new message
-                    MessageFieldView(newMessage: $newMessage, conversation: conversation)
+                // display conversation normal if there isn't triggered reaction to a message
+                if (!isMessageReaction) {
                     
-                    // button to show the item sharing actions (events, contacts, communities, images)
-                    Button {
-                        showingShare.toggle()
-                    } label: {
-                        Image(systemName: "plus.app.fill")
-                            .font(.system(size: 20))
-                            .tint(Color.darkPeriwinkle)
+                    // display all messages in a conversation
+                    List {
+                        ForEach(conversation.messages) { message in
+                            
+                            // if the reference user is the sender don't display photo user
+                            if (message.isRecipient) {
+                                ZStack(alignment: .bottomLeading) {
+                                    
+                                    // if the message type is text, we can use the reactions system
+                                    if (message.content.typeMessage == .text) {
+                                        LabelMessageView(user: user, message: message.content, date: message.dateToString())
+                                            .onLongPressGesture {
+                                                    message.isReaction = true
+                                                    isMessageReaction.toggle()
+                                            }
+                                        
+                                        if message.reaction != "" {
+                                            Text(message.reaction)
+                                                .offset(x:10, y:-3)
+                                        }
+                                    } else {
+                                        LabelMessageView(user: user, message: message.content, date: message.dateToString())
+                                    }
+                                    
+                                }
+                            } else {
+                                ZStack(alignment: .bottomLeading) {
+                                    
+                                    // if the message type is text, we can use the reactions system
+                                    if (message.content.typeMessage == .text) {
+                                        LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
+                                            .onLongPressGesture {
+                                                    message.isReaction = true
+                                                    isMessageReaction.toggle()
+                                                }
+                                        
+                                        if message.reaction != "" {
+                                            Text(message.reaction)
+                                                .offset(x:110, y:-3)
+                                        }
+                                    } else {
+                                        LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
+                                    }
+                                }
+                            }
+                        }
+                        .listRowSeparator(.hidden)
+                        .padding(.bottom, 5)
                     }
+                    .listStyle(.plain)
+                    
                     Spacer()
-                }
-                
-                HStack {
                     
-                    // display the item sharing actions
-                    if showingShare {
-                        HStack {
-                            ElementShareInConversationView(elementName: "Contacts", elementImg: "person.circle", elementChange: $contactsShare)
-                            ElementShareInConversationView(elementName: "Evenements", elementImg: "calendar", elementChange: $eventsShare)
-                            ElementShareInConversationView(elementName: "Communauté", elementImg: "globe", elementChange: $commsShare)
-                            ElementShareInConversationView(elementName: "Images", elementImg: "photo.on.rectangle.angled", elementChange: $imgsShare)
+                    Divider()
+                    
+                    HStack {
+                        
+                        // display the widget for typing a new message
+                        MessageFieldView(conversation: conversation, showingShare: $showingShare)
+                    }
+                    
+                    HStack {
+                        
+                        // display the item sharing actions
+                        if showingShare {
+                            HStack {
+                                ElementShareInConversationView(elementName: "Contacts", elementImg: "person.circle", elementChange: $contactsShare)
+                                ElementShareInConversationView(elementName: "Evenements", elementImg: "calendar", elementChange: $eventsShare)
+                                ElementShareInConversationView(elementName: "Communauté", elementImg: "globe", elementChange: $commsShare)
+                                ElementShareInConversationView(elementName: "Images", elementImg: "photo.on.rectangle.angled", elementChange: $imgsShare)
+                            }
                         }
                     }
+                    
+                // display the message with the different reactions available
+                } else {
+                    ReactionMessageView(user: user, conversation: conversation, message: conversation.MessageWaitingForAResponse()!, isMessageReaction: $isMessageReaction)
                 }
                 
             }
             .padding(.top, 10)
+            .navigationBarBackButtonHidden(!isMessageReaction ? false : true)
             .navigationBarTitleDisplayMode(.inline)
             
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    LabelUserView(user: conversation.user)
+                    if (!isMessageReaction) {
+                        LabelUserView(user: conversation.user)
+                    }
                 }
             }
-            .navigationBarBackButtonHidden(false)
             
             // modal which displays the list of events to share
             .sheet(isPresented: $eventsShare) {
@@ -123,7 +160,6 @@ struct MessagesView: View {
                     }
                 }
             }
-           
         }
         .onDisappear {
             conversation.readAllMessages()

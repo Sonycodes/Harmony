@@ -32,17 +32,13 @@ struct LabelConversationView: View {
                         // date message
                         Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
                             .fontWeight(conversation.isRead ? .medium : .bold)
-                            .modifier(HeadGray())
-                       
+                            .modifier(HeadGray())    
                     }
-                    
-                    
                 }
                 
                 // beginning of last message
                 Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage(message: (conversation.lastMessage()!.content.typeMessage == .text) ? conversation.lastMessage()!.content.contentText! : "[element partagé]") : "")
                     .modifier(Normal())
-                
             }
             
             if !conversation.isRead {

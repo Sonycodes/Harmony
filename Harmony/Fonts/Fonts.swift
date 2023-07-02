@@ -51,6 +51,33 @@ struct HeadGray: ViewModifier {
     }
 }
 
+struct MinHead1: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 14))
+            .foregroundColor(Color("Sapphire"))
+            .fontWeight(.bold)
+    }
+}
+
+struct MinHead3: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 10
+                         ))
+            .foregroundColor(Color("DarkPeriwinkle"))
+    }
+}
+
+struct MinHeadGray: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 12))
+            .foregroundColor(Color("DarkGray"))
+            .fontWeight(.medium)
+    }
+}
+
 struct SmallGray: ViewModifier {
     func body(content: Content) -> some View {
         content
