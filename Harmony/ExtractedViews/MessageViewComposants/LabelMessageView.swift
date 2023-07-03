@@ -50,13 +50,20 @@ struct LabelMessageView: View {
                                 
                                 actionNewConversationView = true
                             } label: {
-                                VStack {
+                                
+                                VStack(alignment: .trailing) {
+                                    Text("Contact")
+                                        .padding(0)
+                                        .font(.system(size:12))
+                                        .modifier(Italic())
+                                        .foregroundColor(Color.white)
+                                    
                                     LabelUserView(user: message.contentUser!)
                                         .padding(5)
                                         .frame(width: 200, alignment: .leading)
                                         .border(Color.white)
                                 }
-                                .padding(7)
+                                .padding(5)
                                 .frame(width: 250, alignment: .center)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
@@ -68,13 +75,19 @@ struct LabelMessageView: View {
                             Button {
                                 actionEventView = true
                             } label: {
-                                VStack {
+                                VStack(alignment: .trailing) {
+                                    Text("Evenement")
+                                        .padding(0)
+                                        .font(.system(size:12))
+                                        .modifier(Italic())
+                                        .foregroundColor(Color.white)
+                                    
                                     EventListRowView(myEvent: message.contentEvent!, isSmall: true)
                                         .padding(5)
                                         .frame(width: 200, alignment: .leading)
                                         .border(Color.white)
                                 }
-                                .padding(7)
+                                .padding(5)
                                 .frame(width: 250, alignment: .center)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
@@ -103,7 +116,21 @@ struct LabelMessageView: View {
         }
         
         .sheet(isPresented: $actionEventView) {
-            DetailEventView(event: message.contentEvent!)
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        actionEventView.toggle()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.largeTitle)
+                    }
+                    .padding(10)
+                }
+                DetailEventView(event: message.contentEvent!)
+            }
+            
         }
     }
 }

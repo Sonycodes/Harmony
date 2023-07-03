@@ -50,9 +50,3 @@ struct ReactionMessageView: View {
         
     }
 }
-
-//struct ReactionMessageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ReactionMessageView()
-//    }
-//}
