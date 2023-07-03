@@ -28,55 +28,59 @@ struct MessagesView: View {
                 if (!isMessageReaction) {
                     
                     // display all messages in a conversation
-                    List {
-                        ForEach(conversation.messages) { message in
-                            
-                            // if the reference user is the sender don't display photo user
-                            if (message.isRecipient) {
-                                ZStack(alignment: .bottomLeading) {
+                    //List {
+                    ScrollView {
+                        VStack {
+                            ForEach(conversation.messages) { message in
                                     
-                                    // if the message type is text, we can use the reactions system
-                                    if (message.content.typeMessage == .text) {
-                                        LabelMessageView(user: user, message: message.content, date: message.dateToString())
-                                            .onLongPressGesture {
-                                                    message.isReaction = true
-                                                    isMessageReaction.toggle()
-                                            }
-                                        
-                                        if message.reaction != "" {
-                                            Text(message.reaction)
-                                                .offset(x:10, y:-3)
-                                        }
-                                    } else {
-                                        LabelMessageView(user: user, message: message.content, date: message.dateToString())
-                                    }
-                                    
-                                }
-                            } else {
-                                ZStack(alignment: .bottomLeading) {
-                                    
-                                    // if the message type is text, we can use the reactions system
-                                    if (message.content.typeMessage == .text) {
-                                        LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
-                                            .onLongPressGesture {
-                                                    message.isReaction = true
-                                                    isMessageReaction.toggle()
+                                    // if the reference user is the sender don't display photo user
+                                    if (message.isRecipient) {
+                                        ZStack(alignment: .bottomLeading) {
+                                            
+                                            // if the message type is text, we can use the reactions system
+                                            if (message.content.typeMessage == .text) {
+                                                LabelMessageView(user: user, message: message.content, date: message.dateToString())
+                                                    .onLongPressGesture {
+                                                            message.isReaction = true
+                                                            isMessageReaction.toggle()
+                                                    }
+                                                
+                                                if message.reaction != "" {
+                                                    Text(message.reaction)
+                                                        .offset(x:10, y:-3)
                                                 }
-                                        
-                                        if message.reaction != "" {
-                                            Text(message.reaction)
-                                                .offset(x:110, y:-3)
+                                            } else {
+                                                LabelMessageView(user: user, message: message.content, date: message.dateToString())
+                                            }
+                                            
                                         }
                                     } else {
-                                        LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
+                                        ZStack(alignment: .bottomLeading) {
+                                            
+                                            // if the message type is text, we can use the reactions system
+                                            if (message.content.typeMessage == .text) {
+                                                LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
+                                                    .onLongPressGesture {
+                                                            message.isReaction = true
+                                                            isMessageReaction.toggle()
+                                                        }
+                                                
+                                                if message.reaction != "" {
+                                                    Text(message.reaction)
+                                                        .offset(x:110, y:-3)
+                                                }
+                                            } else {
+                                                LabelMessageView(user: user, message: message.content, date: message.dateToString(), iconDestinataire: conversation.user.photo)
+                                            }
+                                        }
                                     }
                                 }
-                            }
+                                .listRowSeparator(.hidden)
+                            .padding(.bottom, 5)
                         }
-                        .listRowSeparator(.hidden)
-                        .padding(.bottom, 5)
                     }
-                    .listStyle(.plain)
+//                    }
+//                    .listStyle(.plain)
                     
                     Spacer()
                     
@@ -92,11 +96,15 @@ struct MessagesView: View {
                         
                         // display the item sharing actions
                         if showingShare {
-                            HStack {
+                            HStack(alignment: .top) {
                                 ElementShareInConversationView(elementName: "Contacts", elementImg: "person.circle", elementChange: $contactsShare)
+                                    .frame(width: 80)
                                 ElementShareInConversationView(elementName: "Evenements", elementImg: "calendar", elementChange: $eventsShare)
+                                    .frame(width: 80)
                                 ElementShareInConversationView(elementName: "Communauté", elementImg: "globe", elementChange: $commsShare)
+                                    .frame(width: 80)
                                 ElementShareInConversationView(elementName: "Images", elementImg: "photo.on.rectangle.angled", elementChange: $imgsShare)
+                                    .frame(width: 80)
                             }
                         }
                     }
@@ -115,6 +123,9 @@ struct MessagesView: View {
                 ToolbarItem(placement: .principal) {
                     if (!isMessageReaction) {
                         LabelUserView(user: conversation.user)
+                            .padding(.bottom, 20)
+                        
+                            Divider()
                     }
                 }
             }

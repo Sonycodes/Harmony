@@ -26,7 +26,7 @@ struct ElementShareInConversationView: View {
             .cornerRadius(15)
             
             Text(elementName)
-                .modifier(Normal())
+                .modifier(Small())
         }
         
     }

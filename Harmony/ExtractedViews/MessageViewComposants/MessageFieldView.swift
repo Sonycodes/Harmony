@@ -17,7 +17,7 @@ struct MessageFieldView: View {
         HStack {
             HStack {
                 TextField("Ecris ton message ici...", text: $newMessage)
-                    .frame(height: 30)
+                    .frame(height: 16)
                     .cornerRadius(10)
                     .padding(10)
             }
@@ -37,7 +37,7 @@ struct MessageFieldView: View {
                 
             } label: {
                 Image(systemName: iconMessage)
-                    .font(.system(size: 20))
+                    .font(.system(size: 25))
                     .tint(Color.darkPeriwinkle)
             }
             Spacer()

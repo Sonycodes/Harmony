@@ -50,24 +50,9 @@ class EventsViewModel: ObservableObject {
             listParticipant: [userTom, userMarie, userThomas, userMax, userYuko, userAdeline, userKelian],
             detail: "Explorez la calligraphie japonaise et laissez votre créativité s'exprimer à travers des tracés précis et élégants, dans l'art ancestral de la beauté des mots.",
             minParticipants: 8,
-            photo: "japon",
+            photo: "MyPhoto",
             team: [userTom, userYuko, userMarie],
             comments: [Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
-                       Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
-            community: culturejaponaise
-        ),
-        
-        Event(
-            title: "Initiation Calligraphie",
-            isOnline: false,
-            date: Date(timeIntervalSince1970: 1688722200),
-            address: Address(city: "Lyon 2e", address: "23 rue Victor Hugo", namePlace: "Espace Culture Japon"),
-            listParticipant: [userTom, userThomas, userMax, userYuko, userAdeline, userKelian],
-            detail: "Explorez la calligraphie japonaise et laissez votre créativité s'exprimer à travers des tracés précis et élégants, dans l'art ancestral de la beauté des mots.",
-            minParticipants: 8,
-            photo: "MyPhoto",
-            team: [userTom, userYuko],
-            comments: [Comment(user: userMax, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
                        Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturejaponaise
         ),
@@ -78,7 +63,7 @@ class EventsViewModel: ObservableObject {
             date: Date(timeIntervalSince1970: 1689424200),
             address: Address(city: "Lyon 6e", address: "Place Maréchal Lyautey", namePlace: "Espace Pétanque de Lyon"),
             listParticipant: [userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
-            detail: "description.",
+            detail: "Découvrez le plaisir de la pétanque en équipe. Rejoignez-nous pour une expérience conviviale et compétitive en lançant les boules de précision.",
             minParticipants: 8,
             photo: "petanque",
             team: [userTom, userMarie, userYuko],
@@ -86,6 +71,37 @@ class EventsViewModel: ObservableObject {
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturefrancaises
         ),
+        
+        Event(
+            title: "Rallye urbain Marseille",
+            isOnline: false,
+            date: Date(timeIntervalSince1970: 1688722200),
+            address: Address(city: "Marseille 1er", address: "11 La Canebière", namePlace: "Office de Tourisme de Marseille"),
+            listParticipant: [userTom, userThomas, userMax, userYuko, userAdeline, userKelian],
+            detail: "Parcourez les rues pittoresques de Marseille, où vous allez résoudre des énigmes et relever des défis en équipe pour découvrir les joyaux cachés de la ville.",
+            minParticipants: 8,
+            photo: "marseille",
+            team: [userTom, userYuko],
+            comments: [Comment(user: userMax, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
+                       Comment(user: userSonia, content: "Je viendrai de Toulouse. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
+            community: culturefrancaises
+        ),
+        
+        Event(
+            title: "Rallye gourmand Lille",
+            isOnline: false,
+            date: Date(timeIntervalSince1970: 1688900400),
+            address: Address(city: "Lille", address: "place du Général de Gaulle", namePlace: "Rendez-vous à Grand'Place"),
+            listParticipant: [userTom, userJohan, userMax, userYuko, userAdeline, userKelian],
+            detail: "Découverez les spécialités lilloises en parcourant en équipe 5 spots gourmands séléctionnés par les hôtes de la communauté. La consommation à charge de chacun sur place. Réservé aux personnes plus de 18 ans.",
+            minParticipants: 4,
+            photo: "beer",
+            team: [userMax, userAdeline],
+            comments: [Comment(user: userMax, content: "J'ai hâte de vous faire découvrir les spécialités lilloises !", date: Date(timeIntervalSince1970: 1687522965)),
+                       Comment(user: userYuko, content: "Je suis tellement gourmande que je viens de Lyon spécialement pour ça.", date: Date(timeIntervalSince1970: 1687368600))],
+            community: culturefrancaises
+        ),
+        
         
         Event(
             title: "Danse hawaïenne",
@@ -102,23 +118,36 @@ class EventsViewModel: ObservableObject {
             community: culturehawaienne
         ),
         Event(
-            title: "Soirée films français",
+            title: "Jeu de piste sur les Traces du film",
             isOnline: false,
             date: Date(timeIntervalSince1970: 1689424200),
             address: Address(city: "Cherbourg-en-Cotentin", address: "Bd Félix Amiot", namePlace: "Cinéma CGR Cherbourg"),
             listParticipant: [userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
-            detail: "description.",
+            detail: "Participez au jeu de piste captivant sur les traces du film, Les Parapluies de Cherbourg. Parcourez les rues pittoresques de Cherbourg à la recherche d'indices pour résoudre des énigmes inspirées de cette histoire d'amour légendaire.",
             minParticipants: 8,
-            photo: "japon",
-            team: [userTom, userMarie, userYuko],
+            photo: "umbrellas",
+            team: [userTom, userYuko],
+            comments: [
+                Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
+            community: culturenormande
+        ),
+        
+        Event(
+            title: "Atelier Fabrication du camenbert",
+            isOnline: false,
+            date: Date(timeIntervalSince1970: 1686407400),
+            address: Address(city: "Camembert", address: "61 Le Bourg", namePlace: "Musée du Camembert"),
+            listParticipant: [userMarie, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
+            detail: "Apprenez des étapes de fabrication et réalisez votre propre camembert avec Clément, artisan fromager.",
+            minParticipants: 12,
+            photo: "camenbert",
+            team: [userTom, userMarie, userElodie],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturenormande
         )
     ]
-    
-    // ---> Ajouter une func pour filtrer les "Event"s qui contient mon Profil User
-    
+        
     
 }
 

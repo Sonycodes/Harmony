@@ -18,10 +18,13 @@ struct QuizLankingView: View {
     ]
     
     @ObservedObject var quizResultsArray = quizResults()
+    @ObservedObject var quizManagerVM : QuizManagerVM
     
     var sortedResults: [QuizResult] = []
-    init() {
-        sortedResults = quizResultsArray.quizResults.sorted {
+    init(quizManagerVM : QuizManagerVM) {
+        self.quizManagerVM = quizManagerVM
+        self.quizResultsArray.quizResults.append(QuizResult(user: myUser, points: quizManagerVM.myPoints))
+        self.sortedResults = self.quizResultsArray.quizResults.sorted {
             $0.points > $1.points
         }
     }
@@ -30,21 +33,21 @@ struct QuizLankingView: View {
         
         VStack(spacing: 24) {
 
-            PodiumQuizView()
+            PodiumQuizView(sortedResults: sortedResults)
             
             VStack {
-                ForEach(sortedResults) { result in
+                ForEach(3..<sortedResults.count) { index in
                     
                     LazyVGrid(columns: columns, alignment: .leading) {
-                        Text("   No.")
-                        Image(result.user.photo)
+                        Text("   No. \(index + 1)")
+                        Image(sortedResults[index].user.photo)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 40, height:40)
                             .clipShape(Circle())
-                        Text(result.user.pseudo)
+                        Text(sortedResults[index].user.pseudo)
                             .padding(.vertical, 12)
-                        Text("\(result.points) points")
+                        Text("\(sortedResults[index].points) points")
                             .padding(.trailing, 8)
                     }
                     
@@ -60,10 +63,19 @@ struct QuizLankingView: View {
 
 
 
+
+
+
+
+
+
+
 struct PodiumQuizView: View {
     
+    var sortedResults: [QuizResult]
+    
     var user1 = userTom
-    var user2 = userSonia
+//    var user2 = userSonia
     var user3 = myUser
     
     var body: some View {
@@ -78,7 +90,7 @@ struct PodiumQuizView: View {
                     .position(x: 0, y: 80)
                 
                 VStack {
-                    Image(user2.photo)
+                    Image(sortedResults[1].user.photo)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 74, height: 74)
@@ -92,9 +104,9 @@ struct PodiumQuizView: View {
                         Text("2")
                             .modifier(Head1())
                     }
-                    Text(user2.pseudo)
+                    Text(sortedResults[1].user.pseudo)
                         .modifier(Head1())
-                    Text("45 points")
+                    Text("\(sortedResults[1].points) points")
                         .modifier(Normal())
                 }
                 .position(x: 0, y:38)
@@ -114,7 +126,7 @@ struct PodiumQuizView: View {
                     .position(x: 0, y:84)
                 
                 VStack {
-                    Image(user1.photo)
+                    Image(sortedResults[0].user.photo)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 76, height: 76)
@@ -130,9 +142,9 @@ struct PodiumQuizView: View {
                     }
                     .padding(.top, 4)
                     
-                    Text(user1.pseudo)
+                    Text(sortedResults[0].user.pseudo)
                         .modifier(Head1())
-                    Text("50 points")
+                    Text("\(sortedResults[0].points) points")
                         .modifier(Normal())
                 }
                 .position(x: 0, y: 26)
@@ -150,7 +162,7 @@ struct PodiumQuizView: View {
                     .position(x: 0, y: 78)
                 
                 VStack {
-                    Image(user3.photo)
+                    Image(sortedResults[2].user.photo)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 74, height: 74)
@@ -164,9 +176,9 @@ struct PodiumQuizView: View {
                         Text("3")
                             .modifier(Head1())
                     }
-                    Text(user3.pseudo)
+                    Text(sortedResults[2].user.pseudo)
                         .modifier(Head1())
-                    Text("25 points")
+                    Text("\(sortedResults[2].points) points")
                         .modifier(Normal())
                 }
                 .position(x: 0, y:46)

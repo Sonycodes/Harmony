@@ -24,9 +24,11 @@ struct IconUserView: View {
             .clipShape(Circle())
             .overlay {
                 if (isConnected != nil) {
-                    Circle()
-                        .stroke(lineWidth: 2)
-                        .foregroundColor(isConnected! ? Color.green : Color.black)
+                    if isConnected! {
+                        Circle()
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(Color.green)
+                    }
                 }
             }
     }

@@ -20,37 +20,43 @@ struct LabelConversationView: View {
             Spacer()
             
             VStack(alignment: .leading) {
-                HStack {
+                
+                HStack(alignment: .top) {
                     
                     // destinataire
                     Text(conversation.user.pseudo)
                         .modifier(Head1())
-                        
+                    
                     Spacer()
                     
-                    VStack {
-                        // date message
-                        Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
-                            .fontWeight(conversation.isRead ? .medium : .bold)
-                            .modifier(HeadGray())    
+                    // date message
+                    Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
+                        .fontWeight(conversation.isRead ? .medium : .bold)
+                        .modifier(HeadGray())
+                }
+                
+                HStack(alignment: .top) {
+                    // beginning of last message
+                    Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage(message: (conversation.lastMessage()!.content.typeMessage == .text) ? conversation.lastMessage()!.content.contentText! : "[element partagé]") : "")
+                        .modifier(Normal())
+                    
+                    Spacer()
+                    
+                    if !conversation.isRead {
+                        Text(String(conversation.numberOfMessagesUnread()))
+                        
+                            .padding(.leading, 5)
+                            .padding(.trailing, 5)
+                            .foregroundColor(Color.white)
+                            .background(Color.darkGray)
+                            .fontWeight(.bold)
+                            .cornerRadius(50)
                     }
                 }
                 
-                // beginning of last message
-                Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage(message: (conversation.lastMessage()!.content.typeMessage == .text) ? conversation.lastMessage()!.content.contentText! : "[element partagé]") : "")
-                    .modifier(Normal())
             }
             
-            if !conversation.isRead {
-                ZStack {
-                    Circle()
-                        .tint(Color.darkGray)
-                    
-                    Text(String(conversation.numberOfMessagesUnread()))
-                        .foregroundColor(Color.white)
-                }
-                .frame(width: 20, height: 20)
-            }
+            
         }
     }
 }

@@ -21,11 +21,11 @@ class News : Identifiable, ObservableObject {
     @Published var content : String
     @Published var publishDate : Date
     @Published var like : Int
-    @Published var comments : [Comment]
+    @Published var comments : [PostComment]
     @Published var community : Community //peut pas lier encore
     @Published var commentLikes: [Int]
     
-    init(id: UUID = UUID(), title: String, photo: String, author: User, content: String, publishDate: Date, like: Int, comments: [Comment], community: Community, commentLikes: [Int]) {
+    init(id: UUID = UUID(), title: String, photo: String, author: User, content: String, publishDate: Date, like: Int, comments: [PostComment], community: Community, commentLikes: [Int]) {
         self.id = id
         self.title = title
         self.photo = photo
@@ -38,7 +38,7 @@ class News : Identifiable, ObservableObject {
         self.commentLikes = commentLikes
     }
     
-    func addComment (newComment: Comment) {
+    func addComment (newComment: PostComment) {
         self.comments.append(newComment)
     }
 //    var categoryNews : CategoryNews : a revoir avec le bouton actualité

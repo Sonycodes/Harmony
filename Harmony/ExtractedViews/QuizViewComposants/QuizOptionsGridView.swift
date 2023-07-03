@@ -43,10 +43,11 @@ struct QuizOptionsGridView: View {
                     OptionView(quizOption: quizOption)
                 }
             }
-            .frame(width: 160, height: 128)
+            .frame(width: 160, height: 120)
             .foregroundColor(setTextColor())
-            .background(Color.white)
-            .cornerRadius(16)
+//            .border(quizOption.color, width: 4)
+//            .cornerRadius(16)
+            
         }
         
         func setTextColor() -> Color {
@@ -67,15 +68,27 @@ struct QuizOptionsGridView: View {
             VStack {
                 Text(quizOption.optionId + ".")
                     .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(Color.midnight.opacity(0.5))
+                    .foregroundColor(quizOption.color)
                 
                 Text(quizOption.option)
                     .frame(width: 150, height: 38)
                     .font(.system(size: 20, weight: .bold))
                     .foregroundColor(Color.midnight)
             }
-            .frame(width: 160, height: 128)
-            .background(quizOption.color)
+            .frame(width: 160, height: 120)
+//            .background(.white)
+//            .background(Color.graySky.opacity(0.2))
+            .background(quizOption.color.opacity(0.2))
+            
+            .cornerRadius(16)
+            
+            
+//            .background(quizOption.color.opacity(0.5))
+//            .overlay(
+//            RoundedRectangle(cornerRadius: 16)
+//                .stroke(quizOption.color.opacity(0.8), lineWidth: 4))
+
+
         }
     }
     

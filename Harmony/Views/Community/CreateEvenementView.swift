@@ -9,21 +9,26 @@ import SwiftUI
 
 struct CreateEvenementView: View {
     
+    @ObservedObject var currentUser: User
     @State var newEvent : String = ""
     @State var newDate : String = ""
-    @State var showSheet = false
+    @State var showConfirmationMessage = false
+    @State var moveToExploreView = false
     
     var body: some View {
         
         VStack {
-            Text("Créer un événement")
+            Text("Proposer un événement")
                 .modifier(Head1())
+                .padding(.vertical, 16)
+            
+            
             ZStack {
-           Rectangle()
-                .frame(width: 390, height: 150)
-                .foregroundColor(Color.sky)
-            
-            
+                Rectangle()
+                    .frame(width: 390, height: 150)
+                    .foregroundColor(Color.sky)
+                
+                
                 Rectangle()
                     .frame(width: 300, height: 60)
                     .cornerRadius(10)
@@ -32,63 +37,76 @@ struct CreateEvenementView: View {
                 HStack {
                     Image(systemName:"plus")
                     Text("Ajouter une photo de couverture")
-                  
+                    
                 }// End Hstack
             } // End Zstack
             List {
                 Text("Nom de l'événement")
                 
                 TextField("Nom de l'événement", text: $newEvent)
-              
-                    Text ("Date de début")
-                   
                 
-                   TextField("Date de debut", text: $newDate)
-                  
+                Text ("Date de début")
+                
+                
+                TextField("Date de debut", text: $newDate)
+                
                 HStack {
                     Text("Evénement en ligne")
-                        
-                        .padding()
+                    //                         .padding()
+                    Spacer()
                     Image(systemName:"square")
-                    .offset(x:100 ,y:0)
+                    //                    .offset(x:100 ,y:0)
                     
                 }
                 
                 Text("Lieu")
                 TextField("Lieu de l'événement", text: $newEvent)
-                  
+                
                 
                 Text("Description")
                 TextField("Déscription de l'événement", text: $newEvent)
-//                    .padding()
-//                    .frame(width: 100,height: 100)
+                //                    .padding()
+                //                    .frame(width: 100,height: 100)
             } //End List
             .padding()
             .listStyle(.plain)
+            
             Button {
-                showSheet
-                    .toggle()
-            }label: {
-                
-                Text("Créer l'événement")
-//                    .modifier(Head1())
-                    .frame(width: 300, height: 30)
-                .foregroundColor(Color.white)
-                .font(.custom("Urbanist", size: 20))            }
-            .buttonStyle(.borderedProminent)
-            .padding()
+                showConfirmationMessage = true
+//                showSheet.toggle()
+            } label: {
+                Text("Proposer l'événement")
+                //                    .modifier(Head1())
+                    .frame(width: 300, height: 44)
+                    .foregroundColor(Color.white)
+                .font(.custom("Urbanist", size: 20))
             }
-        .padding()
+            .buttonStyle(.borderedProminent)
+            .tint(Color.darkPeriwinkle)
+            .padding()
+            
+            .alert("Merci !", isPresented: $showConfirmationMessage) {
+                Button("OK") {
+                 moveToExploreView = true
+//                    showConfirmationMessage = false
+//                    showSheet.toggle()
+                }
+            } message: {
+                Text("Votre proposition a bien été transmise aux hôtes de la communauté. Elle sera examinée dans les mailleurs délais.")
+            }
         }
-      
-        
+//        .padding()
+        .navigationDestination(isPresented: $moveToExploreView, destination: {ExploreView(currentUser: currentUser)})
     }
     
+    
+}
+
 
 
 
 struct CreateEvenementView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateEvenementView()
+        CreateEvenementView(currentUser: myUser)
     }
 }

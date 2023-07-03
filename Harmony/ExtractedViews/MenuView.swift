@@ -28,7 +28,7 @@ struct MenuView: View {
                     Text("Evénements")
                 }
                 
-                ExploreView()
+                ExploreView(currentUser: myUser)
                     .tabItem {
                     Image(systemName: "globe")
                     Text("Explorer")

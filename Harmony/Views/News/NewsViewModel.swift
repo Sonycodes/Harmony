@@ -30,13 +30,13 @@ struct NewsViewModel: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .modifier(Normal())
                 }
-            } .padding(.bottom)
+            }
             
             Image(news.photo)
                 .resizable()
             //                 .scaledToFit()
                 .frame(width: 365,height: 250)
-                .padding(.bottom)
+   
             
             HStack{
                 
@@ -44,48 +44,42 @@ struct NewsViewModel: View {
                 Text(isLiked ? "\(news.like + 1)" : "\(news.like)")
                     .frame(width: 20, height: 20)
                 
-
-                
-                                Button(action: {
-                                    showingSheet.toggle()
-                                }, label: {
-                                    Image(systemName: "message")
-                                Text("32")
-                                })
-                                .sheet(isPresented: $showingSheet) {
-                                    CommentsView(news: news)
-//                                    CommentsView(postComments: exemplePost.comments, news: exemplePost)
-                                }
-//                                .sheet(isPresented: $showingSheet) {
-//                                    CommentsView()
-//
-//                                }
                 
                 
+                Button(action: {
+                    showingSheet.toggle()
+                }, label: {
+                    Image(systemName: "message")
+                    Text("3")
+                })
+                .sheet(isPresented: $showingSheet) {
+                    CommentsView(news: news)
+                    
+                }
                 
             } .modifier(Normal())
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom)
+//                .padding(.bottom)
             Text(news.title)
                 .modifier(Head2())
+                .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, -5)
-            Text(news.content)
-                .modifier(Normal())
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom)
-            
-            
             HStack{
-                Text("Voir le post en intégralité")
-                Spacer()
-                Text(">")
-                
-            }
-            .modifier(Normal())
-            .padding(.trailing)
+                Text(news.content)
+                    .multilineTextAlignment(.leading)
+                    .modifier(Normal())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(1)
+                                  .truncationMode(.tail)
+              
+                Image(systemName: "chevron.right")
+                    .font(.system(size:12))
+            }  .opacity(0.7)
+
+    
             
-            Spacer()
+            
         }
         .padding()
         //fin Vstack
@@ -96,32 +90,31 @@ struct NewsViewModel: View {
 
 struct HeartButton: View{
     @Binding var isLiked: Bool
+    private let animationDuration: Double = 0.1
+    private var animationScale: CGFloat {
+        isLiked ? 0.7: 1.5
+    }
+    @State private var animate = false
     
     var body: some View{
         Button(action: {
-            self.isLiked.toggle()
+            self.animate = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration, execute: {
+                self.animate = false
+                self.isLiked.toggle()
+            })
         }, label: {
             Image(systemName: isLiked ? "heart.fill" : "heart")
                 .foregroundColor(isLiked ? .red : .midnight)
         }).buttonStyle(BorderlessButtonStyle())
+            .scaleEffect(animate ? animationScale : 1)
+            .animation(.easeIn(duration: animationDuration))
+        
     }
 } //structure pour le bouton de like
 
 
 
-//struct SuperTextField: View {
-//
-//    var placeholder: Text
-//    @Binding var text: String
-//    var editingChanged: (Bool)->() = { _ in }
-//    var commit: ()->() = { }
-//
-//    var body: some View {
-//        ZStack(alignment: .leading) {
-//            if text.isEmpty { placeholder }
-//            TextField("", text: $text, onEditingChanged: editingChanged, onCommit: commit)
-//        }
-//    }   }// structure pour la couleur du placeholder
 
 struct NewsViewModel_Previews: PreviewProvider {
     static var previews: some View {

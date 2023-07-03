@@ -7,10 +7,10 @@
 
 import SwiftUI
 
+
 struct CommentsView: View {
-    //@ObservedObject var event : Event
     
-    //@ObservedObject var postComments: Comments
+    
     @State var newContent: String = ""
     var myProfil: User = userSonia
     @State private var isLiked = false
@@ -27,38 +27,30 @@ struct CommentsView: View {
                         Spacer()
                     }
                     ForEach(news.comments) { comment in
-                        HStack{
-                            CommentPostView(comment: comment)
-                            VStack{
-                                HeartButton(isLiked: $isLiked)
-                                Text(isLiked ? "\(news.like + 1)" : "\(news.like)")
-                                    .frame(width: 20)
-                            }
-                        }
-                    }
-                }
+                        
+                        CommentPostView(comments: comment)
+                        
+                    } //fin foreach
+                } //fin vstack
                 .padding(.horizontal, 24)
-
+                
                 VStack{
                     
                     WriteCommentFieldNewsView(myProfil: myProfil, newContent: newContent, news: news)
-                       
+//                        .frame(width: 390, height: 60)
+                    
                 }
-     
-              
+                
+                
             }//fin section commentaire
             
         }
     }
 }
 
-
-
-
-
 struct CommentPostView: View {
-    
-    var comment: Comment
+    @State private var isLiked = false
+    var comments: PostComment
     
     var formattedDateString: String {
         let dateFormatter = DateFormatter()
@@ -66,16 +58,18 @@ struct CommentPostView: View {
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "fr_FR")
         
-        return dateFormatter.string(from: comment.date)
+        return dateFormatter.string(from: comments.date)
     }     // Convert the display format of comment.date
     
     
     var body: some View {
+        
+        
         HStack {
-            Image(comment.user.photo)
+            Image(comments.user.photo)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 56, height: 56)
+                .frame(width: 50, height: 50)
                 .clipShape(Circle())
             
             Spacer()
@@ -83,30 +77,47 @@ struct CommentPostView: View {
             VStack(alignment: .leading) {
                 
                 Divider()
-                    .padding(.bottom, 16)
+//                    .padding(.bottom)
                 
                 Spacer()
                 
                 HStack {
-                    Text(comment.user.pseudo)
+                
+                    Text(comments.user.pseudo)
                         .modifier(Head2())
-                    
+
                     Spacer()
                     
-                    Text(formattedDateString) // Display the date with the converted format
+                    Text(formattedDateString)
                         .modifier(SmallGray())
                         .padding(.trailing, 8)
                 }
                 .padding(.bottom, 4)
                 
-                Text(comment.content)
+                Text(comments.content)
                     .modifier(Normal())
-            }
+//                    .frame(height: 40)
+                    .multilineTextAlignment(.leading)
+                
+            } //finvstack nom + commentaire
             .padding(.leading, 8)
+            .frame(height: 50)
             
-        }
-    }
-}
+            VStack{
+                HeartButton(isLiked: $isLiked)
+                
+                Text(isLiked ? "\(comments.comlikes + 1)" : "\(comments.comlikes)")
+                    .modifier(Normal())
+                    .frame(width: 30)
+            }
+        }// fin hstack principale
+        .frame(height: 90)
+    } //finbody
+    
+    
+} // fin structure
+
+
 
 
 struct NewCommentFieldView: View {
@@ -114,7 +125,7 @@ struct NewCommentFieldView: View {
     var myProfil : User
     @State var newContent: String = ""
     @ObservedObject var event: Event
-//    @ObservedObject var eventComments: Comments
+    //    @ObservedObject var eventComments: Comments
     
     var body: some View {
         HStack {
@@ -122,11 +133,15 @@ struct NewCommentFieldView: View {
             Image(myProfil.photo)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 32, height: 32)
+                .frame(width: 32, height: 40)
                 .clipShape(Circle())
-        
-            TextField("Ecrire un commentaire", text: $newContent)
-                .textFieldStyle(.roundedBorder)
+            
+//            TextField("Ecrire un commentaire", text: $newContent)
+//                .textFieldStyle(PlainTextFieldStyle())
+//                           .padding(EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8))
+//                                       .cornerRadius(16)
+//                                           .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.graySky))
+            
             
             Button {
                 event.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
@@ -137,6 +152,7 @@ struct NewCommentFieldView: View {
             
         }
         .padding(.horizontal, 24)
+
         
     }
 }

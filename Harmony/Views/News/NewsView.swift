@@ -16,7 +16,7 @@ struct NewsView: View {
             ScrollView{
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
-                        NavigationLink(destination: DetailNewsView(news: update)) {
+                        NavigationLink(destination: DetailNewsView(news: update, community: culturehawaienne, eventsList: EventsViewModel())) {
 
                             NewsViewModel(news: update)
                         }

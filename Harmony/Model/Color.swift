@@ -19,4 +19,5 @@ extension Color {
     static let whiteSmoke = Color("whiteSmoke")
     static let quizRed = Color("quizRed")
     static let quizGreen = Color("quizGreen")
+    static let quizYellow = Color("quizYellow")
 }

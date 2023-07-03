@@ -21,10 +21,11 @@ struct ChatView: View {
                     // display conversations based on username search
                     List {
                         ForEach(searchResult) { conv in
-                            NavigationLink {
-                                MessagesView(conversation: conv, user: user)
-                            } label: {
+                            ZStack {
                                 LabelConversationView(conversation: conv)
+                                NavigationLink(destination: MessagesView(conversation: conv, user: user)) {
+                                }
+                                .opacity(0)
                             }
                         }
                         

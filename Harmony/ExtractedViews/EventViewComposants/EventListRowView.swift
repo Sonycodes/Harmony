@@ -37,6 +37,7 @@ struct EventListRowView: View {
                 if (!isSmall!) {
                     Text(myEvent.title)
                         .modifier(Head1())
+                        .multilineTextAlignment(.leading)
                     
                     Text(formattedDateString)
                         .modifier(Head3()) // Affciher myEvent.date en format "jj mois aaaa"

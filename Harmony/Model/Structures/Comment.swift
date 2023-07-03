@@ -39,6 +39,33 @@ class Comment : Identifiable, ObservableObject {
     }
 }
 
+
+class PostComment : Identifiable, ObservableObject {
+    var id = UUID()
+    
+    @Published var user: User
+    @Published var content: String
+    @Published var date: Date
+@Published var comlikes: Int
+    
+    
+    init(user: User, content: String, date: Date, comlikes: Int) {
+        self.user = user
+        self.content = content
+        self.date = date
+        self.comlikes = comlikes
+    }
+    
+    func dateToString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        
+        return dateFormatter.string(from: self.date)
+    }
+}
+
 //class Comments : Identifiable, ObservableObject {
 //    var id = UUID()
 //    

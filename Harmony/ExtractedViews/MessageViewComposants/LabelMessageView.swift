@@ -18,12 +18,9 @@ struct LabelMessageView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                // if the user reference is not sender, display the icon user
-                if (iconDestinataire != nil) {
+
+                if (iconDestinataire == nil) {
                     Spacer()
-                    
-                    IconUserView(icon: iconDestinataire!)
-                        .padding(.trailing, 10)
                 }
                 
                 HStack(alignment: .top) {
@@ -31,7 +28,7 @@ struct LabelMessageView: View {
                         switch message.typeMessage {
                         case .text:
                             Text(message.contentText!)
-                                .padding(7)
+                                .padding(15)
                                 .frame(width: 250, alignment: .leading)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
@@ -61,9 +58,10 @@ struct LabelMessageView: View {
                                     LabelUserView(user: message.contentUser!)
                                         .padding(5)
                                         .frame(width: 200, alignment: .leading)
-                                        .border(Color.white)
+                                        .background(Color.white)
+                                        .cornerRadius(10)
                                 }
-                                .padding(5)
+                                .padding(15)
                                 .frame(width: 250, alignment: .center)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
@@ -85,9 +83,10 @@ struct LabelMessageView: View {
                                     EventListRowView(myEvent: message.contentEvent!, isSmall: true)
                                         .padding(5)
                                         .frame(width: 200, alignment: .leading)
-                                        .border(Color.white)
+                                        .background(Color.white)
+                                        .cornerRadius(10)
                                 }
-                                .padding(5)
+                                .padding(15)
                                 .frame(width: 250, alignment: .center)
                                 .background((iconDestinataire != nil) ? Color.darkPeriwinkle : Color.sky)
                                 .foregroundColor((iconDestinataire != nil) ? Color.white : Color.black)
@@ -105,8 +104,11 @@ struct LabelMessageView: View {
                             }
                         }
                     }
-                    
-                    
+                    .padding((iconDestinataire != nil) ? .leading : .trailing, 15)
+                }
+                
+                if (iconDestinataire != nil) {
+                    Spacer()
                 }
             }
             

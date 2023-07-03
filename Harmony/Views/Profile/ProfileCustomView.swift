@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProfileCustomView: View {
     @ObservedObject var currentUser : User
-    //@EnvironmentObject private var userViewModel: UserViewModel // Access the UserViewModel
     
     @State private var showMediaGallery = false
     @State private var isAddingLanguage = false
@@ -48,6 +47,7 @@ struct ProfileCustomView: View {
 
                     Image(currentUser.photo)
                         .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .frame(width: 100, height: 100)
                         .clipShape(Circle())
                         .padding()
@@ -82,8 +82,7 @@ struct ProfileCustomView: View {
                 Text(currentUser.city)
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                    .padding()
-                
+                    .padding(.bottom, 16)
                 VStack (alignment: .leading) {
                     Text("Média")
                         .modifier(Head1())

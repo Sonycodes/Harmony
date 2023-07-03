@@ -1,5 +1,5 @@
 //
-//  EventsView.swift
+//  ProfilView.swift
 //  Harmony
 //
 //  Created by apprenant44 on 21/06/2023.
@@ -23,18 +23,19 @@ struct ProfilView: View {
                 
                 Image(currentUser.photo)
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
-                    .padding()
+                   
                 
                 Text(currentUser.pseudo)
                     .modifier(Head1())
-                
+                    
                 
                 Text(currentUser.city)
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                
+                    .padding(.bottom, 16)
               
                     NavigationLink(destination: ProfileCustomView(currentUser: currentUser), isActive: $isEditingProfile) {
                         EmptyView()
@@ -97,7 +98,18 @@ struct ProfilView: View {
                     Text("Mes langues")
                         .modifier(Head1())
                         .padding()
-                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(currentUser.language, id: \.self) { language in
+                                Text(language.rawValue)
+                                    .padding(8)
+                                    .background(Color.darkPeriwinkle)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                        }
+                    }
+                    .padding()
                     //                Make a list to display all the languages of the user with Text(userViewModel.currentUser.language)
                     
                     Spacer() // Add space at the bottom

@@ -16,7 +16,7 @@ class quizResults : ObservableObject {
         QuizResult(user: userMax, points: 20),
         QuizResult(user: userThomas, points: 15),
         QuizResult(user: userJohan, points: 10),
-        QuizResult(user: userJeremie, points: 5),
+        QuizResult(user: userAlexandre, points: 5),
         QuizResult(user: userTom, points: 0)
         ]
 }

@@ -87,6 +87,15 @@ struct SmallGray: ViewModifier {
     }
 }
 
+struct Small: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("Urbanist", size: 11))
+            .foregroundColor(Color("Midnight"))
+            .fontWeight(.medium)
+    }
+}
+
 struct Normal: ViewModifier {
     func body(content: Content) -> some View {
         content

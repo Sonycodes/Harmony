@@ -36,7 +36,12 @@ struct DetailEventView: View {
                 
                 VStack(spacing: 12) {
                     
-                    if (self.event.listParticipant.contains(myProfil)) && ( self.event.date > now) {
+                    if (!self.event.community.members.contains(myProfil)) {
+                        Text("Pour vous inscrire à l'événement, rejoignez d'abord la communauté.")
+                            .padding(.horizontal, 24)
+                        // If the user isn't member of this community, this message is shown.
+                        
+                    } else if (self.event.listParticipant.contains(myProfil)) && ( self.event.date > now) {
                         DeactivatedButtonView()
                         // If the participants list contains my profil, a desactivated button is displayed.
                         
@@ -52,8 +57,8 @@ struct DetailEventView: View {
                                     .font(.custom("Urbanist", size: 18))
                                     .fontWeight(.bold)
                             }
-                            
                         }
+                        
                     } else if self.event.date < now {
                         // If the event date is past
                         ButtonEvenementPastView()
@@ -63,26 +68,27 @@ struct DetailEventView: View {
                     }   // Else, a registration button is displayed
                 }
                 
-                
-                VStack(alignment: .leading) {
-                    Text("Mon équipe")
-                        .padding(.horizontal, 24)
-                        .modifier(Head2())
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(event.team) { teamMate in
-                                MyTeamView(teamMate: teamMate)
+                if (self.event.listParticipant.contains(myProfil)) {
+                    VStack(alignment: .leading) {
+                        Text("Mon équipe")
+                            .padding(.horizontal, 24)
+                            .modifier(Head2())
+                        
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(event.team) { teamMate in
+                                    MyTeamView(teamMate: teamMate)
+                                }
                             }
+                            .padding(.leading, 24)
                         }
-                        .padding(.leading, 24)
                     }
                 }
                 
                 
                 
                 VStack(alignment: .leading) {
-                    Text("Autres participants")
+                    Text("Participants")
                         .padding(.horizontal, 24)
                         .modifier(Head2())
                     
@@ -114,12 +120,13 @@ struct DetailEventView: View {
                 
                 
                 WriteCommentFieldEventView(myProfil: myProfil, newContent: newContent, event: event)
+                    .padding(.bottom, 8)
                 
                 
             }  // end VStack
             
             .sheet(isPresented: $showBookingForm) {
-                BookingFormView(event: event)
+                BookingFormView(event: event, showBookingForm: $showBookingForm)
             }
             .presentationDetents([.medium, .large])
             
@@ -171,6 +178,7 @@ struct EventInfoView: View {
                 HStack {
                     
                     MapPinView()
+                        .frame(width: 28)
                     
                     VStack(alignment: .leading) {
                         Text(event.address?.namePlace ?? "Evénement")
@@ -179,12 +187,15 @@ struct EventInfoView: View {
                             Text(event.address?.city ?? "")
                         }
                     }
+                    .padding(.leading, 4)
                 }
                 
                 HStack {
                     Image(systemName: "person.3.fill")
                         .font(.system(size: 16.0))
+                        .frame(width: 28)
                     Text(event.community.name)
+                        .padding(.leading, 4)
                 }
             }
             .modifier(Normal())
@@ -300,13 +311,16 @@ struct EventDescriptionView: View {
             
             Text("Description")
                 .modifier(Head2())
+//                .padding(.horizontal, 24)
             
             Text(event.detail)
                 .modifier(Normal())
+                .multilineTextAlignment(.leading)
             
             Text("Nombre minimum de participants : \(event.minParticipants) personnes")
-                .modifier(SmallGray())
-            
+                .font(.custom("Urbanist", size: 14))
+                .foregroundColor(Color.darkGray)
+//                .modifier(SmallGray())
         }
         .padding(.horizontal, 24)
     }
@@ -330,39 +344,42 @@ struct DiscussionFeedView: View {
     
     
     var body: some View {
-        HStack {
-            Image(comment.user.photo)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 56, height: 56)
-                .clipShape(Circle())
+        
+        VStack {
+            Divider()
+                .padding(.bottom, 16)
             
-            Spacer()
-            
-            VStack(alignment: .leading) {
-                
-                Divider()
-                    .padding(.bottom, 16)
+            HStack(alignment: .top)  {
+                Image(comment.user.photo)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
                 
                 Spacer()
                 
-                HStack {
-                    Text(comment.user.pseudo)
-                        .modifier(Head2())
-                    
+                VStack(alignment: .leading) {
                     Spacer()
                     
-                    Text(formattedDateString) // Display the date with the converted format
-                        .modifier(SmallGray())
-                        .padding(.trailing, 8)
+                    HStack(alignment: .top) {
+                        Text(comment.user.pseudo)
+                            .modifier(Head2())
+                        
+                        Spacer()
+                        
+                        Text(formattedDateString) // Display the date with the converted format
+                            .font(.custom("Urbanist", size: 14))
+                            .foregroundColor(Color.darkGray)
+                            .padding(.trailing, 8)
+                    }
+                    .padding(.bottom, 4)
+                    
+                    Text(comment.content)
+                        .modifier(Normal())
+                    
                 }
-                .padding(.bottom, 4)
-                
-                Text(comment.content)
-                    .modifier(Normal())
-                
+                .padding(.leading, 8)
             }
-            .padding(.leading, 8)
         }
     }
 }
@@ -382,11 +399,16 @@ struct WriteCommentFieldEventView: View {
             Image(myProfil.photo)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 32, height: 32)
+                .frame(width: 38, height: 38)
                 .clipShape(Circle())
             
             TextField("Ecrire un commentaire", text: $newContent)
-                .textFieldStyle(.roundedBorder)
+//                .frame(height: 16)
+                .textFieldStyle(PlainTextFieldStyle())
+                .padding(EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8))
+                            .cornerRadius(16)
+                                .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.graySky))
+
             
             Button {
                 event.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
@@ -417,10 +439,14 @@ struct WriteCommentFieldNewsView: View {
                 .clipShape(Circle())
             
             TextField("Ecrire un commentaire", text: $newContent)
-                .textFieldStyle(.roundedBorder)
+                .textFieldStyle(PlainTextFieldStyle())
+                .padding(EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8))
+                            .cornerRadius(16)
+                                .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.graySky))
+ 
             
             Button {
-                news.addComment(newComment: Comment(user: myProfil, content: newContent, date: Date()))
+                news.addComment(newComment: PostComment(user: myProfil, content: newContent, date: Date(), comlikes: 5))
             } label: {
                 Image(systemName: "paperplane.fill")
                     .foregroundColor(Color.sapphire)
@@ -446,6 +472,9 @@ struct BookingFormView: View {
         
         return dateFormatter.string(from: event.date)
     } // Convert the display format of event.date in "dd month yyyy" in French
+    
+    @State var showConfirmation = false
+    @Binding var showBookingForm: Bool
     
     var body: some View {
         VStack {
@@ -515,9 +544,9 @@ struct BookingFormView: View {
             
             
             Button {
-                //
+                showConfirmation = true
             } label: {
-                Text("Confiermer mon inscription")
+                Text("Confirmer mon inscription")
                     .frame(width: 316, height: 44)
                     .foregroundColor(.white)
                     .font(.custom("Urbanist", size: 18))
@@ -526,6 +555,14 @@ struct BookingFormView: View {
             .buttonStyle(.borderedProminent)
             .tint(Color.darkPeriwinkle)
             .cornerRadius(8)
+            
+            // Alert
+            .alert("Merci ! Votre inscription a été prise en compte.", isPresented: $showConfirmation) {
+                        Button("OK") {
+                            showBookingForm = false
+                            event.listParticipant.append(myUser)
+                        }
+                    }
             
             Spacer()
             
