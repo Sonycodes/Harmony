@@ -58,14 +58,14 @@ struct ProfilView: View {
                     // Title "Événement en cours"
                     Text("Événement en cours")
                         .modifier(Head1())
-                        .padding()
+                        .padding(.horizontal, 24)
                     
-                    List {
-                        ForEach(currentUser.events) { event in
-                            EventListRowView(myEvent: event)
+//                    List {
+//                        ForEach(currentUser.events) { event in
+                            EventListRowView(myEvent: eventMarie)
                                 .padding()
-                        }
-                    }
+//                        }
+//                    }
                     
                     //EventCardView()
                         .padding()
