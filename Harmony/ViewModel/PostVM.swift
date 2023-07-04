@@ -34,7 +34,7 @@ class Post:ObservableObject {
         PostComment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600), comlikes: 98)], community: culturefrancaises, commentLikes: [53,29,140,8]),
 //------------------------------------------------------------- personne ----------------------------------------------------
               
-       News(title: "Petite journée de pluie dans le nord", photo: "France1", author: userTom, content: "Après plusieurs journées sans la fameuse pluie elle est arrivée dans notre petit coin, venez profiter et boire un chocolat chaud.", publishDate: Date(), like: 1, comments: [
+       News(title: "Petite journée de pluie dans le nord", photo: "Normandie1", author: userTom, content: "Après plusieurs journées sans la fameuse pluie elle est arrivée dans notre petit coin, venez profiter et boire un chocolat chaud.", publishDate: Date(), like: 1, comments: [
         PostComment(user: userMarie, content: "Super !", date: Date(timeIntervalSince1970: 1687522965), comlikes: 1),
         PostComment(user: userYuko, content: "@Sonia C'est super la pluie.", date: Date(timeIntervalSince1970: 1687408200), comlikes: 106),
         PostComment(user: userSonia, content: "🌧️", date: Date(timeIntervalSince1970: 1687368600), comlikes: 87)], community: culturenormande, commentLikes: [53,29,140,8])

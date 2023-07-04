@@ -56,7 +56,7 @@ struct DetailEventView: View {
                                     .background(Color.darkPeriwinkle)
                                     .cornerRadius(12)
                                     .foregroundColor(.white)
-                                    .font(.custom("Urbanist", size: 18))
+                                    .font(.custom("UrbanistRegular", size: 18))
                                     .fontWeight(.bold)
                             }
                         }

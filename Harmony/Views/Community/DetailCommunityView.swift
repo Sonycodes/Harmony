@@ -73,8 +73,8 @@ struct DetailCommunityView: View {
                         Text("Rejoindre la communauté")
                             .frame(width: 316, height: 44)
                             .foregroundColor(.white)
-                            .font(.custom("Urbanist", size: 18))
-                            .fontWeight(.bold)
+                            .font(.custom("UrbanistMedium", size: 18))
+//                            .fontWeight(.bold)
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(Color.darkPeriwinkle)

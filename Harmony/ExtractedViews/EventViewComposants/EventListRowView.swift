@@ -43,8 +43,13 @@ struct EventListRowView: View {
                         .modifier(Head3()) // Affciher myEvent.date en format "jj mois aaaa"
                     
                     HStack {
-                        MapPinView() // icon Map Pin
-                        
+                        if myEvent.isOnline {
+                            Image(systemName: "iphone.gen3")
+                        } else {
+                            
+                            MapPinView() // icon Map Pin
+                            }
+                    
                         Text(myEvent.address?.city ?? "En ligne")
                     }
                     .modifier(HeadGray())
@@ -77,6 +82,7 @@ struct EventListRowView: View {
             }
         }
         .frame(width: !isSmall! ? 342 : 200)
+        .background(.white)
         
     }
 }

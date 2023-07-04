@@ -76,7 +76,7 @@ struct DetailNewsView: View {
                             .cornerRadius(8)
                         
                             .foregroundColor(.white)
-                            .font(.custom("Urbanist", size: 18))
+                            .font(.custom("UrbanistRegular", size: 18))
                             .fontWeight(.bold)
 
                     })
