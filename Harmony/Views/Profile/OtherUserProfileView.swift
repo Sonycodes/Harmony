@@ -74,6 +74,7 @@ struct OtherUserProfileView: View {
                         Text(user.about)
                             .modifier(Normal())
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(EdgeInsets(top: 16, leading: 24, bottom: 8, trailing: 24))
                     
                     
@@ -170,6 +171,6 @@ struct OtherUserProfileView: View {
 
 struct OtherUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        OtherUserProfileView(user: userAlexandre, eventsList: EventsViewModel())
+        OtherUserProfileView(user: userJeanChristophe, eventsList: EventsViewModel())
     }
 }
