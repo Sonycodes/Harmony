@@ -27,19 +27,19 @@ class UsersVM : ObservableObject {
     }
 }
 
-var userSonia: User = User(pseudo: "Sonia", photo: "sonia", coverPhoto: "sonia", city: "Marseille", language: [Language.french, Language.english], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
+var userSonia: User = User(pseudo: "Sonia", photo: "sonia", coverPhoto: "beach", city: "Marseille", language: [Language.french, Language.english], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
 var userTom: User = User(pseudo: "Tom", photo: "tomy", coverPhoto: "temple", city: "Marseille", language: [Language.french, Language.english], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
-var userMax: User = User(pseudo: "Max", photo: "Max", coverPhoto: "", city: "Lille", language: [Language.french, Language.portuguese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
+var userMax: User = User(pseudo: "Max", photo: "Max", coverPhoto: "portugal", city: "Lille", language: [Language.french, Language.portuguese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
 var userThomas: User = User(pseudo: "Thomas", photo: "thomas", coverPhoto: "hawai2", city: "Paris", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [userMax])
 
-var userYuko: User = User(pseudo: "Yuko", photo: "Yuko", coverPhoto: "", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
+var userYuko: User = User(pseudo: "Yuko", photo: "Yuko", coverPhoto: "grapes", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
-var userKelian: User = User(pseudo: "Kelian", photo: "Kelian", coverPhoto: "", city: "Toulouse", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
+var userKelian: User = User(pseudo: "Kelian", photo: "Kelian", coverPhoto: "car2", city: "Toulouse", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
-var userAdeline: User = User(pseudo: "Adeline", photo: "Adeline", coverPhoto: "", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
+var userAdeline: User = User(pseudo: "Adeline", photo: "Adeline", coverPhoto: "butterflies", city: "Lyon", language: [Language.french, Language.japanese], media: ["japon"], about: "Hello.", isConnected: true, myContacts: [])
 
 var userMarie = User(
     pseudo: "Marie", photo: "Marie", coverPhoto: "hawai2",
@@ -51,15 +51,15 @@ var userMarie = User(
     events: [],
     conversations: [conversation1, conversation2, conversation3], myContacts: [userSonia, userThomas, userTom])
 
-var userJohan = User(pseudo: "Johan", photo: "Johan", coverPhoto: "CoverPhoto2", city: "Paris", language: [Language.english, Language.japanese, Language.french], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
+var userJohan = User(pseudo: "Johan", photo: "Johan", coverPhoto: "shrine", city: "Paris", language: [Language.english, Language.japanese, Language.french], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
 
-var userAlexandre = User(pseudo: "Alexandre", photo: "Jeremy", coverPhoto: "Normandie", city: "Londres", language: [Language.english, Language.french], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: true, myContacts: [])
+var userAlexandre = User(pseudo: "Alexandre", photo: "Jeremy", coverPhoto: "car", city: "Londres", language: [Language.english, Language.french], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: true, myContacts: [])
 
-var userElodie = User(pseudo: "Elodie", photo: "Elodie", coverPhoto: "CoverPhoto4", city: "Metz", language: [Language.english, Language.french, Language.portuguese], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
+var userElodie = User(pseudo: "Elodie", photo: "Elodie", coverPhoto: "mountains", city: "Metz", language: [Language.english, Language.french, Language.portuguese], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
 
-var userHildegarde = User(pseudo: "Hildegarde", photo: "Hildegarde", coverPhoto: "CoverPhoto5", city: "Berlin", language: [Language.english, Language.deutsch, Language.portuguese], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
+var userHildegarde = User(pseudo: "Hildegarde", photo: "Hildegarde", coverPhoto: "lavender", city: "Berlin", language: [Language.english, Language.deutsch, Language.portuguese], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
 
-var userJeanChristophe: User = User(pseudo: "Jean-Christophe", photo: "Hawai1", coverPhoto: "", city: "Lyon", language: [Language.french, Language.english], media: ["japon"], about: "Hello.", isConnected: false, myContacts: [])
+var userJeanChristophe: User = User(pseudo: "Jean-Christophe", photo: "jc", coverPhoto: "owl", city: "Lyon", language: [Language.french, Language.english], media: ["japon"], about: "Hello.", isConnected: false, myContacts: [])
 
 var myUser = userMarie
 
