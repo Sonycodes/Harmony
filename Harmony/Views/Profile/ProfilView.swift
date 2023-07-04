@@ -30,7 +30,7 @@ struct ProfilView: View {
                         .frame(height: 200)
                         .clipped()
                     Circle()
-                        .stroke(Color.white, lineWidth: 16)
+                        .stroke(Color.whiteSmoke, lineWidth: 16)
                         .frame(width: 120, height: 120)
                         .padding(.top, 140)
                     Image(currentUser.photo)
