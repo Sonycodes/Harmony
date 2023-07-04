@@ -12,58 +12,51 @@ struct DetailExploreView: View {
     var community : Community
     
     var body: some View {
+        
+        
+        ZStack(alignment: .top){
             
-            ZStack(alignment: .top){
-                Rectangle()
-                    .fill(.white)
-                    .frame(height: 274)
+            Rectangle()
+                .fill(.white)
+                .frame(height: 296)
+            
+            VStack {
+                Image(community.photo)
+                    .resizable()
+                    .frame(width: 342, height: 200)
+                    .scaledToFill()
                 
-                VStack {
-                    Image(community.photo)
+                HStack(alignment: .center) {
+                    Image(community.photo1)
                         .resizable()
-                        .frame(width: 342, height: 200)
-                        .scaledToFill()
-//                        .border(.red)
-                    //  .cornerRadius(10)
+                        .frame(width: 72, height: 72)
+                        .cornerRadius(8)
                     
-                    
-                    
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 8) {
                         Text(community.name)
                             .modifier(Head1())
-//                            .padding(.top, 4)
-                        //  .offset(x:20 ,y: 0)
-                        HStack {
+                        
+                        HStack(spacing: 1) {
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color.saharaSand)
-                            //  .offset(x:-40 )
                             Text(String(community.rating))
+                                .modifier(Head2())
                         }
-                        
-                        .padding(.bottom, 16)
-                        //                        .offset(x:-40 )
-                        
                     }
-                    .frame(width: 342, height: 72, alignment: .leading)
-                    .padding(.leading, 8)
-                    .offset(x: 104)
-//                    .border(.red)
+                    .padding(.leading, 20)
                 }
-                                
-                Image(community.photo1)
-                    .resizable()
-                    .frame(width: 75, height: 75)
-                    .cornerRadius(8)
-                    .offset(x: -116, y: 160)
+                .frame(width: 342, height: 80, alignment: .leading)
+                .padding(.leading, 32)
+//                           .border(.blue)
             }
-            .frame(width: 342, height: 272)
-            .cornerRadius(8)
-//            .padding(.vertical, 8)
-//            .border(.red)
-            
-            
-            
- 
+        }
+        .frame(width: 342, height: 296)
+        .cornerRadius(8)
+//                    .border(.red)
+        
+        
+        
+        
     }
 }
 

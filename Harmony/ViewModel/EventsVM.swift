@@ -23,7 +23,7 @@ class EventsViewModel: ObservableObject {
             team: [userTom, userMarie, userYuko],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
-                       Comment(user: userYuko, content: "@Sonia Si tu arrives à la Part-Dieu, prends le métro B jusqu'à Saxe Gambetta, puis métro D jusqu'à Bellecour. C'est à 2 minutes de la station.", date: Date(timeIntervalSince1970: 1687408200)),
+                       Comment(user: userYuko, content: "Si tu arrives à la Part-Dieu, prends le métro B jusqu'à Saxe Gambetta, puis métro D jusqu'à Bellecour. C'est à 2 minutes de la station.", date: Date(timeIntervalSince1970: 1687408200)),
                        Comment(user: userSonia, content: "Je viendrai de Marseille. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturejaponaise
         ),
@@ -33,7 +33,7 @@ class EventsViewModel: ObservableObject {
             isOnline: true,
             date: Date(timeIntervalSince1970: 1688722200),
             address: nil,
-            listParticipant: [userMarie, userTom, userThomas, userSonia, userMax, userAdeline, userKelian],
+            listParticipant: [userAlexandre, userMarie, userTom, userThomas, userSonia, userMax, userAdeline, userKelian],
             detail: "Testez vos connaissances sur l'Histoire du Japon !",
             minParticipants: 12,
             photo: "temple",
@@ -47,7 +47,7 @@ class EventsViewModel: ObservableObject {
             isOnline: false,
             date: Date(timeIntervalSince1970: 1686846600),
             address: Address(city: "Lyon 2e", address: "23 rue Victor Hugo", namePlace: "Espace Culture Japon"),
-            listParticipant: [userTom, userMarie, userThomas, userMax, userYuko, userAdeline, userKelian],
+            listParticipant: [userJeanChristophe, userMarie, userThomas, userMax, userYuko, userAdeline, userKelian],
             detail: "Explorez la calligraphie japonaise et laissez votre créativité s'exprimer à travers des tracés précis et élégants, dans l'art ancestral de la beauté des mots.",
             minParticipants: 8,
             photo: "MyPhoto",
@@ -62,11 +62,11 @@ class EventsViewModel: ObservableObject {
             isOnline: false,
             date: Date(timeIntervalSince1970: 1689424200),
             address: Address(city: "Lyon 6e", address: "Place Maréchal Lyautey", namePlace: "Espace Pétanque de Lyon"),
-            listParticipant: [userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
+            listParticipant: [userTom, userAlexandre, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
             detail: "Découvrez le plaisir de la pétanque en équipe. Rejoignez-nous pour une expérience conviviale et compétitive en lançant les boules de précision.",
             minParticipants: 8,
             photo: "petanque",
-            team: [userTom, userMarie, userYuko],
+            team: [userTom, userYuko, userMarie],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturefrancaises
@@ -81,7 +81,7 @@ class EventsViewModel: ObservableObject {
             detail: "Parcourez les rues pittoresques de Marseille, où vous allez résoudre des énigmes et relever des défis en équipe pour découvrir les joyaux cachés de la ville.",
             minParticipants: 8,
             photo: "marseille",
-            team: [userTom, userYuko],
+            team: [userTom, userYuko, userMarie],
             comments: [Comment(user: userMax, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965)),
                        Comment(user: userSonia, content: "Je viendrai de Toulouse. Quequ'un pourrait me dire comment s'y rendre ?", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturefrancaises
@@ -96,7 +96,7 @@ class EventsViewModel: ObservableObject {
             detail: "Découverez les spécialités lilloises en parcourant en équipe 5 spots gourmands séléctionnés par les hôtes de la communauté. La consommation à charge de chacun sur place. Réservé aux personnes plus de 18 ans.",
             minParticipants: 4,
             photo: "beer",
-            team: [userMax, userAdeline],
+            team: [userMax, userAdeline, userMarie],
             comments: [Comment(user: userMax, content: "J'ai hâte de vous faire découvrir les spécialités lilloises !", date: Date(timeIntervalSince1970: 1687522965)),
                        Comment(user: userYuko, content: "Je suis tellement gourmande que je viens de Lyon spécialement pour ça.", date: Date(timeIntervalSince1970: 1687368600))],
             community: culturefrancaises
@@ -108,11 +108,11 @@ class EventsViewModel: ObservableObject {
             isOnline: false,
             date: Date(timeIntervalSince1970: 1689424200),
             address: Address(city: "Lille", address: "Pl. du Général de Gaulle", namePlace: "Grand'Place"),
-            listParticipant: [userMarie, userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
+            listParticipant: [userAlexandre, userJeanChristophe, userMarie, userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
             detail: "L’association des Hawaïens Hauts-de-France organise une soirée danse hawaïenne Grand’Place de Lille à l’occasion de la 40e anniversaire de la Fête de la musique. Rendez-vous sur la Place pour découvrir la culture hawaïenne et passer un moment convivial.",
             minParticipants: 8,
             photo: "hawaiianDance",
-            team: [userTom, userMarie, userYuko],
+            team: [userAlexandre, userKelian, userMarie],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturehawaienne
@@ -122,26 +122,26 @@ class EventsViewModel: ObservableObject {
             isOnline: false,
             date: Date(timeIntervalSince1970: 1689424200),
             address: Address(city: "Cherbourg-en-Cotentin", address: "Bd Félix Amiot", namePlace: "Cinéma CGR Cherbourg"),
-            listParticipant: [userTom, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
+            listParticipant: [userJohan, userTom, userMax, userYuko, userAdeline, userKelian, userSonia, userElodie],
             detail: "Participez au jeu de piste captivant sur les traces du film, Les Parapluies de Cherbourg. Parcourez les rues pittoresques de Cherbourg à la recherche d'indices pour résoudre des énigmes inspirées de cette histoire d'amour légendaire.",
             minParticipants: 8,
             photo: "umbrellas",
-            team: [userTom, userYuko],
+            team: [userTom, userYuko, userMarie],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturenormande
         ),
         
         Event(
-            title: "Atelier Fabrication du camenbert",
+            title: "Atelier Fabrication du camembert",
             isOnline: false,
             date: Date(timeIntervalSince1970: 1686407400),
             address: Address(city: "Camembert", address: "61 Le Bourg", namePlace: "Musée du Camembert"),
-            listParticipant: [userMarie, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userSonia, userThomas],
+            listParticipant: [userMarie, userThomas, userSonia, userMax, userYuko, userAdeline, userKelian, userAlexandre],
             detail: "Apprenez des étapes de fabrication et réalisez votre propre camembert avec Clément, artisan fromager.",
             minParticipants: 12,
             photo: "camenbert",
-            team: [userTom, userMarie, userElodie],
+            team: [userAlexandre, userMarie, userElodie],
             comments: [
                 Comment(user: userTom, content: "J'ai hâte !", date: Date(timeIntervalSince1970: 1687522965))],
             community: culturenormande
@@ -210,7 +210,7 @@ var eventExampleNonRegistered: Event = Event(
     isOnline: false,
     date: Date(timeIntervalSince1970: 1688722200),
     address: Address(city: "Lyon 2e", address: "23 rue Victor Hugo", namePlace: "Espace Culture Japon"),
-    listParticipant: [userTom, userThomas, userMax, userYuko, userAdeline, userKelian],
+    listParticipant: [userJeanChristophe, userThomas, userMax, userYuko, userAdeline, userKelian],
     detail: "Explorez la calligraphie japonaise et laissez votre créativité s'exprimer à travers des tracés précis et élégants, dans l'art ancestral de la beauté des mots.",
     minParticipants: 8,
     photo: "japon",

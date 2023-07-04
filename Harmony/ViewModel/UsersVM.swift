@@ -59,6 +59,8 @@ var userElodie = User(pseudo: "Elodie", photo: "Elodie", coverPhoto: "CoverPhoto
 
 var userHildegarde = User(pseudo: "Hildegarde", photo: "Hildegarde", coverPhoto: "CoverPhoto5", city: "Berlin", language: [Language.english, Language.deutsch, Language.portuguese], media: ["Media1", "Media2"], about: "Lorem ipsum dolor sit amet. Et optio quasi non explicabo itaque ea vero neque ea reprehenderit dolorem qui modi voluptatem. Aut aspernatur quibusdam in quam optio cum dignissimos dolor qui provident unde. Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?", isConnected: false, myContacts: [])
 
+var userJeanChristophe: User = User(pseudo: "Jean-Christophe", photo: "Hawai1", coverPhoto: "", city: "Lyon", language: [Language.french, Language.english], media: ["japon"], about: "Hello.", isConnected: false, myContacts: [])
+
 var myUser = userMarie
 
 var arrayUsers = [userMarie, userJohan, userAlexandre, userElodie, userHildegarde, userSonia, userTom, userThomas, userYuko, userKelian, userAdeline]

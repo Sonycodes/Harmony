@@ -9,16 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    init() {
-        
-        let standarApparence = UITabBarAppearance()
-        standarApparence.configureWithOpaqueBackground()
-        UITabBar.appearance().standardAppearance = standarApparence
-        let scrollEdgeAppareance = UITabBarAppearance()
-        scrollEdgeAppareance.configureWithOpaqueBackground()
-        UITabBar.appearance().scrollEdgeAppearance = scrollEdgeAppareance
-        
-    }
+//    init() {
+////        let standarApparence = UITabBarAppearance()
+////        standarApparence.configureWithOpaqueBackground()
+////        UITabBar.appearance().standardAppearance = standarApparence
+////        let scrollEdgeAppareance = UITabBarAppearance()
+////        scrollEdgeAppareance.configureWithOpaqueBackground()
+////        UITabBar.appearance().scrollEdgeAppearance = scrollEdgeAppareance
+//    }
     
     var body: some View {
         MenuView()

@@ -29,50 +29,55 @@ struct QuizView: View {
                  QuizCompletedView(quizManagerVM: quizManagerVM)
             } else {
                 VStack {
-                    TitleView()
-                        .padding(EdgeInsets(top: 4, leading: 0, bottom: 16, trailing: 0))
                     
-                    Text("Mes points : \(quizManagerVM.myPoints)")
-                        .modifier(Head3())
-                        .fontWeight(.bold)
-                    
-//                    Text("\(quizManagerVM.progress)")
-                    
-                    ZStack {
-                        Circle() // Base circle in gray color
-                            .stroke(lineWidth: 15)
-                            .foregroundColor(.gray)
-                            .opacity(0.4)
+                    Section {
+                        TitleView()
+                            .padding(EdgeInsets(top: 4, leading: 0, bottom: 16, trailing: 0))
                         
-                        Circle() // Circle animated
-                            .trim(from: 0.0, to:
-                                    min(CGFloat(quizManagerVM.progress), 1.0))
-                            .stroke(LinearGradient(colors: [.red, .darkPeriwinkle], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: 18, lineCap: .round, lineJoin: .round))
-                            .rotationEffect(Angle(degrees: 270))
+                        Text("Mes points : \(quizManagerVM.myPoints)")
+                            .modifier(Head3())
+                            .fontWeight(.bold)
                         
-                            .animation(Animation.linear(duration: Double(quizManagerVM.maxProgress)), value: quizManagerVM.progress)
-
-                      
+                        //                    Text("\(quizManagerVM.progress)")
                         
-                        Text("\(quizManagerVM.timeRemaining)")
-                            .font(.system(size: 40, weight: .bold))
+                        ZStack {
+                            Circle() // Base circle in gray color
+                                .stroke(lineWidth: 15)
+                                .foregroundColor(.gray)
+                                .opacity(0.4)
                             
+                            Circle() // Circle animated
+                                .trim(from: 0.0, to:
+                                        min(CGFloat(quizManagerVM.progress), 1.0))
+                                .stroke(LinearGradient(colors: [.red, .darkPeriwinkle], startPoint: .topLeading, endPoint: .bottomTrailing), style: StrokeStyle(lineWidth: 18, lineCap: .round, lineJoin: .round))
+                                .rotationEffect(Angle(degrees: 270))
+                            
+                                .animation(Animation.linear(duration: Double(quizManagerVM.maxProgress)), value: quizManagerVM.progress)
+                            
+                            
+                            
+                            Text("\(quizManagerVM.timeRemaining)")
+                                .font(.system(size: 40, weight: .bold))
+                            
+                        }
+                        .frame(width: 96, height: 96)
+                        .padding(.vertical, 16)
+                        
+                        
+                        QuestionView(question: quizManagerVM.model.quizModel.question, questionNumber: quizManagerVM.model.currentQuestionIndex)
+                            .padding(16)
+                        
+                        
+                        QuizOptionsGridView(quizManagerVM: quizManagerVM)
+                        
+                        Spacer()
+                        
                     }
-                    .frame(width: 96, height: 96)
-                    .padding(.vertical, 20)
-                    
-                    
-                    QuestionView(question: quizManagerVM.model.quizModel.question, questionNumber: quizManagerVM.model.currentQuestionIndex)
-                        .padding(16)
-                    
-                    
-                    QuizOptionsGridView(quizManagerVM: quizManagerVM)
-                    
+                    .padding(.horizontal, 24)
                 }
                 .background(Color.whiteSmoke)
-//                .ignoresSafeArea()
-                .padding(.horizontal, 24)
-                .navigationBarTitleDisplayMode(.inline)
+                
+                .navigationBarTitle("Quiz", displayMode: .inline)
                 .onAppear {
                     quizManagerVM.start()
                 }
@@ -92,19 +97,20 @@ struct QuizView_Previews: PreviewProvider {
 
 struct TitleView: View {
     var body: some View {
-                    
-            VStack(spacing: 4) {
-                Text("Quiz")
-                    .modifier(Head0())
-//                    .font(.custom("Urbanist", size: 24))
-//                    .fontWeight(.bold)
-//                    .foregroundColor(Color.darkPeriwinkle)
-                                
-                Text("Culture générale sur le Japon")
-                    .modifier(Head2())
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-            }
+        
+        ZStack(alignment: .top){
+            
+//            QuizBanner()
+//                .fill(Color.darkPeriwinkle)
+//                .frame(height: 80)
+            
+            Text("Culture générale sur le Japon")
+                .font(.custom("Urbanist", size: 18))
+                .foregroundColor(Color.sapphire)
+                .fontWeight(.bold)
+                .padding(.top, 16)
+        }
+        .frame(height: 80)
     }
 }
 
@@ -116,20 +122,24 @@ struct QuestionView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Question \(questionNumber + 1) :")
-                .font(.custom("Urbanist", size: 16))
-                .foregroundColor(Color.midnight)
+        VStack(spacing: 4) {
+            Text("Question \(questionNumber + 1) / 10")
+                .foregroundColor(Color.darkPeriwinkle)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Text(question)
-                .font(.custom("Urbanist", size: 20))
-                .fontWeight(.bold)
                 .foregroundColor(Color.midnight)
                 .lineLimit(3)
-                .fixedSize(horizontal: false, vertical: true)
-//                .padding(.horizontal, 4)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .frame(width: UIScreen.main.bounds.size.width - 24, alignment: .center)
-
+        .font(.custom("Urbanist", size: 18))
+        .fontWeight(.bold)
+        .frame(width: 342, height: 80)
+//        .multilineTextAlignment(.leading)
+//        .frame(width: UIScreen.main.bounds.size.width - 16)
+//        .border(.red)
+//
+        
     }
 }
+
 

@@ -28,15 +28,14 @@ struct EventsView: View {
     var myFuturEvents: [Event] {
         return eventsList.eventsList.filter { event in
             (event.listParticipant.contains(myProfil)) && (event.date >= now)
-        }
+        }.sorted(by: { $0.date < $1.date })
     }
     
     var myPastEvents: [Event] {
         return eventsList.eventsList.filter { event in
             (event.listParticipant.contains(myProfil)) && (event.date < now)
-        }
+        }.sorted(by: { $0.date > $1.date })
     }
-    
     
     
     var body: some View {
@@ -108,7 +107,7 @@ struct EventsView: View {
             } // end VStack
             .padding(.horizontal, 24)
             .background(Color .whiteSmoke)
-            .navigationBarTitle("Mes événements")
+            .navigationBarTitle("Mes événements", displayMode: .inline)
 
         } // end NavigationStack
     }

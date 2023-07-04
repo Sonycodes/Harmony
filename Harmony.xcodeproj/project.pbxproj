@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FF3AC582A4B282E00C7528D /* UrbanistItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */; };
 		9B0DF2D32A4C630A007A45A1 /* BookingFormBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */; };
+		9B30717C2A53EED0000F166F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B30717B2A53EED0000F166F /* Fonts.swift */; };
 		9BABD0672A4DCBB600205148 /* QuizResultsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BABD0662A4DCBB600205148 /* QuizResultsVM.swift */; };
 		CF07AA172A4ED920000239B5 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF07AA162A4ED920000239B5 /* CommentView.swift */; };
 		CF0F1E602A44498500A83947 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E5F2A44498500A83947 /* Community.swift */; };
@@ -16,7 +17,6 @@
 		CF0F1E662A444B5200A83947 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E652A444B5200A83947 /* Comment.swift */; };
 		CF0F1E682A444C1A00A83947 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E672A444C1A00A83947 /* Quiz.swift */; };
 		CF0F1E6A2A44503500A83947 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E692A44503500A83947 /* Chat.swift */; };
-		CF0F1E722A4468DA00A83947 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E712A4468DA00A83947 /* Fonts.swift */; };
 		CF0F1E762A44717300A83947 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E752A44717200A83947 /* MenuView.swift */; };
 		CF0F1E7A2A45822700A83947 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E792A45822700A83947 /* Color.swift */; };
 		CF0F1E7C2A4586A200A83947 /* LabelConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */; };
@@ -71,6 +71,11 @@
 		7FF3AC562A4B281900C7528D /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistItalic.ttf; sourceTree = "<group>"; };
 		9B0DF2D22A4C630A007A45A1 /* BookingFormBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingFormBanner.swift; sourceTree = "<group>"; };
+		9B30717B2A53EED0000F166F /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		9B30717E2A53EF47000F166F /* UrbanistRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistRegular.ttf; sourceTree = "<group>"; };
+		9B30717F2A53EFEC000F166F /* UrbanistBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistBold.ttf; sourceTree = "<group>"; };
+		9B3071802A53EFEC000F166F /* UrbanistSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistSemiBold.ttf; sourceTree = "<group>"; };
+		9B3071842A53F039000F166F /* UrbanistMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UrbanistMedium.ttf; sourceTree = "<group>"; };
 		9BABD0662A4DCBB600205148 /* QuizResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuizResultsVM.swift; path = ../../QuizResultsVM.swift; sourceTree = "<group>"; };
 		CF07AA162A4ED920000239B5 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		CF0F1E5F2A44498500A83947 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
@@ -79,7 +84,6 @@
 		CF0F1E672A444C1A00A83947 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		CF0F1E692A44503500A83947 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CF0F1E702A4454BD00A83947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		CF0F1E712A4468DA00A83947 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CF0F1E752A44717200A83947 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		CF0F1E792A45822700A83947 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CF0F1E7B2A4586A200A83947 /* LabelConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelConversationView.swift; sourceTree = "<group>"; };
@@ -146,8 +150,12 @@
 			isa = PBXGroup;
 			children = (
 				7FF3AC572A4B282E00C7528D /* UrbanistItalic.ttf */,
+				9B30717E2A53EF47000F166F /* UrbanistRegular.ttf */,
+				9B3071842A53F039000F166F /* UrbanistMedium.ttf */,
 				7FF3AC562A4B281900C7528D /* Urbanist.ttf */,
-				CF0F1E712A4468DA00A83947 /* Fonts.swift */,
+				9B30717F2A53EFEC000F166F /* UrbanistBold.ttf */,
+				9B3071802A53EFEC000F166F /* UrbanistSemiBold.ttf */,
+				9B30717B2A53EED0000F166F /* Fonts.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -451,7 +459,6 @@
 				CF0F1EAB2A4AE4EC00A83947 /* ConfettiAnimation.swift in Sources */,
 				CF0F1EA82A4AE4EC00A83947 /* QuizOptionsGridView.swift in Sources */,
 				CF0F1E802A45CAC600A83947 /* IconUserView.swift in Sources */,
-				CF0F1E722A4468DA00A83947 /* Fonts.swift in Sources */,
 				CF0F1EA92A4AE4EC00A83947 /* WaitingToStartQuiz.swift in Sources */,
 				CF689BF12A4343F7009200C3 /* Event.swift in Sources */,
 				CF0F1E872A4A363600A83947 /* AddConversationView.swift in Sources */,
@@ -470,6 +477,7 @@
 				CF0F1E7E2A45915A00A83947 /* LabelMessageView.swift in Sources */,
 				CF0F1ECF2A4B08FE00A83947 /* CreateEvenementView.swift in Sources */,
 				CF0F1E6A2A44503500A83947 /* Chat.swift in Sources */,
+				9B30717C2A53EED0000F166F /* Fonts.swift in Sources */,
 				CF2E04512A4C72D80018497D /* MessageFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

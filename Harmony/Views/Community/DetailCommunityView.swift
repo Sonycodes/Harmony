@@ -48,7 +48,7 @@ struct DetailCommunityView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(community.name)
                             .modifier(Head0())
-                        HStack {
+                        HStack(spacing: 1) {
                             Image(systemName: "star.fill")
                                 .foregroundColor(Color.saharaSand)
                             Text(String(community.rating))
@@ -140,6 +140,7 @@ struct DetailCommunityView: View {
                     VStack(alignment: .leading) {
                         Text("Evénement a venir")
                             .modifier(Head1())
+                            .padding(.bottom, 8)
                         
                         ForEach(eventFilter) { event in
                             NavigationLink {
@@ -149,6 +150,7 @@ struct DetailCommunityView: View {
                             }
                             .cornerRadius(8)
                         }
+                        .padding(.vertical, 4)
                         
 //                        if (self.community.members.contains(myProfil)) {
 //                            ForEach(eventFilter) { event in
@@ -175,7 +177,8 @@ struct DetailCommunityView: View {
 //                            }
 //                        }
                     }
-                    .padding(.horizontal, 24)
+//                    .padding(.horizontal, 24)
+                    .padding(EdgeInsets(top: 0, leading: 24, bottom: 16, trailing: 24))
                     
                     
 

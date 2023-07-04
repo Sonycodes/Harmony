@@ -38,6 +38,8 @@ struct DetailEventView: View {
                     
                     if (!self.event.community.members.contains(myProfil)) {
                         Text("Pour vous inscrire à l'événement, rejoignez d'abord la communauté.")
+                            .font(.custom("Urbanist", size: 16))
+                            .foregroundColor(Color("DarkPeriwinkle"))
                             .padding(.horizontal, 24)
                         // If the user isn't member of this community, this message is shown.
                         
@@ -166,6 +168,7 @@ struct EventInfoView: View {
             
             Text(event.title)
                 .modifier(Head0())
+                .multilineTextAlignment(.center)
             
             Text(formattedDateString) // Display the converted date
                 .modifier(Head2())
@@ -275,7 +278,10 @@ struct MyTeamView: View {
                 .clipShape(Circle())
             
             Text(teamMate.pseudo)
-                .font(.caption)
+                .font(.custom("Urbanist", size: 12))
+                .foregroundColor(Color.midnight)
+                .frame(maxWidth: 44, maxHeight: .infinity, alignment: .center)
+                
         }
     }
 }
@@ -295,7 +301,9 @@ struct ParticipantsView: View {
                 .clipShape(Circle())
             
             Text(participant.pseudo)
-                .font(.caption)
+                .font(.custom("Urbanist", size: 12))
+                .foregroundColor(Color.midnight)
+                .frame(maxWidth: 44, maxHeight: .infinity, alignment: .center)
         }
     }
 }
@@ -318,7 +326,7 @@ struct EventDescriptionView: View {
                 .multilineTextAlignment(.leading)
             
             Text("Nombre minimum de participants : \(event.minParticipants) personnes")
-                .font(.custom("Urbanist", size: 14))
+                .font(.custom("Urbanist", size: 16))
                 .foregroundColor(Color.darkGray)
 //                .modifier(SmallGray())
         }
@@ -479,26 +487,26 @@ struct BookingFormView: View {
     var body: some View {
         VStack {
             
-            ZStack {
-                BookingFormBannerShape()
-                    .fill(Color.sapphire)
-                    .ignoresSafeArea()
-                    .frame(height: 172)
+//            ZStack {
+//                BookingFormBannerShape()
+//                Rectangle()
+//                    .fill(Color.sapphire)
+//                    .ignoresSafeArea()
+//                    .frame(height: 148)
                 
                 VStack(spacing: 8) {
                     
                     Text("Inscription à l'événement")
-                        .foregroundColor(Color.sky)
+                        .foregroundColor(Color.darkPeriwinkle)
                         .modifier(Head1())
-                        .padding(.top, 16)
+                        .padding(.top, 48)
                                             
                     Text(event.title)
-                        .foregroundColor(Color.sky)
+                        .foregroundColor(Color.sapphire)
                         .modifier(Head0())
                 }
-            }
-            .padding(.bottom, 16)
-            // fin Banner
+            .padding(.bottom, 24)
+
             
             VStack { // Need this VStack to apply 'listStyle(.plain)'
                 List {

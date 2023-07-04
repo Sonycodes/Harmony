@@ -22,7 +22,7 @@ struct QuizCompletedView: View {
                     
                     ConfettiAnimationView()
                                         
-                    VStack(spacing: 24) {
+                    VStack(spacing: 16) {
                         
                         Text("BRAVO \(myUser.pseudo)!")
                             .modifier(Head0())
@@ -36,14 +36,15 @@ struct QuizCompletedView: View {
                             Text("\(quizManagerVM.myPoints) points !")
                                 .modifier(Head1())
                         }
+                        .padding(.vertical, 8)
                         
                         Text("Merci d'avoir particié au quiz.")
                             .modifier(Normal())
                         
                         
-                        Text("Classement")
-                            .modifier(Head1())
-                            .padding(.top, 24)
+//                        Text("Classement")
+//                            .modifier(Head1())
+//                            .padding(.top, 24)
                         
                         QuizLankingView(quizManagerVM: quizManagerVM)
                         

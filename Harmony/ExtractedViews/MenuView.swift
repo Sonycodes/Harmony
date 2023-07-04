@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     
     init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color.white)
         UITabBar.appearance().unselectedItemTintColor = UIColor(Color("GraySky"))
       }
     
@@ -18,7 +19,8 @@ struct MenuView: View {
             TabView {
                 NewsView(newsmodel: Post())
                     .tabItem {
-                    Image(systemName: "house.fill")
+                    Image(systemName: "house")
+                            .environment(\.symbolVariants, .none)
                     Text("Actualités")
                 }
                 
@@ -37,12 +39,14 @@ struct MenuView: View {
                 ChatView(user: myUser)
                     .tabItem {
                     Image(systemName: "bubble.left.and.bubble.right")
+                            .environment(\.symbolVariants, .none)
                     Text("Messages")
                 }
                 
                 ProfilView(currentUser: myUser)
                     .tabItem {
-                    Image(systemName: "person.circle.fill")
+                    Image(systemName: "person")
+                            .environment(\.symbolVariants, .none)
                     Text("Profil")
                 }
             }
