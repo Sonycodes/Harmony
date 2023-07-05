@@ -58,7 +58,7 @@ struct QuizLankingView: View {
             .background(.white)
             .cornerRadius(8)
         }
-        .navigationBarHidden(true)
+//        .navigationBarHidden(true)
     }
 }
 

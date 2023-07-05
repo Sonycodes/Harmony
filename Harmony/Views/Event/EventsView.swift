@@ -107,7 +107,6 @@ struct EventsView: View {
             } // end VStack
             .padding(.horizontal, 24)
             .background(Color .whiteSmoke)
-//            .navigationBarTitle("Mes événements", displayMode: .inline)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { // <2>
                 ToolbarItem(placement: .principal) { // <3>
