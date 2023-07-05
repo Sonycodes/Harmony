@@ -92,7 +92,19 @@ struct ExploreView: View {
                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
             }
-            .navigationBarTitle("Explorer", displayMode: .inline)
+//            .navigationBarTitle("Explorer", displayMode: .inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { // <2>
+                ToolbarItem(placement: .principal) { // <3>
+                    VStack {
+                        Text("Explorer")
+                            .font(.custom("Urbanist", size: 18))
+                            .foregroundColor(Color("Midnight"))
+                            .fontWeight(.bold)
+                  
+                    }
+                }
+            }
             .navigationBarBackButtonHidden(true)
             .background(Color.whiteSmoke)
             .searchable(text: $textToSearch, prompt: "Pays, nom...")

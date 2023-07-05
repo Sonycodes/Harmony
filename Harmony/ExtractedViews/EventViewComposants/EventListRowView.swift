@@ -52,7 +52,9 @@ struct EventListRowView: View {
                     
                         Text(myEvent.address?.city ?? "Evénement en ligne")
                     }
-                    .modifier(HeadGray())
+                    .font(.custom("Urbanist", size: 16))
+                                        .foregroundColor(Color("DarkGray"))
+                                        .fontWeight(.medium)
                 } else {
                     Text(myEvent.title)
                         .modifier(MinHead1())

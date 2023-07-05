@@ -39,7 +39,16 @@ struct ChatView: View {
                 }
             }
             .background(Color.whiteSmoke)
-            .navigationTitle("Messages")
+            .toolbar {
+                             ToolbarItem(placement: .principal) {
+                                 VStack {
+                                     Text("Messages")
+                                         .font(.custom("Urbanist", size: 18))
+                                         .foregroundColor(Color("Midnight"))
+                                         .fontWeight(.bold)
+                                 }
+                             }
+                         }
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $searchMessageByUser, placement: .navigationBarDrawer(displayMode: .always), prompt: "Rechercher par nom")
             
@@ -51,6 +60,7 @@ struct ChatView: View {
                             .font(.system(size: 20))
                     }
             )
+
         }
     }
     

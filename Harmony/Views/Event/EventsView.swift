@@ -107,8 +107,18 @@ struct EventsView: View {
             } // end VStack
             .padding(.horizontal, 24)
             .background(Color .whiteSmoke)
-            .navigationBarTitle("Mes événements", displayMode: .inline)
-
+//            .navigationBarTitle("Mes événements", displayMode: .inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { // <2>
+                ToolbarItem(placement: .principal) { // <3>
+                    VStack {
+                        Text("Mes événements")
+                            .font(.custom("Urbanist", size: 18))
+                            .foregroundColor(Color("Midnight"))
+                            .fontWeight(.bold)
+                    }
+                }
+            }
         } // end NavigationStack
     }
 }

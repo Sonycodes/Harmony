@@ -33,12 +33,10 @@ struct NewsView: View {
                 ToolbarItem(placement: .principal) { // <3>
                     VStack {
                         Text("Actualités")
-                            .font(.custom("Urbanist", size: 20))
+                            .font(.custom("Urbanist", size: 18))
                             .foregroundColor(Color("Midnight"))
                             .fontWeight(.bold)
                         Divider()
-//                            .frame(height: 0.5)
-//                            .overlay(Color("Sapphire"))
                     }
                 }
             }

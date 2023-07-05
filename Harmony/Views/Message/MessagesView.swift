@@ -121,11 +121,13 @@ struct MessagesView: View {
             
             .toolbar {
                 ToolbarItem(placement: .principal) {
+                    
                     if (!isMessageReaction) {
                         LabelUserView(user: conversation.user)
                             .padding(.bottom, 20)
                         
                             Divider()
+                        
                     }
                 }
             }
@@ -150,6 +152,9 @@ struct MessagesView: View {
                     }
                 }
             }
+            
+
+          
             
             // modal which displays the list of contacts to share
             .sheet(isPresented: $contactsShare) {
