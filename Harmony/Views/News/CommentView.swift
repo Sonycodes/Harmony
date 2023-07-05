@@ -17,14 +17,14 @@ struct CommentsView: View {
     @ObservedObject var news: News
     
     var body: some View {
-        ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack{
                         Spacer()
                         Text("Commentaires")
-                            .modifier(Head2())
+                            .modifier(Head1())
                         Spacer()
                     }
+                    ScrollView {
                     ForEach(news.comments) { comment in
                         
                         CommentPostView(comments: comment)
@@ -39,9 +39,9 @@ struct CommentsView: View {
                 
                 
             
-        }
+        }//finscrollview
     }
-}
+}//finstructure
 
 struct CommentPostView: View {
     @State private var isLiked = false
@@ -62,7 +62,7 @@ struct CommentPostView: View {
         
         Divider()
 //                    .padding(.bottom)
-        HStack {
+        HStack (alignment: .top){
             Image(comments.user.photo)
                 .resizable()
                 .scaledToFill()
@@ -70,8 +70,6 @@ struct CommentPostView: View {
                 .clipShape(Circle())
             
             VStack(alignment: .leading) {
-                
-                Spacer()
                 
                 HStack {
                 
@@ -88,12 +86,11 @@ struct CommentPostView: View {
                 
                 Text(comments.content)
                     .modifier(Normal())
-//                    .frame(height: 40)
                     .multilineTextAlignment(.leading)
                 
             } //finvstack nom + commentaire
             .padding(.leading, 8)
-            .frame(height: 50)
+
             
             VStack{
                 HeartButton(isLiked: $isLiked)
@@ -103,7 +100,7 @@ struct CommentPostView: View {
                     .frame(width: 30)
             }
         }// fin hstack principale
-//        .frame(height: 60)
+
     } //finbody
     
     

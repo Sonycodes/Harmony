@@ -29,7 +29,7 @@ struct NewsViewModel: View {
                 VStack{
                     Text(news.community.name)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .modifier(Head2())
+                        .modifier(Head1())
                     Text(news.author.pseudo)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .modifier(Normal())
@@ -46,7 +46,7 @@ struct NewsViewModel: View {
                 
                 HeartButton(isLiked: $isLiked)
                 Text(isLiked ? "\(news.like + 1)" : "\(news.like)")
-                    .frame(width: 20, height: 20)
+                    .frame(width: 27, height: 20)
                 
                 
                 
@@ -54,7 +54,7 @@ struct NewsViewModel: View {
                     showingSheet.toggle()
                 }, label: {
                     Image(systemName: "message")
-                    Text("9")
+                    Text("\(news.comments.count)")
                 })
                 .sheet(isPresented: $showingSheet) {
                     CommentsView(news: news)
@@ -63,9 +63,9 @@ struct NewsViewModel: View {
                 
             } .modifier(Normal())
                 .frame(maxWidth: .infinity, alignment: .leading)
-//                .padding(.bottom)
+
             Text(news.title)
-                .modifier(Head2())
+                .modifier(Head1())
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, -5)
