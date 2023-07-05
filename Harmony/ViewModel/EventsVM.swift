@@ -36,7 +36,7 @@ class EventsViewModel: ObservableObject {
             date: Date(timeIntervalSince1970: 1688722200),
             address: nil,
             listParticipant: [userAlexandre, userMarie, userTom, userThomas, userSonia, userMax, userAdeline, userKelian],
-            detail: "Testez vos connaissances sur l'Histoire du Japon !",
+            detail: "Mettez vos connaissances sur le Japon à l'épreuve. Testez vos compétences dans différents domaines. Ne manquez pas cette opportunité de vous immerger dans la culture japonaise et de vous amuser avec des passionnés de ce magnifique pays.",
             minParticipants: 12,
             photo: "temple",
             team: [userMarie],

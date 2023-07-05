@@ -36,7 +36,11 @@ struct DetailEventView: View {
                 
                 VStack(spacing: 12) {
                     
-                    if (!self.event.community.members.contains(myProfil)) {
+                    if self.event.date < now {
+                        // If the event date is past
+                        ButtonEvenementPastView()
+                    } else if
+                        (!self.event.community.members.contains(myProfil)) {
                         Text("Pour vous inscrire à l'événement, rejoignez d'abord la communauté.")
                             .font(.custom("Urbanist", size: 16))
                             .foregroundColor(Color("DarkPeriwinkle"))
@@ -74,7 +78,7 @@ struct DetailEventView: View {
                     VStack(alignment: .leading) {
                         Text("Mon équipe")
                             .padding(.horizontal, 24)
-                            .modifier(Head2())
+                            .modifier(Head1())
                         
                         ScrollView(.horizontal) {
                             HStack {
@@ -96,7 +100,7 @@ struct DetailEventView: View {
                 VStack(alignment: .leading) {
                     Text("Participants")
                         .padding(.horizontal, 24)
-                        .modifier(Head2())
+                        .modifier(Head1())
                     
                     ScrollView(.horizontal) {
                         HStack {
@@ -113,17 +117,15 @@ struct DetailEventView: View {
                     }
                 }
                 
-                
-                
+                                
                 EventDescriptionView(event: event)
-                
-                
+                                
                 
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Discussion")
-                        .modifier(Head2())
+                        .modifier(Head1())
                     
-                    ForEach(event.comments) { comment in
+                    ForEach(event.comments.sorted(by: { $0.date > $1.date })) { comment in
                         DiscussionFeedView(comment: comment)
                     }
                 }
@@ -327,7 +329,7 @@ struct EventDescriptionView: View {
         VStack(alignment: .leading, spacing: 12) {
             
             Text("Description")
-                .modifier(Head2())
+                .modifier(Head1())
 //                .padding(.horizontal, 24)
             
             Text(event.detail)

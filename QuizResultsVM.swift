@@ -10,13 +10,13 @@ import Foundation
 
 class quizResults : ObservableObject {
     @Published var quizResults = [
-        QuizResult(user: userKelian, points: 50),
-        QuizResult(user: userSonia, points: 45),
+        QuizResult(user: userKelian, points: 45),
+        QuizResult(user: userSonia, points: 35),
         QuizResult(user: userYuko, points: 25),
         QuizResult(user: userMax, points: 20),
         QuizResult(user: userThomas, points: 15),
-        QuizResult(user: userJohan, points: 10),
-        QuizResult(user: userAlexandre, points: 5),
+        QuizResult(user: userJohan, points: 5),
+        QuizResult(user: userAlexandre, points: 30),
         QuizResult(user: userTom, points: 0)
         ]
 }
