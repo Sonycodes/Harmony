@@ -17,7 +17,7 @@ struct NewsView: View {
                 LazyVStack(spacing: 10) {
                     ForEach(newsmodel.newsmodel) { update in
                         NavigationLink(destination: DetailNewsView(news: update, community: culturehawaienne, eventsList: EventsViewModel())) {
-
+                            
                             NewsViewModel(news: update)
                         }
                     }
@@ -25,7 +25,24 @@ struct NewsView: View {
                 
                 // fin lazyVstack
             }//fin scrollview
-            .navigationBarTitle("Actualités", displayMode: .inline )
+            .background(Color("whiteSmoke"))
+            //            .navigationBarTitle("Actualités", displayMode: .inline )
+            
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { // <2>
+                ToolbarItem(placement: .principal) { // <3>
+                    VStack {
+                        Text("Actualités")
+                            .font(.custom("Urbanist", size: 20))
+                            .foregroundColor(Color("Midnight"))
+                            .fontWeight(.bold)
+                        Divider()
+//                            .frame(height: 0.5)
+//                            .overlay(Color("Sapphire"))
+                    }
+                }
+            }
+            
         }// fin navigationView
     }//fin body
 }//fin newsview

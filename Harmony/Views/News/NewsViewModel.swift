@@ -87,7 +87,7 @@ struct NewsViewModel: View {
         }
         .padding()
         //fin Vstack
-        
+
     } // fin body
 } // fin newsView model
 

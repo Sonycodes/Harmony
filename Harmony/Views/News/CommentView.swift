@@ -82,7 +82,7 @@ struct CommentPostView: View {
                         .modifier(SmallGray())
                         .padding(.trailing, 8)
                 }
-                .padding(.bottom, 4)
+                .padding(.bottom, 2)
                 
                 Text(comments.content)
                     .modifier(Normal())

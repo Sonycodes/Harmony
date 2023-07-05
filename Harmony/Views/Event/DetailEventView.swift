@@ -391,7 +391,7 @@ struct DiscussionFeedView: View {
                             .foregroundColor(Color.darkGray)
                             .padding(.trailing, 8)
                     }
-                    .padding(.bottom, 4)
+                    .padding(.bottom, 2)
                     
                     Text(comment.content)
                         .modifier(Normal())

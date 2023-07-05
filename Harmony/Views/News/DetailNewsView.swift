@@ -41,7 +41,7 @@ struct DetailNewsView: View {
                     .tint(Color.darkPeriwinkle)
                     .cornerRadius(8)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 8)
+                    .padding(.bottom, 8)
                     
                     HStack{
                         
@@ -52,7 +52,6 @@ struct DetailNewsView: View {
                         Text("\(news.comments.count)")
                     } .modifier(Normal())
                         .frame(maxWidth: .infinity, alignment: .leading)
-                
                     NavigationLink {
                         OtherUserProfileView(user: news.author, eventsList: EventsViewModel())
                     } label: {
@@ -63,24 +62,28 @@ struct DetailNewsView: View {
                                 .scaledToFill()
                                 .frame(width: 40, height: 40)
                                 .clipShape(Circle())
-                            HStack{
-                                Text("Par")
-                                    .padding(.trailing, -5)
-                                Text(news.author.pseudo)
-                            }
-                            //                                .frame(maxWidth: .infinity, alignment: .leading)
-                            .modifier(Head2())
                             
-    
+                            VStack(alignment: .leading, spacing: 2) {
+                                
+                                HStack{
+                                    Text("Publié par" + news.author.pseudo)
+                                }
+                                .font(.custom("Urbanist", size: 16))
+                                .foregroundColor(Color("Sapphire"))
+                      
+                                
+                                Text("le 12 juin 2023")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                                    .font(.custom("Urbanist", size: 14))
+                                    .foregroundColor(Color.darkGray)
+                                
+                            }
                         }
                     }.padding(.vertical, 8)
                     
-                    Text("Publié le 12 juin 2023")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .modifier(Normal())
-     
                     Text("\(news.content)")
-                        .padding(.top)
+
                         .padding(.bottom)
                 }//fin vstackcontent
                 .padding(.leading)
@@ -125,7 +128,7 @@ struct DetailNewsView: View {
             .padding(.bottom)
             .navigationBarTitle(news.community.name, displayMode: .inline )
         }//fin scroll view
-        
+        .background(Color("whiteSmoke"))
         
     }//fin body
     
