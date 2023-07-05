@@ -19,9 +19,9 @@ struct Head0: ViewModifier {
 struct Head1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.custom("UrbanistSemiBold", size: 20))
+            .font(.custom("Urbanist", size: 20))
             .foregroundColor(Color("Sapphire"))
-//            .fontWeight(.bold)
+            .fontWeight(.bold)
     }
 }
 
