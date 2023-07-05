@@ -27,6 +27,7 @@ struct ChatView: View {
                                 }
                                 .opacity(0)
                             }
+                            .listRowSeparator(.hidden)
                         }
                         
                         // delete conversation selected
@@ -34,10 +35,10 @@ struct ChatView: View {
                             user.delConversationByIndex(index: indexSet)
                         }
                     }
-                    .listStyle(.plain)
+                    .listStyle(.plain)                    
                 }
             }
-            .background(Color.white)
+            .background(Color.whiteSmoke)
             .navigationTitle("Messages")
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $searchMessageByUser, placement: .navigationBarDrawer(displayMode: .always), prompt: "Rechercher par nom")
@@ -47,6 +48,7 @@ struct ChatView: View {
                 trailing:
                     NavigationLink(destination: AddConversationView(user: myUser))  {
                         Image(systemName: "plus.circle")
+                            .font(.system(size: 20))
                     }
             )
         }

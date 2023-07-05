@@ -12,12 +12,15 @@ struct LabelConversationView: View {
     @ObservedObject var conversation : Conversation
     
     var body: some View {
+        
+        VStack {
         HStack {
             
             // show icon user
             IconUserView(icon: conversation.user.photo, isConnected: conversation.user.isConnected)
             
             Spacer()
+            
             
             VStack(alignment: .leading) {
                 
@@ -32,31 +35,45 @@ struct LabelConversationView: View {
                     // date message
                     Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.dateToString() : "")
                         .fontWeight(conversation.isRead ? .medium : .bold)
-                        .modifier(HeadGray())
+                        .font(.custom("Urbanist", size: 14))
+                        .foregroundColor(Color.darkGray)
                 }
+                
                 
                 HStack(alignment: .top) {
                     // beginning of last message
                     Text((conversation.lastMessage() != nil) ? conversation.lastMessage()!.startMessage(message: (conversation.lastMessage()!.content.typeMessage == .text) ? conversation.lastMessage()!.content.contentText! : "[element partagé]") : "")
                         .modifier(Normal())
+                        .lineLimit(1)
                     
                     Spacer()
                     
                     if !conversation.isRead {
-                        Text(String(conversation.numberOfMessagesUnread()))
+                        ZStack {
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(Color.sapphire)
+                            Text(String(conversation.numberOfMessagesUnread()))
+                                .foregroundColor(.white)
+                                .font(.custom("Urbanist", size: 12))
+                                .fontWeight(.bold)
+                                .padding(2)
+                        }
+                    } else {
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.clear)
                         
-                            .padding(.leading, 5)
-                            .padding(.trailing, 5)
-                            .foregroundColor(Color.white)
-                            .background(Color.darkGray)
-                            .fontWeight(.bold)
-                            .cornerRadius(50)
                     }
                 }
+                .padding(.bottom, 2)
+                
                 
             }
             
-            
+        }
+            Divider()
+                .padding(.top, 4)
         }
     }
 }

@@ -69,7 +69,7 @@ var userMarie = User(
     about: "Konnichiwa ! Aloha ! Je suis Marie, une amoureuse de la culture japonaise et des îles d'Hawaï. Mon cœur oscille entre les traditions ancestrales et les plages de sable fin, et j'ai hâte de partager ma passion avec vous tous. Rejoignez-moi dans cette exploration captivante ! ",
     isConnected: true,
     events: [],
-    conversations: [conversation1, conversation2, conversation3], myContacts: [userSonia, userThomas, userTom])
+    conversations: [conversation1, conversation2, conversation3, conversation4, conversation5, conversation6, conversation7], myContacts: [userSonia, userThomas, userTom])
 
 var userJohan = User(pseudo: "Johan", photo: "Johan", coverPhoto: "shrine", city: "Paris",
                      language: [Language.english, Language.japanese, Language.french], media: ["Media1", "Media2"],
@@ -111,7 +111,7 @@ var conversation1 = Conversation(messages: [
 var conversation2 = Conversation(messages: [
     Message(content: MessageContent(typeMessage: .text, contentText: "Salut, tu vas bien ?"), isRecipient: true, date: Date()),
     Message(content: MessageContent(typeMessage: .text, contentText: "Oui très bien et toi ?"), isRecipient: false, date: Date()),
-    Message(content: MessageContent(typeMessage: .text, contentText: "Quo nihil quia aut optio officiis in praesentium voluptatum. Et expedita rerum ea ducimus necessitatibus qui iste quis non dolores consequatur aut voluptatem velit?"), isRecipient: true, date: Date())
+    Message(content: MessageContent(typeMessage: .text, contentText: "De mon côté, tout va pour le mieux aussi. Hier, j'ai profité des soldes et j'ai fait quelques bonnes affaires. J'ai découvert une boutique qui vend des petits objets hawaïens, et je suis tombée sous le charme ! ?"), isRecipient: true, date: Date())
 ], user: userElodie, isRead: false)
 
 var conversation3 = Conversation(messages: [
@@ -121,3 +121,26 @@ var conversation3 = Conversation(messages: [
     Message(content: MessageContent(typeMessage: .text, contentText: "Haaa qu'est-ce qu'il se passe ????"), isRecipient: true, date: Date()),
     Message(content: MessageContent(typeMessage: .contact, contentUser: userMax), isRecipient: true, date: Date())
 ], user: userAlexandre, isRead: false)
+
+var conversation4 = Conversation(messages: [
+    Message(content: MessageContent(typeMessage: .text, contentText: "Salut, tu vas bien ?"), isRecipient: false, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "Oui très bien et toi ?"), isRecipient: true, date: Date().addingTimeInterval(-3600)),
+], user: userJeanChristophe, isRead: true)
+
+var conversation5 = Conversation(messages: [
+    Message(content: MessageContent(typeMessage: .text, contentText: "Salut, tu vas bien ?"), isRecipient: false, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "Oui très bien et toi ?"), isRecipient: true, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "J'ai la patate 🌺 Je me suis inscrite au concours du meilleur poké bowl. Tu viens aussi ?"), isRecipient: false, date: Date().addingTimeInterval(-3600 * 4))
+], user: userHildegarde, isRead: true)
+
+var conversation6 = Conversation(messages: [
+    Message(content: MessageContent(typeMessage: .text, contentText: "Salut, tu vas bien ?"), isRecipient: false, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "Oui très bien et toi ?"), isRecipient: true, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "Très bien 🤩 As-tu prévu quelques chose ce week-end ?"), isRecipient: false, date: Date().addingTimeInterval(-3600 * 5))
+], user: userKelian, isRead: true)
+
+var conversation7 = Conversation(messages: [
+    Message(content: MessageContent(typeMessage: .text, contentText: "Salut, tu vas bien ?"), isRecipient: false, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "Oui très bien et toi ?"), isRecipient: true, date: Date()),
+    Message(content: MessageContent(typeMessage: .text, contentText: "🔥🔥🔥"), isRecipient: false, date: Date().addingTimeInterval(-3600 * 16))
+], user: userAdeline, isRead: true)

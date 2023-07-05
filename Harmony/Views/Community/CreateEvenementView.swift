@@ -18,7 +18,7 @@ struct CreateEvenementView: View {
     
     @State var newEventName : String = ""
     @State var from : Date = Date.now.addingTimeInterval(24.0 * 3600.0)
-    @State var to : Date = Date.now.addingTimeInterval(24.0 * 3600.0 + 7200.0)
+    @State var to : Date = Date.now.addingTimeInterval(24.0 * 3600.0 + 3600.0)
     @State var isOnline: Bool = false
     @State var newEventPlaceName : String = ""
     @State var newEventAddress : String = ""
@@ -41,15 +41,14 @@ struct CreateEvenementView: View {
                     .resizable()
                     .frame(width: 390, height: 200)
             } else {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 390, height: 200)
-                        .foregroundColor(Color.sky.opacity(0.7))
-                    
-                    PhotosPicker(
-                        selection: $selectedItem,
-                        matching: .images,
-                        photoLibrary: .shared()) {
+                PhotosPicker(
+                    selection: $selectedItem,
+                    matching: .images,
+                    photoLibrary: .shared()) {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 390, height: 200)
+                                .foregroundColor(Color.sky.opacity(0.7))
                             HStack {
                                 Image(systemName:"plus")
                                 Text("Ajouter une photo de couverture")
@@ -64,7 +63,7 @@ struct CreateEvenementView: View {
                                 }
                             }
                         }
-                }
+                    }
             }
             
             
