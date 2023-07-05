@@ -65,7 +65,7 @@ struct NewsViewModel: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             Text(news.title)
-                .modifier(Head1())
+                .modifier(Head2())
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, -5)

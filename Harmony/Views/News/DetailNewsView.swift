@@ -23,10 +23,12 @@ struct DetailNewsView: View {
                     .resizable()
                     .frame(width: 395,height: 240)
                     .padding(.bottom)
-                Text(news.title)
-                    .modifier(Head0())
                 
                 VStack (alignment: .leading){
+                    
+                    Text(news.title)
+                        .modifier(Head0())
+                    
                     Button {
                         //
                     } label: {
@@ -50,8 +52,7 @@ struct DetailNewsView: View {
                         Text("\(news.comments.count)")
                     } .modifier(Normal())
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    //                            .padding()
-                    
+                
                     NavigationLink {
                         OtherUserProfileView(user: news.author, eventsList: EventsViewModel())
                     } label: {
@@ -77,8 +78,7 @@ struct DetailNewsView: View {
                     Text("Publié le 12 juin 2023")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .modifier(Normal())
-                    //                            .padding(.leading)
-                    
+     
                     Text("\(news.content)")
                         .padding(.top)
                         .padding(.bottom)
