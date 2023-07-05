@@ -183,7 +183,7 @@ class EventsViewModel: ObservableObject {
             team: [userKelian, userAlexandre, userMarie],
             comments: [
                 Comment(user: userAlexandre, content: "Je suis tellement excité ! Apprendre à confectionner ces magnifiques colliers de fleurs va ajouter une touche exotique à ma journée.", date: Date(timeIntervalSince1970: 1687522965)),
-            Comment(user: userKelian, content: "Je suis prêt à me plonger dans l'art traditionnel de la création de ces ornements floraux colorés et parfumés.", date: Date(timeIntervalSince1970: 1687521965))],
+            Comment(user: userKelian, content: "Je suis prêt à me plonger dans l'art traditionnel de la création de ces ornements floraux colorés et parfumés.", date: Date(timeIntervalSince1970: 1687521964))],
             community: culturehawaienne
         )
     ]
